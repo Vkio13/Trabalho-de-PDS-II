@@ -1,0 +1,3 @@
+#ifndef INICIALIZADOR_H
+#define INICIALIZADOR_H
+#endif
