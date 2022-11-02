@@ -9,6 +9,7 @@ double _gastoTotal;
 bool _limite;
 */
 
+
 // Construtor:
 Categoria (std::string nome, double orcamento):
 _nome(nome), _orcamento(orcamento) {};
