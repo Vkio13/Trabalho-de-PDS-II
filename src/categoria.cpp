@@ -31,7 +31,7 @@ void alteraCaixa(double valor){
 };
 
 void relatorioDeCategoria() const {
-    std::cout << "Categoria: " << this->_nome << std::endl;
+    std::cout << "Categoria: " << _nome << std::endl;
     std::cout << "Orcamento: " << _orcamento << std::endl;
     std::cout << "Gasto Total: " << _gastoTotal << std::endl;
     if(statusLimite()){ 
