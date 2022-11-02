@@ -35,8 +35,8 @@ void relatorioDeCategoria() const {
     std::cout << "Orcamento: " << _orcamento << std::endl;
     std::cout << "Gasto Total: " << _gastoTotal << std::endl;
     if(statusLimite()){ 
-        std::cout << "Orcamento não atingido" << std::endl;
+        std::cout << "Orcamento nao atingido" << std::endl;
     }else{
-        std::cout << "ATENÇÃO! Orçamento atingido" << std::endl;
+        std::cout << "ATENCAO! Orcamento atingido" << std::endl;
     }
 };
