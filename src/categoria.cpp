@@ -27,7 +27,7 @@ bool statusLimite() const {
 };
 
 void alteraCaixa(double valor){
-    // CHAMAR FUNÇÃO DE CAIXA ALTERANDO
+    // CHAMAR FUNÇÃO DE CAIXA ALTERANDO O MESMO
 };
 
 void relatorioDeCategoria() const {
