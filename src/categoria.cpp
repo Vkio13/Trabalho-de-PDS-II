@@ -9,8 +9,6 @@ double _gastoTotal;
 bool _limite;
 */
 
-//teste commit
-
 // Construtor:
 Categoria (std::string nome, double orcamento):
 _nome(nome), _orcamento(orcamento) {};
