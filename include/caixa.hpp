@@ -1,5 +1,8 @@
 #ifndef CAIXA_H
 #define CAIXA_H
+
+#include <iostream>
+
     class Caixa{
         double saldo;
         double receitas;
