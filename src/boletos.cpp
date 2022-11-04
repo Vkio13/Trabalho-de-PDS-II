@@ -1,15 +1,17 @@
 #include "../include/boletos.hpp"
 
+
+//Tem erro aqui ;-;
 Boletos::Boletos(bool _vencidos){
     vencidos=_vencidos;
 }
 
   Boleto getVencidos(){
-    return ;
+    return /*PREENCHER*/;
   }
 
   bool getVenceu(){
-    return ; 
+    return /*PREENCHER*/; 
   }
 
   void relatorioDeCategoria(){
