@@ -11,7 +11,6 @@ public:
   
   int getVencimento();
   bool getVenceu();
-  void relatorioDeCategoria();
   void verificaVenceu();
 };
 #endif
