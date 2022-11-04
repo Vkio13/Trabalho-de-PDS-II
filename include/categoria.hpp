@@ -5,6 +5,7 @@
 #include <string>
 
 class Categoria(){
+class Categoria{
     string _nome;
     double _orcamento;
     double _gastoTotal;
