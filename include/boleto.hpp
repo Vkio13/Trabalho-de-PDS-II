@@ -6,9 +6,15 @@ private:
   bool venceu;
   bool pago;
 public:
-  Boleto(int vencimento);
+
+//Construtor
+
+  Boleto(int _vencimento);
+//Destrutor
+
   ~Boleto();
-  
+//Métodos
+
   int getVencimento();
   bool getVenceu();
   void verificaVenceu();

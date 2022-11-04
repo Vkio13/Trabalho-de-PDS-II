@@ -42,13 +42,13 @@ void Categoria::registraDespesa(Despesa despesa){
     arq.close();
 };
 void Categoria::imprimeDespesa(){
-    Despesa* despesa = new Despesa(0,0);
+    Despesa despesa("a",0);
     std::string nome = this->_nome_ + ".dat";
     std::ifstream arq;
     arq.open(nome, std::ios::in);
     arq.seekg(0);
     while(!arq.eof()){
         arq.read((char*)&despesa, sizeof(despesa));
-        std::cout<<despesa->getDescricao()<<despesa->getValor()<<std::endl;
+        std::cout<<despesa.getDescricao()<<despesa.getValor()<<std::endl;
     }
 };

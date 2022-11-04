@@ -1,7 +1,9 @@
 #ifndef DESPESA_H
 #define DESPESA_H
 
+#include<string>
 #include <iostream>
+
 class Despesa{
     private:
         std::string _descricao;
