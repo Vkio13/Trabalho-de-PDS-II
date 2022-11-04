@@ -4,17 +4,17 @@
 #include <iostream>
 #include <string>
 
-    class Categoria(){
-        std::string _nome;
-        double _orcamento;
-        double _gastoTotal;
-        bool _limite;
-    public:
-        void set_gasto(double valor);
-        double get_gasto();
-        bool statusLimite();
-        void alteraCaixa(double valor);
-        void relatorioDeCategoria();
-    }
+class Categoria(){
+    string _nome;
+    double _orcamento;
+    double _gastoTotal;
+    bool _limite;
+public:
+    void set_gasto(double valor);
+    double get_gasto();
+    bool statusLimite();
+    void alteraCaixa(double valor);
+    void relatorioDeCategoria();
+    };
 
 #endif
