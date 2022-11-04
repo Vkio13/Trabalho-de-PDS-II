@@ -9,12 +9,7 @@ double _gastoTotal;
 bool _limite;
 */
 
-
-// Construtor:
-Categoria (std::string nome, double orcamento):
-_nome(nome), _orcamento(orcamento) {};
-
-double get_gasto() const {
+double get_gasto() {
     return _gastoTotal;
 };
 
@@ -22,7 +17,7 @@ void set_gasto(double valor){
     this->_gastoTotal = valor;
 }
 
-bool statusLimite() const {
+bool statusLimite() {
     return this->_limite;
 };
 
@@ -30,7 +25,7 @@ void alteraCaixa(double valor){
     // CHAMAR FUNÇÃO DE CAIXA ALTERANDO O MESMO
 };
 
-void relatorioDeCategoria() const {
+void relatorioDeCategoria() {
     std::cout << "Categoria: " << _nome << std::endl;
     std::cout << "Orcamento: " << _orcamento << std::endl;
     std::cout << "Gasto Total: " << _gastoTotal << std::endl;
