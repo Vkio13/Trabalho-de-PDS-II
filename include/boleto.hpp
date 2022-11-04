@@ -4,6 +4,7 @@ class Boleto {
 private:
   int vencimento;
   bool venceu;
+  bool pago;
 public:
   Boleto(int vencimento);
   ~Boleto();
@@ -11,5 +12,6 @@ public:
   int getVencimento();
   bool getVenceu();
   void relatorioDeCategoria();
+  void verificaVenceu();
 };
 #endif
