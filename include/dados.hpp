@@ -3,17 +3,17 @@
 #include <string>
   class Dados{
     private:
-      string historico ="usuario.txt";
+      std::string historico ="usuario.txt";
     public:
       void imprimeGastosMensal(int mes);
       void imprimeGastosTodos();
       double somaGastosMes(int mes);
       double somaGastosTotal();
-      double somaGastosCategoria(string categoria);
-      double somaGastosCategoriaMensal(string categoria, int mes);
+      double somaGastosCategoria(std::string categoria);
+      double somaGastosCategoriaMensal(std::string categoria, int mes);
       double somaEntradas();
       double somaEntradas(int mes);
-      void imprimeCategoriaTotal(string categoria);
-      void imprimeCategoriaMensal(string categoria, int mes);
+      void imprimeCategoriaTotal(std::string categoria);
+      void imprimeCategoriaMensal(std::string categoria, int mes);
   };
 #endif
