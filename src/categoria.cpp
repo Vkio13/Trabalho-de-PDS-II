@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include "../include/categoria.hpp"
 
 /* ATRIBUTOS:
@@ -9,26 +8,34 @@ double _gastoTotal;
 bool _limite;
 */
 
-double get_gasto() {
+    // Construtor:
+    Categoria::Categoria (std::string nome, double orcamento, double gastoTotal, bool limite){
+        _nome= nome;
+        _orcamento = orcamento;
+        _gastoTotal = gastoTotal;
+        _limite = limite;
+    };
+
+double Categoria::get_gasto() {
     return _gastoTotal;
 };
 
-void set_gasto(double valor){
+void Categoria::set_gasto(double valor){
     this->_gastoTotal = valor;
 }
 
-bool statusLimite() {
+bool Categoria::statusLimite() {
     return this->_limite;
 };
 
-void alteraCaixa(double valor){
+void Categoria::alteraCaixa(double valor){
     // CHAMAR FUNÇÃO DE CAIXA ALTERANDO O MESMO
 };
 
-void relatorioDeCategoria() {
-    std::cout << "Categoria: " << _nome << std::endl;
-    std::cout << "Orcamento: " << _orcamento << std::endl;
-    std::cout << "Gasto Total: " << _gastoTotal << std::endl;
+void Categoria::relatorioDeCategoria() {
+    std::cout << "Categoria: " << this->_nome << std::endl;
+    std::cout << "Orcamento: " << this->_orcamento << std::endl;
+    std::cout << "Gasto Total: " << this->_gastoTotal << std::endl;
     if(statusLimite()){ 
         std::cout << "Orcamento nao atingido" << std::endl;
     }else{
