@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <fstream>
+#include "despesa.hpp"
 
 class Categoria{
 private : 
@@ -24,6 +26,8 @@ public:
     bool statusLimite();
     void alteraCaixa(double valor);
     void relatorioDeCategoria();
+//Gravação
+    void registraDespesa(Despesa despesa);
     };
 
 #endif
