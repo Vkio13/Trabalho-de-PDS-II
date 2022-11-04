@@ -4,16 +4,12 @@
 #include <iostream>
 
     class Caixa{
-        double saldo;
-        double receitas;
-        double gastos;
+        double _saldo;
+        double _receitas;
+        double _gastos;
     public :
     //Construtor
-            Caixa(double _saldo, double _receitas, double _gastos){
-                saldo =_saldo;
-                receitas = _receitas;
-                gastos = _gastos;
-            }
+            Caixa(double saldo, double receitas, double gastos);
     //Métodos
         double getSaldo();
         double getReceitas();

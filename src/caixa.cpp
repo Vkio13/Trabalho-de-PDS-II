@@ -1,27 +1,27 @@
 #include "../include/caixa.hpp"
 
-        Caixa(double _saldo, double _receitas, double _gastos){
-            _saldo= saldo;
-            _receitas = receitas;
-            _gastos= gastos;
+        Caixa::Caixa(double saldo, double receitas, double gastos){
+                _saldo =saldo;
+                _receitas = receitas;
+                _gastos = gastos;
         }
 
-        double getSaldo(){
+       double Caixa::getSaldo(){
             return _saldo;
         }
-        double getReceitas(){
+        double Caixa::getReceitas(){
             return _receitas;
         }
-        double getGastos(){
+        double Caixa::getGastos(){
             return _gastos;
         }
-        void setSaldo(double valor){
+        void Caixa::setSaldo(double valor){
             _saldo = valor;
         }
-        void setReceitas(double valor){
+        void Caixa::setReceitas(double valor){
             _receitas = valor;
         }
-        void setGastos(double valor){
+        void Caixa::setGastos(double valor){
             _gastos  = valor;
         }
     
