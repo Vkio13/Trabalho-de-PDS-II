@@ -6,7 +6,7 @@ int main(){
     Categoria c("Bebidas", 1000.0, 0, false);
     Despesa d ("Agua", 10);
     c.registraDespesa(d);
-    
+    c.imprimeDespesa();
 
     return 0;
 }

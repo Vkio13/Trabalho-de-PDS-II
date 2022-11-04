@@ -24,8 +24,9 @@ class Categoria{
         void alteraCaixa(double valor);
         void relatorioDeCategoria();
 
-        //Gravação
+        //Arquivo
         void registraDespesa(Despesa despesa);
+        void imprimeDespesa();
 };
 
 #endif
