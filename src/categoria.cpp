@@ -42,3 +42,10 @@ void Categoria::relatorioDeCategoria() {
         std::cout << "ATENCAO! Orcamento atingido" << std::endl;
     }
 };
+
+void Categoria::registraDespesa(Despesa despesa){
+    std::string nome = this->_nome_ + ".dat";
+    std::ofstream arq (nome, std::ios::app);
+    arq.write((char*)&despesa, sizeof(Despesa));
+    arq.close();
+}
