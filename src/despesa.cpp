@@ -2,6 +2,7 @@
 Despesa::Despesa(std::string descricao, double valor){
     this->_descricao=descricao;
     this->_valor=valor;
+    //data
 };
 std::string Despesa::getDescricao(){
     return this->_descricao;

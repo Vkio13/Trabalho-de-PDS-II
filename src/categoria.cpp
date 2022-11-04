@@ -1,23 +1,14 @@
-#include <iostream>
 #include "../include/categoria.hpp"
-
-/* ATRIBUTOS:
-string _nome_;
-double _orcamento_;
-double _gastototal;
-bool _limite;
-*/
-
-    // Construtor:
-    Categoria::Categoria (std::string nome, double orcamento, double gastoTotal, bool limite){
-        _nome_= nome;
-        _orcamento_ = orcamento;
-        _gastototal = gastoTotal;
-        _limite = limite;
-    };
+// Construtor:
+Categoria::Categoria(std::string nome, double orcamento, double gastoTotal, bool limite){
+    this->_nome_= nome;
+    this->_orcamento_ = orcamento;
+    this->_gastototal = gastoTotal;
+    this->_limite = limite;
+};
 
 double Categoria::get_gasto() {
-    return _gastototal;
+    return this->_gastototal;
 };
 
 void Categoria::set_gasto(double valor){
@@ -28,9 +19,9 @@ bool Categoria::statusLimite() {
     return this->_limite;
 };
 
-void Categoria::alteraCaixa(double valor){
+/*void Categoria::alteraCaixa(double valor){
     // CHAMAR FUNÇÃO DE CAIXA ALTERANDO O MESMO
-};
+};*/
 
 void Categoria::relatorioDeCategoria() {
     std::cout << "Categoria: " << this->_nome_ << std::endl;
@@ -45,7 +36,8 @@ void Categoria::relatorioDeCategoria() {
 
 void Categoria::registraDespesa(Despesa despesa){
     std::string nome = this->_nome_ + ".dat";
-    std::ofstream arq (nome, std::ios::app);
+    std::ofstream arq;
+    arq.open(nome, std::ios::app);
     arq.write((char*)&despesa, sizeof(Despesa));
     arq.close();
-}
+};
