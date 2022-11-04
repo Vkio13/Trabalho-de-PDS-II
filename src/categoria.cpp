@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "categoria.hpp"
+#include "../include/categoria.hpp"
 
 /* ATRIBUTOS:
 string _nome;
