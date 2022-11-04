@@ -1,10 +1,15 @@
 #ifndef RELATORIO_H
 #define RELATORIO_H
-#include "categoria.hpp"
+#include "../include/categoria.hpp"
 
     class Relatorio{
-        list<Categoria> categorias;
+        std::list<Categoria> _categorias;
     public :
+    //Construtor
+        Relatorio(std::list<Categoria> categorias);
+    //Destrutor
+        ~Relatorio();
+    //Métodos
         void relatorioMensal();
         void relatorioGeral();
     };

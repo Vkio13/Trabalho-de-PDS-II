@@ -1,17 +1,20 @@
 #ifndef INICIALIZADOR_H
 #define INICIALIZADOR_H
 #include <list>
-#include "categoria.hpp"
+#include "../include/categoria.hpp"
 class Inicializador {
     private:
-        list<Categoria> categorias;
-        double entradas,investimento,gastos;
+        std::list<Categoria> _categorias;
+        double _entradas,_investimento,_gastos;
     public :
-        Inicializador();
+    //Construtor
+        Inicializador(std::list<Categoria> categorias, double entradas, double investimento, double gastos);
+    //Destrutor
         ~Inicializador();
+    //Métodos
         double GetEntradas();
         double GetGastos();
-        list<Categoria> GetCategorias();
+        std::list<Categoria> GetCategorias();
         void carregaEntradas();
         void carregaGastos();
         void carregaCategorias();
