@@ -7,6 +7,8 @@ class Inicializador {
         list<Categoria> categorias;
         double entradas,investimento,gastos;
     public :
+        Inicializador();
+        ~Inicializador();
         double GetEntradas();
         double GetGastos();
         list<Categoria> GetCategorias();
