@@ -6,9 +6,9 @@
 
 class Categoria{
 private : 
-    std::string _nome;
-    double _orcamento;
-    double _gastoTotal;
+    std::string _nome_;
+    double _orcamento_;
+    double _gastototal;
     bool _limite;
 
 public:
