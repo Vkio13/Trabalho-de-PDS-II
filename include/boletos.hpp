@@ -2,7 +2,7 @@
 #define BOLETOS_H
 
 #include "../include/categoria.hpp"
-#include "../include/boletos.hpp"
+#include "../include/boleto.hpp"
 
 class Boletos : public Categoria{
   private:
@@ -10,12 +10,12 @@ class Boletos : public Categoria{
   /* é só para indicar se tá vencido ou não. Tipo, a data passou, então vencido passa a ser true.*/
   public:
   //Construtor
-    Boletos(bool vencidos);
+    Boletos(bool _vencidos);
   //Destrutor
     ~Boletos();
   //Métodos
 
-  Boletos getVencidos();
+  Boleto getVencidos();
   bool getVenceu();
   void relatorioDeCategoria();
 };
