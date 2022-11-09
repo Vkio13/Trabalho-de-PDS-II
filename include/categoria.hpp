@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include "despesa.hpp"
+#include <list>
 
 class Categoria{
     private : 
