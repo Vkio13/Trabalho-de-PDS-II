@@ -1,6 +1,6 @@
 #include "../include/despesa.hpp"
 
-Despesa::Despesa(std::string descricao, double valor){
+Despesa::Despesa(std::string descricao=0, double valor=0){
     this->_descricao=descricao;
     this->_valor=valor;
     //data

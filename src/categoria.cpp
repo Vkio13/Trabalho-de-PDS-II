@@ -35,20 +35,22 @@ void Categoria::relatorioDeCategoria() {
 };
 
 void Categoria::registraDespesa(Despesa despesa){
-    std::string nome = this->_nome_ + ".dat";
+    std::string nome = this->_nome_ + ".bin";
     std::ofstream arq;
-    arq.open(nome, std::ios::app);
-    arq.write((char*)&despesa, sizeof(Despesa));
+    arq.open(nome, std::ios::binary | std::ios::app);
+    arq.write((char*)&despesa, sizeof(despesa));
     arq.close();
 };
+
 void Categoria::imprimeDespesa(){
-    Despesa despesa("a",0);
-    std::string nome = this->_nome_ + ".dat";
+    Despesa despesa("0",0);
+    std::string nome = this->_nome_ + ".bin";
     std::ifstream arq;
-    arq.open(nome, std::ios::in);
+    arq.open(nome, std::ios::in | std::ios::binary);
     arq.seekg(0);
-    while(!arq.eof()){
+    //while(!arq.eof()){
         arq.read((char*)&despesa, sizeof(despesa));
-        std::cout<<despesa.getDescricao()<<despesa.getValor()<<std::endl;
-    }
+        std::cout<<despesa.getDescricao()<<" : "<<despesa.getValor()<<std::endl;
+    //}
+    arq.close();
 };
