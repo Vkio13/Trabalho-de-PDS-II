@@ -2,14 +2,14 @@
 #define BOLETO_H
 class Boleto {
 private:
-  int vencimento;
-  bool venceu;
-  bool pago;
+  int _vencimento;
+  bool _venceu;
+  bool _pago;
 public:
 
 //Construtor
 
-  Boleto(int _vencimento);
+  Boleto(int vencimento);
 //Destrutor
 
   ~Boleto();
