@@ -38,19 +38,26 @@ void Categoria::registraDespesa(Despesa despesa){
     std::string nome = this->_nome_ + ".bin";
     std::ofstream arq;
     arq.open(nome, std::ios::binary | std::ios::app);
-    arq.write((char*)&despesa, sizeof(despesa));
+    ///arq.seekp(std::ios_base::end);
+    arq.write((char*)&despesa, sizeof(Despesa));
+    //char pula= '\n';
+    //arq.write((char*)&pula, sizeof(char));
     arq.close();
 };
 
 void Categoria::imprimeDespesa(){
-    Despesa despesa("0",0);
+    Despesa *despesa =new Despesa("0",0);
     std::string nome = this->_nome_ + ".bin";
     std::ifstream arq;
     arq.open(nome, std::ios::in | std::ios::binary);
-    arq.seekg(0);
-    //while(!arq.eof()){
-        arq.read((char*)&despesa, sizeof(despesa));
-        std::cout<<despesa.getDescricao()<<" : "<<despesa.getValor()<<std::endl;
-    //}
+    //arq.seekg(std::ios_base::beg);
+    //int i=0;
+    while(!arq.eof()){
+        arq.read((char*)despesa, sizeof(Despesa));
+        std::cout<<despesa->getDescricao()<<" : "<<despesa->getValor()<<std::endl;
+        
+        //i++;
+        //arq.seekg(sizeof(Despesa)*i,std::ios_base::beg);
+    }
     arq.close();
 };
