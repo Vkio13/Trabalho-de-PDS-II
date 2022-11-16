@@ -1,14 +1,12 @@
-#include "include/despesa.hpp"
-#include "include/categoria.hpp"
-
+#include "include/dados.hpp"
 int main(){
-    std::string nome = "Bebidas";
-    Categoria c("Bebidas", 1000.0, 0, false);
-    Despesa d ("Agua", 10);
-    Despesa f ("Suco", 20);
-    c.registraDespesa(d);
-    c.registraDespesa(f);
-    c.imprimeDespesa();
-
+    Dados d;
+    d.adicionaGasto(6,"Bebida","Agua");
+    d.adicionaGasto(6,"Bebida","Suco");
+    d.adicionaGasto(6,"Bebida","Agua de coco");
+    d.adicionaGasto(6,"Bebida","Refrigerante");
+    d.adicionaGasto(6,"Bebida com alcool","Vodka");
+    d.imprimeGastosTodos();
+    d.imprimeCategoriaTotal("Bebida");
     return 0;
 }
