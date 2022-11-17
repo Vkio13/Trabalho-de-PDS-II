@@ -299,6 +299,29 @@ void Dados::imprimeEntradaMensal(int inmes){
         }
     }
 };
-
+void Dados::deleteGasto(int codigo){
+    std::ofstream arqw;
+    std::fstream arqr;
+    try{
+    arqw.open(datgastos, std::ios::out);
+    arqr.open(datgastos, std::ios::in | std::ios::out);
+    }
+    catch(std::exception& e){
+        e.what();
+        exit(1);
+    }
+    std::string categoria;
+    std::string descricao;
+    double valor;
+    int mes, dia, linha=1;
+    while(arqr>>mes>>dia>>valor>>categoria>>descricao){
+        arqw.seekp(arqr.tellg());
+        //if(linha!=codigo){
+            arqw<<mes<<' '<<dia<<' '<<std::to_string(valor)<<' '<<categoria<<' '<<descricao<<std::endl;
+        //}
+        linha++;
+    }
+    
+};
 
 

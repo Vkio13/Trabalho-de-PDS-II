@@ -28,5 +28,6 @@
       void imprimeCategoriaMensal(std::string categoria, int mes);
       void imprimeEntradaTotal();
       void imprimeEntradaMensal(int mes);
+      void deleteGasto(int codigo);
   };
 #endif

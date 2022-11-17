@@ -1,5 +1,0 @@
-10 16 6.000000 Bebida Agua
-10 16 6.000000 Bebida Suco
-10 16 6.000000 Bebida Agua_de_coco
-10 16 6.000000 Bebida Refrigerante
-10 16 6.000000 Bebida_com_alcool Vodka
