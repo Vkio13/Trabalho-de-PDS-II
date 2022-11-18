@@ -1,7 +1,7 @@
 #include "include/dados.hpp"
 int main(){
     Dados d;
-    d.adicionaGasto(6,"Bebida","Agua");
+    d.adicionaGasto(6,"Bebida","Stella-Artois");
     d.adicionaGasto(6,"Bebida","Suco");
     d.adicionaGasto(6,"Bebida","Agua de coco3");
     d.adicionaGasto(6,"Bebida","Refrigerante4");
