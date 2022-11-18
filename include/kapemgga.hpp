@@ -31,7 +31,7 @@ class Kapemgga{
   void imprimeLimites();
   
   //Função responsável por realizar um gasto dentro de uma categoria especificada.
-  void novoGasto(std::string categoria, double valor)
+  void novoGasto(std::string categoria, double valor);
   
   //Função para pagar determinado boleto, de acordo com seu nome.
   void pagaBoleto(std::string nome);
@@ -47,6 +47,5 @@ class Kapemgga{
   
   //Função que permite ao usuário emitir um relatório do dia atual.
   void relatorioAtual();
-
-
+};
 #endif
