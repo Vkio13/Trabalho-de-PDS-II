@@ -12,7 +12,11 @@ Kapemgga::Kapemgga(std::list<Categoria> categorias, Caixa caixa){
 }
 
 void Kapemgga::imprimeCategorias(){
-    for(Categoria cat:categorias){
-        std::cout<<cat;
+    for(Categoria cat:_categorias){
+        std::cout << cat.get_nome();
     }
+}
+
+void Kapemgga::adicionaCategoria(Categoria cate){
+    _categorias.push_back(cate);
 }
