@@ -20,3 +20,4 @@ void Kapemgga::imprimeCategorias(){
 void Kapemgga::adicionaCategoria(Categoria cate){
     _categorias.push_back(cate);
 }
+
