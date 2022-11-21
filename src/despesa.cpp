@@ -16,6 +16,10 @@ void Despesa::setDescricao(std::string descricao){
     this->_descricao=descricao;
 };
 void Despesa::setValor(double valor){
-    this->_valor=valor;
+    if(valor<0){
+        throw ErroDespesa();
+    }else{
+    this->_valor=valor;    
+    }
 };
 //setdata

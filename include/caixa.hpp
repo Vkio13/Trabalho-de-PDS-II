@@ -14,7 +14,7 @@
         double getSaldo();
         double getReceitas();
         double getGastos();
-        void setSaldo(double valor); // Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
+        void setSaldo(double valor); 
         void setReceitas(double valor);// Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
         void setGastos(double valor);// Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
     };
