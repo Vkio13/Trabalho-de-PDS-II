@@ -14,9 +14,9 @@ double Categoria::get_gasto() {
 //Ajusta o gasto da categoria e altera o caixa
 void Categoria::set_gasto(double valor){
     _gastoTotal = get_gasto() + valor;
-    this->verificaLimite();
-    Caixa->setSaldo(Caixa->getSaldo()-valor);
-    Caixa->setGastos(Caixa->getGastos()-valor);
+    verificaLimite();
+    Caixa->setSaldo(Caixa->getSaldo() -valor);
+    Caixa->setGastos(Caixa->getGastos() -valor);
 }
 
 //Se o limite foi atingido, faz _limite = true
@@ -32,12 +32,13 @@ void Categoria::relatorioDeCategoria() {
     std::cout << "Orcamento: " << _orcamento << std::endl;
     std::cout << "Gasto Total: " << _gastoTotal << std::endl;
     if(this->_limite){ 
-        std::cout << "ATENCAO! Orcamento atingido" << std::endl;
+        std::cout << "ATENCAO! Orcamento atingido." << std::endl;
     }else{
-        std::cout << "Orcamento ainda nao atingido" << std::endl;
+        std::cout << "Orcamento ainda nao atingido." << std::endl;
     }
 };
 
+/* ARQUIVOS - FORA DE USO
 void Categoria::registraDespesa(Despesa despesa){
     std::string nome = this->_nome + ".bin";
     std::ofstream arq;
@@ -65,3 +66,4 @@ void Categoria::imprimeDespesa(){
     }
     arq.close();
 };
+*/

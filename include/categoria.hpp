@@ -25,9 +25,10 @@ class Categoria{
         void verificaLimite();
         virtual void relatorioDeCategoria();
 
-        //Arquivo
+        /*Arquivo
         void registraDespesa(Despesa despesa);
         void imprimeDespesa();
+        */
 };
 
 #endif

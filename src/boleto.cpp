@@ -2,33 +2,31 @@
 
 
 //Construtor
-Boleto::Boleto(std::string nome, double gastoTotal, bool limite, int vencimento){
-    this->_nome_= nome;
-    this->_gastototal = gastoTotal;
-    this->_limite = limite;
-    this->_vencimento = vencimento;
+Boleto(std::string nome, double gastoTotal, bool limite, int vencimento){
+    Categoria(nome);
+    _limite = limite;
+    _vencimento = vencimento;
+    _pago = false;
 };
 //Destrutor
-~Boleto(){
-
+Boleto::~Boleto(){
+    free(&Boleto);
 }
 //Métodos
-void relatorioDeCategoria() override {
-    std::cout << "Categoria: " << _nome_ << std::endl;
-    std::cout << "Orcamento: " << _orcamento_ << std::endl;
-    std::cout << "Gasto Total: " << _gastototal << std::endl;
-    if(statusLimite()){ 
-        std::cout << "Orcamento nao atingido" << std::endl;
+void Boleto::relatorioDeCategoria(){
+    std::cout << "Boleto: " << Categoria::_nome << std::endl;
+    std::cout << "Valor: " << _gastoTotal << std::endl;
+    if(_pago){ 
+        std::cout << "Boleto pago!" << std::endl;
     }else{
-        std::cout << "ATENCAO! Orcamento atingido" << std::endl;
+        if(Venceu()){
+        std::cout << "ATENCAO! Boleto VENCIDO ainda nao pago!" << std::endl;    
+        }else{
+            std::cout << "ATENCAO! Boleto nao pago!" << std::endl;
+            std::cout << "Vencimento no dia " << _vencimento << std::endl;
+        }
     }
-}
-int getVencimento(){
-    return _vencimento;
-}
-bool getPago() const {
-    return _pago;
-}
-void verificaVenceu(){
+
+void Venceu(){
     //Depende de time
 }

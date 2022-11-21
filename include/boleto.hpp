@@ -13,8 +13,6 @@ class Boleto : public Categoria {
         ~Boleto();
         //Métodos
         void relatorioDeCategoria() override;
-        int getVencimento();
         bool Venceu();
-        bool getPago();
 };
 #endif
