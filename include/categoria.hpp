@@ -21,6 +21,7 @@ class Categoria{
 
         //Métodos
         double get_gasto();
+        std::string get_nome();
         void set_gasto(double valor);
         void verificaLimite();
         virtual void relatorioDeCategoria();

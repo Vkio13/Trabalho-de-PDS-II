@@ -2,9 +2,9 @@
 #include <string>
 #include <iostream>
 
-#include "kappemga.hpp"
-#include "categoria.hpp"
-#include "caixa.hpp"
+#include "../include/kapemgga.hpp"
+#include "../include/categoria.hpp"
+#include "../include/caixa.hpp"
 
 Kapemgga::Kapemgga(std::list<Categoria> categorias, Caixa caixa){
     std::list<Categoria> _categorias = categorias;
