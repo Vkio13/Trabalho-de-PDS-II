@@ -51,9 +51,14 @@ void Dados::adicionaCategoria(std::string categoria, double ocamento){
         e.what();
         exit(1);
     }
+    if(verificaCategoria(categoria)){
+        std::cout<<"Essa categoria já existe"<<std::endl;
+    }
+    else{
     categoria=replace(categoria,' ','_');
     getTime();
     arq<<tempo->tm_mon<<' '<<tempo->tm_mday<<' '<<std::to_string(ocamento)<<' '<<categoria<<std::endl;
+    }
 };
 void Dados::imprimeGastosTodos(){
     std::ifstream arq;
@@ -75,7 +80,7 @@ void Dados::imprimeGastosTodos(){
     }
 
 };
-void Dados::imprimeCategoriaTotal(std::string cat){
+void Dados::imprimeGastosCategoriaTotal(std::string cat){
     std::ifstream arq;
     try{
     arq.open(datgastos, std::ios::in);
@@ -119,7 +124,7 @@ void Dados::imprimeGastosMensal(int inmes){
     }
 
 };
-void Dados::imprimeCategoriaMensal(std::string cat, int inmes){
+void Dados::imprimeGastosCategoriaMensal(std::string cat, int inmes){
 std::ifstream arq;
     try{
     arq.open(datgastos, std::ios::in);
@@ -242,7 +247,7 @@ double Dados::somaEntradas(){
     }
     return soma;
 };
-double Dados::somaEntradas(int inmes){
+double Dados::somaEntradasMes(int inmes){
     std::ifstream arq;
     try{
     arq.open(datreceita, std::ios::in);
@@ -301,27 +306,141 @@ void Dados::imprimeEntradaMensal(int inmes){
 };
 void Dados::deleteGasto(int codigo){
     std::ofstream arqw;
-    std::fstream arqr;
+    std::ifstream arqr;
     try{
-    arqw.open(datgastos, std::ios::out);
     arqr.open(datgastos, std::ios::in | std::ios::out);
     }
     catch(std::exception& e){
         e.what();
         exit(1);
     }
-    std::string categoria;
-    std::string descricao;
-    double valor;
-    int mes, dia, linha=1;
-    while(arqr>>mes>>dia>>valor>>categoria>>descricao){
-        arqw.seekp(arqr.tellg());
-        //if(linha!=codigo){
-            arqw<<mes<<' '<<dia<<' '<<std::to_string(valor)<<' '<<categoria<<' '<<descricao<<std::endl;
-        //}
-        linha++;
+    std::vector<std::string> linhas;
+    std::string linha;
+    ;
+    while(getline(arqr, linha)){
+        //if(linha!=''){
+        linhas.push_back(linha);
+       // }
     }
+    arqr.close();
+    try{
+    arqw.open(datgastos, std::ios::out);
+    }
+    catch(std::exception& e){
+        e.what();
+        exit(1);
+    }
+    for(long unsigned int i=1;i<=linhas.size();i++){
+        if(int(i)!=codigo){
+            arqw<<linhas[i-1]<<std::endl;
+        }
+    }
+    arqw.close();
     
 };
+int Dados::verificaCategoria(std::string nome){
+    std::ifstream arq;
+    try{
+    arq.open(datcategoria, std::ios::in | std::ios::out);
+    }
+    catch(std::exception& e){
+        e.what();
+        exit(1);
+    }
+    int mes,dia,linha=1;
+    double orcamento;
+    std::string categoria;
+    while(arq>>mes>>dia>>orcamento>>categoria){
+        categoria=replace(categoria,'_',' ');
+        if(nome==categoria){
+            return linha;
+        }
+        linha++;
+    }
+    return 0;
+}
+void Dados::deleteCategoria(int codigo){
+    std::ofstream arqw;
+    std::ifstream arqr;
+    try{
+    arqr.open(datcategoria, std::ios::in | std::ios::out);
+    }
+    catch(std::exception& e){
+        e.what();
+        exit(1);
+    }
+    std::vector<std::string> linhas;
+    std::string linha;
+    ;
+    while(getline(arqr, linha)){
+        //if(linha!=''){
+        linhas.push_back(linha);
+       // }
+    }
+    arqr.close();
+    try{
+    arqw.open(datcategoria, std::ios::out);
+    }
+    catch(std::exception& e){
+        e.what();
+        exit(1);
+    }
+    for(long unsigned int i=1;i<=linhas.size();i++){
+        if(int(i)!=codigo){
+            arqw<<linhas[i-1]<<std::endl;
+        }
+    }
+    arqw.close();
+}
+void Dados::deleteReceita(int codigo){
+    std::ofstream arqw;
+    std::ifstream arqr;
+    try{
+    arqr.open(datreceita, std::ios::in | std::ios::out);
+    }
+    catch(std::exception& e){
+        e.what();
+        exit(1);
+    }
+    std::vector<std::string> linhas;
+    std::string linha;
+    ;
+    while(getline(arqr, linha)){
+        //if(linha!=''){
+        linhas.push_back(linha);
+       // }
+    }
+    arqr.close();
+    try{
+    arqw.open(datreceita, std::ios::out);
+    }
+    catch(std::exception& e){
+        e.what();
+        exit(1);
+    }
+    for(long unsigned int i=1;i<=linhas.size();i++){
+        if(int(i)!=codigo){
+            arqw<<linhas[i-1]<<std::endl;
+        }
+    }
+    arqw.close();
+}
+void Dados::imprimeCategorias(){
+    std::ifstream arq;
+    try{
+    arq.open(datcategoria, std::ios::in);
+    }
+    catch(std::exception& e){
+        e.what();
+        exit(1);
+    }
+    std::string categoria;
+    double orcamento;
+    int mes, dia;
+    while(arq>>mes>>dia>>orcamento>>categoria){
+        categoria=replace(categoria,'_',' ');
+        std::cout<<categoria<<" "<<orcamento<<std::endl;
+    }
+}
 
 

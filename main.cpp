@@ -6,8 +6,9 @@ int main(){
     d.adicionaGasto(6,"Bebida","Agua de coco3");
     d.adicionaGasto(6,"Bebida","Refrigerante4");
     d.adicionaGasto(6,"Bebida com alcool","Vodka");
+    d.imprimeCategorias();
     d.imprimeGastosTodos();
-    d.imprimeCategoriaTotal("Bebida");
+    d.imprimeGastosCategoriaTotal("Bebida");
     d.deleteGasto(4);
 
     return 0;
