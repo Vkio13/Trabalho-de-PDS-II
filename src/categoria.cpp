@@ -26,7 +26,7 @@ void Categoria::verificaLimite() {
     }
 };
 
-
+//Exibe na tela um relatorio do conteudo de uma categoria em específico
 void Categoria::relatorioDeCategoria() {
     std::cout << "Categoria: " << _nome << std::endl;
     std::cout << "Orcamento: " << _orcamento << std::endl;
