@@ -11,6 +11,10 @@ double Categoria::get_gasto() {
     return _gastoTotal;
 };
 
+std::string Categoria::get_nome(){
+    return _nome;
+}
+
 //Ajusta o gasto da categoria e altera o caixa
 void Categoria::set_gasto(double valor){
     _gastoTotal = get_gasto() + valor;
