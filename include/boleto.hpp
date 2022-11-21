@@ -1,22 +1,20 @@
 #ifndef BOLETO_H
 #define BOLETO_H
-class Boleto {
-private:
-  int _vencimento;
-  bool _venceu;
-  bool _pago;
-public:
+#include "categoria.hpp"
 
-//Construtor
-
-  Boleto(int vencimento);
-//Destrutor
-
-  ~Boleto();
-//Métodos
-
-  int getVencimento();
-  bool getVenceu();
-  void verificaVenceu();
+class Boleto : public Categoria {
+    private:
+        int _vencimento;
+        bool _pago;
+    public:
+        //Construtor
+        Boleto(std::string nome, double gastoTotal, int vencimento);
+        //Destrutor
+        ~Boleto();
+        //Métodos
+        void relatorioDeCategoria() override;
+        int getVencimento();
+        bool Venceu();
+        bool getPago();
 };
 #endif
