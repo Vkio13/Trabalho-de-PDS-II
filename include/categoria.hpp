@@ -7,23 +7,23 @@
 #include <list>
 
 class Categoria{
-    private : 
-        std::string _nome_;
-        double _orcamento_;
-        double _gastototal;
+    protected: 
+        std::string _nome;
+        double _orcamento;
+        double _gastoTotal;
         bool _limite;
 
     public:
         // Construtor:
-        Categoria (std::string nome, double orcamento,double gastoTotal, bool  limite);
-        // ~Categoria();
+        Categoria (std::string nome, double orcamento);
+        // Destrutor:
+        ~Categoria();
 
         //Métodos
-        void set_gasto(double valor);
         double get_gasto();
-        bool statusLimite();
-        void alteraCaixa(double valor);
-        void relatorioDeCategoria();
+        void set_gasto(double valor);
+        void verificaLimite();
+        virtual void relatorioDeCategoria();
 
         //Arquivo
         void registraDespesa(Despesa despesa);
