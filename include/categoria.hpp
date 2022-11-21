@@ -15,7 +15,7 @@ class Categoria{
 
     public:
         // Construtor:
-        Categoria (std::string nome, double orcamento);
+        Categoria (std::string nome, double orcamento, double gastoTotal);
         // Destrutor:
         ~Categoria();
 

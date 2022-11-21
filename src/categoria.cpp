@@ -1,6 +1,6 @@
 #include "../include/categoria.hpp"
 // Construtor:
-Categoria::Categoria(std::string nome, double orcamento, double gastoTotal, bool limite){
+Categoria::Categoria(std::string nome, double orcamento, double gastoTotal){
     _nome= nome;
     _orcamento = orcamento;
     _gastoTotal = 0;
