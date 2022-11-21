@@ -15,7 +15,7 @@ class Despesa{
         double getValor();
         //data
         void setDescricao(std::string descricao);
-        void setValor(double valor);
+        void setValor(double valor);  // Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
 };
 
 #endif
