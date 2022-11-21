@@ -3,6 +3,9 @@
 
 #include <list>
 #include <string>
+#include <iostream>
+#include "categoria.hpp"
+#include "caixa.hpp"
 
 class Kapemgga{
   private:
@@ -19,7 +22,7 @@ class Kapemgga{
   void imprimeCategorias();
   
   //Função que permite o usuário criar novas categorias.
-  void adicionaCategoria(std::string nome, double orcamento);
+  void adicionaCategoria(Categoria cate);
   
   //Função que permite o usuário excluir alguma categoria.
   void removeCategoria(std::string nome);
@@ -48,4 +51,5 @@ class Kapemgga{
   //Função que permite ao usuário emitir um relatório do dia atual.
   void relatorioAtual();
 };
+
 #endif
