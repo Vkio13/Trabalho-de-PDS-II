@@ -13,6 +13,7 @@ Boleto::~Boleto(){
     free(&Boleto);
 }
 //Métodos
+//Define a situação em que o boleto se encontra
 void Boleto::relatorioDeCategoria(){
     std::cout << "Boleto: " << Categoria::_nome << std::endl;
     std::cout << "Valor: " << _gastoTotal << std::endl;
