@@ -2,8 +2,8 @@
 
 
 //Construtor
-Bolet::Boleto(std::string nome, double gastoTotal, bool limite, int vencimento){
-    Categoria(nome);
+Boleto::Boleto(std::string nome, double gastoTotal, bool limite, int vencimento){
+    _nome=nome;
     _limite = limite;
     _vencimento = vencimento;
     _pago = false;
