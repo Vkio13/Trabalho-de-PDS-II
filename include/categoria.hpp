@@ -24,6 +24,8 @@ class Categoria{
         std::string get_nome();
         double get_gasto();
         void set_gasto(double valor);  // Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
+        void adicona_Gasto(double valor);
+        std::string get_nome();
         double get_orcamento();
         void verificaLimite();
         virtual void relatorioDeCategoria();
