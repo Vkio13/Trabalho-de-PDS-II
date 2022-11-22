@@ -9,7 +9,8 @@
         double _gastos;
     public :
     //Construtor
-            Caixa(double saldo, double receitas, double gastos);
+        Caixa(double saldo, double receitas, double gastos);
+        Caixa();
     //Métodos
         double getSaldo();
         double getReceitas();
