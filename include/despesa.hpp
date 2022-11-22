@@ -18,4 +18,10 @@ class Despesa{
         void setValor(double valor);
 };
 
+class ErroDespesa : public std::exception{
+    const char* what() const noexcept {
+      return "O valor inserido é inválido. Digite apenas valores positivos.";
+   }
+};
+
 #endif

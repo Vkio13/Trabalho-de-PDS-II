@@ -17,14 +17,14 @@ class Categoria{
 
     public:
         // Construtor:
-        Categoria (std::string nome, double orcamento);
+        Categoria (std::string nome, double orcamento, double gastoTotal);
         // Destrutor:
         ~Categoria();
 
         //Métodos
         double get_gasto();
-        void set_gasto(double valor);
-        double get_orcamento();
+        std::string get_nome();
+        void set_gasto(double valor);  // Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
         void verificaLimite();
         virtual void relatorioDeCategoria();
 
