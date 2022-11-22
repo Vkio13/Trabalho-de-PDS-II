@@ -9,7 +9,8 @@ Categoria::Categoria(std::string nome, double orcamento){
     _limite = false;
 }
 
-Categoria::Categoria(){};
+Categoria::Categoria(){
+};
 
 std::string Categoria::get_nome(){
     return _nome;
