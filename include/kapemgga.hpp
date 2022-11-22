@@ -1,4 +1,3 @@
-#ifndef KAPEMGGA_HPP
 #define KAPEMGGA_HPP
 
 #include <vector>
@@ -13,7 +12,7 @@ class Kapemgga{
   Caixa _caixa;
   public:
   //Construtor do Kappemgga.
-  Kapemgga(std::list<Categoria> categorias, Caixa caixa);
+  Kapemgga(std::vector<Categoria> categorias, Caixa caixa);
 
   //Destrutor do Kappemga.
   ~Kapemgga();
