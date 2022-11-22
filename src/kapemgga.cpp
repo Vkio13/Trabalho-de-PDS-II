@@ -3,9 +3,9 @@
 #include <string>
 #include <iostream>
 
-#include "kapemgga.hpp"
-#include "categoria.hpp"
-#include "caixa.hpp"
+#include "../include/kapemgga.hpp"
+#include "../include/categoria.hpp"
+#include "../include/caixa.hpp"
 
 Kapemgga::Kapemgga(std::vector<Categoria> categorias, Caixa caixa){
     std::vector<Categoria> _categorias = categorias;
