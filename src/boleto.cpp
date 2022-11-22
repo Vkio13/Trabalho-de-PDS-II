@@ -15,6 +15,21 @@ Boleto::~Boleto(){
 }
 
 //Métodos
+bool Boleto::venceu(){
+    time_t agora;
+    struct tm * dataHora;
+
+    time(&agora);
+    dataHora = localtime(&agora);
+
+    return (dataHora->tm_mday > _vencimento);
+}
+
+void Boleto::pagaBoleto(){
+    _gastoTotal = _orcamento;
+    _pago = true;
+}
+
 void Boleto::relatorioDeCategoria(){
     std::cout << "Boleto: " << Categoria::_nome << std::endl;
     std::cout << "Valor: " << _gastoTotal << std::endl;

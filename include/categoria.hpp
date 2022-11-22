@@ -14,7 +14,6 @@ class Categoria{
         double _orcamento;
         double _gastoTotal;
         bool _limite;
-
     public:
         // Construtor:
         Categoria (std::string nome, double orcamento, double gastoTotal);
@@ -22,9 +21,10 @@ class Categoria{
         ~Categoria();
 
         //Métodos
-        double get_gasto();
         std::string get_nome();
+        double get_gasto();
         void set_gasto(double valor);  // Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
+        double get_orcamento();
         void verificaLimite();
         virtual void relatorioDeCategoria();
 
