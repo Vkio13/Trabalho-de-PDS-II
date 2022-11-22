@@ -16,7 +16,8 @@ class Categoria{
         bool _limite;
     public:
         // Construtor:
-        Categoria (std::string nome, double orcamento, double gastoTotal);
+        Categoria (std::string nome, double orcamento);
+        Categoria();
         // Destrutor:
         ~Categoria();
 

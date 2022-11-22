@@ -1,11 +1,15 @@
 #include "../include/categoria.hpp"
+
+
 // Construtor:
-Categoria::Categoria(std::string nome, double orcamento, double gastoTotal){
+Categoria::Categoria(std::string nome, double orcamento){
     _nome = nome;
     _orcamento = orcamento;
     _gastoTotal = 0;
     _limite = false;
-};
+}
+
+Categoria::Categoria(){};
 
 std::string Categoria::get_nome(){
     return _nome;
@@ -13,16 +17,16 @@ std::string Categoria::get_nome(){
 
 double Categoria::get_gasto() {
     return _gastoTotal;
-};
-
-//Ajusta o gasto da categoria e altera o caixa
-void Categoria::set_gasto(double valor){
-    _gastoTotal = get_gasto() + valor;
-    verificaLimite();
 }
 
 double Categoria::get_orcamento(){
     return _orcamento;
+}
+
+//Ajusta o gasto da categoria e verifica o limite
+void Categoria::set_gasto(double valor){
+    _gastoTotal = get_gasto() + valor;
+    verificaLimite();
 }
 
 //Se o limite foi atingido, faz _limite = true
@@ -30,7 +34,7 @@ void Categoria::verificaLimite() {
     if(_gastoTotal >= _orcamento){
         _limite = true;
     }
-};
+}
 
 //Exibe na tela um relatorio do conteudo de uma categoria em específico
 void Categoria::relatorioDeCategoria() {
@@ -42,7 +46,7 @@ void Categoria::relatorioDeCategoria() {
     }else{
         std::cout << "Orcamento ainda nao atingido." << std::endl;
     }
-};
+}
 
 /* ARQUIVOS - FORA DE USO
 void Categoria::registraDespesa(Despesa despesa){

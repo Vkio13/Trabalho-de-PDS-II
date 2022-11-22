@@ -6,6 +6,7 @@ class Boleto : public Categoria {
     private:
         int _vencimento;
         bool _pago;
+    
     public:
         //Construtor
         Boleto(std::string nome, int valor, int vencimento);

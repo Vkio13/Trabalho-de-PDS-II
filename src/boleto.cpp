@@ -5,13 +5,15 @@
 Boleto::Boleto(std::string nome, int valor, int vencimento){
     _nome = nome;
     _orcamento = valor;
+    _gastoTotal = 0;
+    _limite = false;
     _vencimento = vencimento;
     _pago = false;
 };
 
 //Destrutor
 Boleto::~Boleto(){
-    //Fazer
+
 }
 
 //Métodos
@@ -37,7 +39,7 @@ void Boleto::relatorioDeCategoria(){
         std::cout << "Boleto pago!" << std::endl;
     }else{
         if(venceu()){
-        std::cout << "ATENCAO! Boleto VENCIDO ainda nao pago!" << std::endl;    
+            std::cout << "ATENCAO! Boleto VENCIDO ainda nao pago!" << std::endl;    
         }else{
             std::cout << "ATENCAO! Boleto nao pago!" << std::endl;
             std::cout << "Vencimento no dia " << _vencimento << std::endl;
