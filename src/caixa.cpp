@@ -1,4 +1,4 @@
-#include "caixa.hpp"
+#include "../include/caixa.hpp"
 
         Caixa::Caixa(double saldo, double receitas, double gastos){
                 _saldo =saldo;
@@ -21,9 +21,17 @@
             _saldo = valor;
         }
         void Caixa::setReceitas(double valor){
+            if(valor<0){
+                throw Excecao_Caixa();
+            }else{
             _receitas = valor;
+            }
         }
         void Caixa::setGastos(double valor){
+            if(valor<0){
+                throw Excecao_Caixa();
+            }else{
             _gastos  = valor;
+            }
         }
     
