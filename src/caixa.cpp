@@ -1,12 +1,14 @@
-#include "../include/caixa.hpp"
+#include "caixa.hpp"
 
         Caixa::Caixa(double saldo, double receitas, double gastos){
                 _saldo =saldo;
                 _receitas = receitas;
                 _gastos = gastos;
         }
+        Caixa::Caixa(){
 
-       double Caixa::getSaldo(){
+        }
+        double Caixa::getSaldo(){
             return _saldo;
         }
         double Caixa::getReceitas(){
