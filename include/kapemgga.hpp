@@ -1,7 +1,7 @@
 #ifndef KAPEMGGA_HPP
 #define KAPEMGGA_HPP
 
-#include <list>
+#include <vector>
 #include <string>
 #include <iostream>
 #include "categoria.hpp"
@@ -9,7 +9,7 @@
 
 class Kapemgga{
   private:
-  std::list<Categoria>_categorias;
+  std::vector<Categoria>_categorias;
   Caixa _caixa;
   public:
   //Construtor do Kappemgga.
@@ -18,8 +18,10 @@ class Kapemgga{
   //Destrutor do Kappemga.
   ~Kapemgga();
   
+  int Localiza(std::string nome);
+
   //Função para imprimir todas as categorias que o usuário tem.
-  void imprimeCategorias();
+  void imprimeCategorias_e_Orcamento();
   
   //Função que permite o usuário criar novas categorias.
   void adicionaCategoria(Categoria cate);
@@ -29,9 +31,6 @@ class Kapemgga{
   
   //Função que permite o usuário somar um valor x ao que ele já tem disponível, e especificar a origem do dinheiro.
   void novaReceita(std::string descricao, double valor);
-  
-  //Função que mostra os limites de gastos delimitados a cada categoria (?).
-  void imprimeLimites();
   
   //Função responsável por realizar um gasto dentro de uma categoria especificada.
   void novoGasto(std::string categoria, double valor);
