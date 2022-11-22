@@ -5,6 +5,8 @@
 #include <fstream>
 #include "despesa.hpp"
 #include <list>
+#include <ctime>
+
 
 class Categoria{
     protected: 
@@ -22,6 +24,7 @@ class Categoria{
         //Métodos
         double get_gasto();
         void set_gasto(double valor);
+        double get_orcamento();
         void verificaLimite();
         virtual void relatorioDeCategoria();
 

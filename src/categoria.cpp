@@ -11,12 +11,13 @@ double Categoria::get_gasto() {
     return _gastoTotal;
 };
 
-//Ajusta o gasto da categoria e altera o caixa
 void Categoria::set_gasto(double valor){
     _gastoTotal = get_gasto() + valor;
     verificaLimite();
-    Caixa->setSaldo(Caixa->getSaldo() -valor);
-    Caixa->setGastos(Caixa->getGastos() -valor);
+}
+
+double Categoria::get_orcamento(){
+    return _orcamento;
 }
 
 //Se o limite foi atingido, faz _limite = true

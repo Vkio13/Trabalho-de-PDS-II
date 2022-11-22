@@ -8,11 +8,12 @@ class Boleto : public Categoria {
         bool _pago;
     public:
         //Construtor
-        Boleto(std::string nome, double gastoTotal, int vencimento);
+        Boleto(std::string nome, int valor, int vencimento);
         //Destrutor
         ~Boleto();
         //Métodos
+        void pagaBoleto();
+        bool venceu();
         void relatorioDeCategoria() override;
-        bool Venceu();
 };
 #endif
