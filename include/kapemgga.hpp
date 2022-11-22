@@ -1,3 +1,4 @@
+#ifndef KAPEMGGA_HPP
 #define KAPEMGGA_HPP
 
 #include <vector>
@@ -5,19 +6,20 @@
 #include <iostream>
 #include "categoria.hpp"
 #include "caixa.hpp"
+#include "boleto.hpp"
 
 class Kapemgga{
   private:
   std::vector<Categoria>_categorias;
   Caixa _caixa;
+  std::vector<Boleto>_boletos; 
   public:
   //Construtor do Kappemgga.
-  Kapemgga(std::vector<Categoria> categorias, Caixa caixa);
-
-  //Destrutor do Kappemga.
-  ~Kapemgga();
+  Kapemgga(std::vector<Categoria> categorias, Caixa caixa, std::vector<Boleto> boletos);
   
-  int Localiza(std::string nome);
+  int LocalizaCategoria(std::string nome);
+
+  int LocalizaBoleto(std::string nome);
 
   //Função para imprimir todas as categorias que o usuário tem.
   void imprimeCategorias_e_Orcamento();
