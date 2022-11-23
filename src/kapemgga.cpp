@@ -1,12 +1,5 @@
-#include <list>
-#include <vector>
-#include <string>
-#include <iostream>
-
 #include "../include/kapemgga.hpp"
-#include "../include/categoria.hpp"
-#include "../include/caixa.hpp"
-#include "../include/boleto.hpp"
+
 
 Kapemgga::Kapemgga(std::vector<Categoria> categorias, Caixa caixa, std::vector<Boleto> boletos){
     std::vector<Categoria> _categorias = categorias;
@@ -67,5 +60,6 @@ void Kapemgga::novoGasto(std::string nome, double valor){
 
 void Kapemgga::pagaBoleto(std::string nome){
     _boletos[LocalizaBoleto(nome)].pagaBoleto();
-    _caixa.setSaldo(_caixa.getSaldo() - _boletos[LocalizaBoleto(nome)].get_orcamento());
+    _caixa.adicionaGasto(_boletos[LocalizaBoleto(nome)].get_orcamento());
+
 }

@@ -1,7 +1,4 @@
 #include "../include/inicializador.hpp"
-#include "../include/dados.hpp"
-
-
 //Construtor
 Inicializador::Inicializador(){
         this->carregaEntradas();
@@ -9,13 +6,13 @@ Inicializador::Inicializador(){
         this->carregaCategorias();
 }
 //Métodos
-        double Inicializador::GetEntradas(){
+        double Inicializador::getEntradas(){
             return _entradas;
         }
-        double Inicializador::GetGastos(){
+        double Inicializador::getGastos(){
             return _gastos;
         }
-        std::vector<Categoria> Inicializador::GetCategorias(){
+        std::vector<Categoria> Inicializador::getCategorias(){
             return _categorias;
         }
         void Inicializador::carregaEntradas(){

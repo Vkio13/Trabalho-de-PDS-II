@@ -7,6 +7,9 @@
 #include "categoria.hpp"
 #include "caixa.hpp"
 #include "boleto.hpp"
+#include "categoria.hpp"
+#include "inicializador.hpp"
+
 
 class Kapemgga{
   private:

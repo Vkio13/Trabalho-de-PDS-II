@@ -9,15 +9,17 @@
         double _gastos;
     public :
     //Construtor
-        Caixa(double saldo, double receitas, double gastos);
-        Caixa();
+        Caixa(double receitas, double gastos, double saldo);
+        ~Caixa();
     //Métodos
         double getSaldo();
         double getReceitas();
         double getGastos();
-        void setSaldo(double valor); 
+        void atualizaSaldo(); 
         void setReceitas(double valor);// Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
         void setGastos(double valor);// Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
+        void adicionaGasto(double valor);
+        void adicionaReceita(double valor);
     };
     class Excecao_Caixa : public std::exception { // Vai faltar a implementação no main
         const char* what() const noexcept{
