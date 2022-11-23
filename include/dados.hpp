@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include "../include/categoria.hpp"
   class Dados{
     private:
       std::string datgastos ="arquivos/gastos.txt";
@@ -39,5 +40,6 @@
       void imprimeCategorias();
       int verificaCategoria(std::string nome);
       void deleteCategoria(int codigo);
+      std::vector<Categoria> vectorCategoria();
   };
 #endif

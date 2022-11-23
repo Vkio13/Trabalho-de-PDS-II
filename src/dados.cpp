@@ -124,7 +124,7 @@ void Dados::imprimeGastosMensal(int inmes){
     }
 
 };
-void Dados::imprimeGastosCategoriaMensal(std::string cat, int inmes){
+void Dados::imprimeGastosCategoriaMensal(std::string cat, int inmes=0){
 std::ifstream arq;
     try{
     arq.open(datgastos, std::ios::in);
@@ -132,6 +132,10 @@ std::ifstream arq;
     catch(std::exception& e){
         e.what();
         exit(1);
+    }
+    if (inmes==0){
+        getTime();
+        tempo->tm_mon;
     }
     std::string categoria;
     std::string descricao;
@@ -146,7 +150,7 @@ std::ifstream arq;
     }
 
 };
-double Dados::somaGastosMes(int inmes){
+double Dados::somaGastosMes(int inmes=0){
     std::ifstream arq;
     try{
     arq.open(datgastos, std::ios::in);
@@ -154,6 +158,10 @@ double Dados::somaGastosMes(int inmes){
     catch(std::exception& e){
         e.what();
         exit(1);
+    }
+    if (inmes==0){
+        getTime();
+        tempo->tm_mon;
     }
     std::string categoria;
     std::string descricao;
@@ -247,7 +255,7 @@ double Dados::somaEntradas(){
     }
     return soma;
 };
-double Dados::somaEntradasMes(int inmes){
+double Dados::somaEntradasMes(int inmes= 0){
     std::ifstream arq;
     try{
     arq.open(datreceita, std::ios::in);
@@ -258,6 +266,10 @@ double Dados::somaEntradasMes(int inmes){
     }
     std::string categoria;
     std::string descricao;
+    if (inmes==0){
+        getTime();
+        tempo->tm_mon;
+    }
     double valor;
     int mes, dia;
     double soma=0;
@@ -442,5 +454,23 @@ void Dados::imprimeCategorias(){
         std::cout<<categoria<<" "<<orcamento<<std::endl;
     }
 }
-
+std::vector<Categoria> Dados::vectorCategoria(){
+    std::vector<Categoria> v;
+    std::ifstream arq;
+    try{
+    arq.open(datcategoria, std::ios::in);
+    }
+    catch(std::exception& e){
+        e.what();
+        exit(1);
+    }
+    std::string categoria;
+    double orcamento;
+    int mes, dia;
+    while(arq>>mes>>dia>>orcamento>>categoria){
+        categoria=replace(categoria,'_',' ');
+        v.push_back(Categoria(categoria,orcamento));
+    }
+    return v;
+};
 

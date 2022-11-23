@@ -1,12 +1,12 @@
 #include "../include/inicializador.hpp"
+#include "../include/dados.hpp"
 
 
 //Construtor
-Inicializador::Inicializador(std::list<Categoria> categorias, double entradas, double investimento, double gastos){
-        _categorias=categorias;
-        _entradas=entradas;
-        _investimento=investimento;
-        _gastos=gastos;
+Inicializador::Inicializador(){
+        this->carregaEntradas();
+        this->carregaGastos();
+        this->carregaCategorias();
 }
 //Métodos
         double Inicializador::GetEntradas(){
@@ -15,15 +15,21 @@ Inicializador::Inicializador(std::list<Categoria> categorias, double entradas, d
         double Inicializador::GetGastos(){
             return _gastos;
         }
-        std::list<Categoria> Inicializador::GetCategorias(){
+        std::vector<Categoria> Inicializador::GetCategorias(){
             return _categorias;
         }
         void Inicializador::carregaEntradas(){
-            //PREENCHER
+            _entradas = d.somaEntradasMes(0);
         }
         void Inicializador::carregaGastos(){
-            //PREENCHER
+            _gastos = d.somaGastosMes(0);
         }
         void Inicializador::carregaCategorias(){
-            //PREENCHER
+            //Carrega as categorias do arquivo;
+            _categorias=d.vectorCategoria();
+            //Carrega os gastor de cada categoria;
+            for(int i=0; i<_categorias.size(); i++){
+                _categorias[i].set_gasto(d.somaGastosCategoriaMensal(_categorias[i].get_nome(), 0));
+                _categorias[i].verificaLimite();
+            }
         }
