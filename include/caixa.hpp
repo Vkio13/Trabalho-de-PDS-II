@@ -19,7 +19,7 @@
         void setReceitas(double valor);// Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
         void setGastos(double valor);// Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
     };
-    class Excecao_Caixa : public std::exception {
+    class Excecao_Caixa : public std::exception { // Vai faltar a implementação no main
         const char* what() const noexcept{
             return "O valor inserido não é valido. Por favor, insira um valor positivo";
         }
