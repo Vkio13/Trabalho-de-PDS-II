@@ -3,7 +3,7 @@
 /**
  * @file relatorio.hpp
  * @brief Classe onde estão armazenados os relatorios
- * @version 1.0
+ * @version 1.5
  * @date 2022-11-24
  * @details TAD com função principal de 
  * conter um relatório com todos os dados
