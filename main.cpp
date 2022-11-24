@@ -1,4 +1,5 @@
 #include "include/dados.hpp"
+#include "include/caixa.hpp"
 int main(){
     Dados d;
     d.adicionaGasto(6,"Bebida","Stella-Artois");
@@ -10,6 +11,6 @@ int main(){
     d.imprimeGastosTodos();
     d.imprimeGastosCategoriaTotal("Bebida");
     d.deleteGasto(4);
-
+    Caixa nada;
     return 0;
 }

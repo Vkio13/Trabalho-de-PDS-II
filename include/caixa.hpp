@@ -1,29 +1,25 @@
-#ifndef CAIXA_H
-#define CAIXA_H
-
+#ifndef CAIXA_HPP
+#define CAIXA_HPP
 #include <iostream>
-
-    class Caixa{
-        double _saldo;
+class Caixa{
+    private:
         double _receitas;
         double _gastos;
-    public :
-    //Construtor
-        Caixa(double receitas, double gastos, double saldo);
-        ~Caixa();
-    //Métodos
+        double _saldo;
+    public:
+        Caixa();
         double getSaldo();
         double getReceitas();
         double getGastos();
         void atualizaSaldo(); 
-        void setReceitas(double valor);// Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
-        void setGastos(double valor);// Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
+        void setReceitas(double valor);
+        void setGastos(double valor);
         void adicionaGasto(double valor);
         void adicionaReceita(double valor);
-    };
-    class Excecao_Caixa : public std::exception { // Vai faltar a implementação no main
-        const char* what() const noexcept{
-            return "O valor inserido não é valido. Por favor, insira um valor positivo";
-        }
-    };
+};
+
+class Excecao_Caixa : public std::exception { // Vai faltar a implementação no main
+        const char* what() const noexcept;
+};
+
 #endif

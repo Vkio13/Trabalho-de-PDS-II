@@ -18,7 +18,7 @@ class Kapemgga{
   std::vector<Boleto>_boletos; 
   public:
   //Construtor do Kappemgga.
-  Kapemgga(std::vector<Categoria> categorias, Caixa caixa, std::vector<Boleto> boletos);
+  Kapemgga(std::vector<Boleto> boletos);
   
   int LocalizaCategoria(std::string nome);
 

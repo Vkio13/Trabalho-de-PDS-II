@@ -1,9 +1,11 @@
 #include "../include/kapemgga.hpp"
 
 
-Kapemgga::Kapemgga(std::vector<Categoria> categorias, Caixa caixa, std::vector<Boleto> boletos){
-    std::vector<Categoria> _categorias = categorias;
-    Caixa _caixa = caixa;
+Kapemgga::Kapemgga( std::vector<Boleto> boletos){
+    Inicializador i;
+    _categorias = i.getCategorias();
+    _caixa.setGastos(i.getGastos());
+    _caixa.setReceitas(i.getEntradas());
     std::vector<Boleto> _boletos = boletos;
 }
 
