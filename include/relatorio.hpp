@@ -2,7 +2,7 @@
 #define RELATORIO_H
 /**
  * @file relatorio.hpp
- * @brief Classe onde estão arma
+ * @brief Classe onde estão armazenados os relatorios
  * @version 1.0
  * @date 2022-11-21
  * @details TAD com função principal de 
@@ -37,7 +37,6 @@
         ~Relatorio();
  /**
          * @brief Printa o relatório mensal.
-         * 
          * 
          */
         void relatorioMensal();
