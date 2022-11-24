@@ -23,6 +23,14 @@
          *
          */      
     class Relatorio{
+/**
+         * @brief Lista de categorias
+         *
+         * @param categorias Lista do tipo Categoria
+         * contendo todas as categorias registradas
+         * e seus dados.
+         *
+         */ 
         std::list<Categoria> _categorias;
     public : 
 /**
