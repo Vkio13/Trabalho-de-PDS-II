@@ -14,13 +14,10 @@
  * 
  */
 #include "../include/categoria.hpp"
-
-    class Relatorio{
-        std::list<Categoria> _categorias;
-    public :
 /**
-         * @brief Constrói o objeto Relatorio.
-         * 
+         * @brief Gera um relatorio de todas as 
+         * categorias
+         *
          * @details Recebe as categorias e as insere
          * dentro do relatório.
          *
@@ -28,7 +25,18 @@
          * contendo todas as categorias registradas
          * e seus dados.
          *
-         */        
+         */      
+    class Relatorio{
+        std::list<Categoria> _categorias;
+    public : 
+/**
+         * @brief Constrói o objeto Relatorio.
+         *
+         * @param categorias Lista do tipo Categoria
+         * contendo todas as categorias registradas
+         * e seus dados.
+         *
+         */ 
         Relatorio(std::list<Categoria> categorias);
 /**
          * @brief Destrutor do objeto Relatorio.
