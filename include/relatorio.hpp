@@ -4,7 +4,7 @@
  * @file relatorio.hpp
  * @brief Classe onde estão armazenados os relatorios
  * @version 1.0
- * @date 2022-11-21
+ * @date 2022-11-24
  * @details TAD com função principal de 
  * conter um relatório com todos os dados
  * sendo eles os gastos e outros inseridos
@@ -20,10 +20,6 @@
          *
          * @details Recebe as categorias e as insere
          * dentro do relatório.
-         *
-         * @param categorias Lista do tipo Categoria
-         * contendo todas as categorias registradas
-         * e seus dados.
          *
          */      
     class Relatorio{
