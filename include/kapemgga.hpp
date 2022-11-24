@@ -13,46 +13,49 @@
 
 class Kapemgga{
   private:
-  std::vector<Categoria>_categorias;
-  Caixa _caixa;
-  std::vector<Boleto>_boletos; 
+    std::vector<Categoria>_categorias;
+    Caixa _caixa;
+    std::vector<Boleto>_boletos;
+    Dados d;
+
   public:
   //Construtor do Kappemgga.
-  Kapemgga(std::vector<Boleto> boletos);
+    Kapemgga(std::vector<Boleto> boletos);
   
-  int LocalizaCategoria(std::string nome);
+    int LocalizaCategoria(std::string nome);
 
-  int LocalizaBoleto(std::string nome);
+    int LocalizaBoleto(std::string nome);
 
   //Função para imprimir todas as categorias que o usuário tem.
-  void imprimeCategorias_e_Orcamento();
+    void imprimeCategorias_e_Orcamento();
   
   //Função que permite o usuário criar novas categorias.
-  void adicionaCategoria(Categoria cate);
+    void adicionaCategoria(Categoria cate);
   
   //Função que permite o usuário excluir alguma categoria.
-  void removeCategoria(std::string nome);
+    void removeCategoria(std::string nome);
   
   //Função que permite o usuário somar um valor x ao que ele já tem disponível, e especificar a origem do dinheiro.
-  void novaReceita(std::string descricao, double valor);
+    void novaReceita(std::string descricao, double valor);
   
   //Função responsável por realizar um gasto dentro de uma categoria especificada.
-  void novoGasto(std::string categoria, double valor);
+    void novoGasto(std::string categoria, double valor, std::string descricao);
   
   //Função para pagar determinado boleto, de acordo com seu nome.
-  void pagaBoleto(std::string nome);
+    void pagaBoleto(std::string nome);
   
   //Função responsável por dar o comando de fechar o mês.
-  void encerraMes();
+    void encerraMes();
   
   //Função que permite ao usuário emitir um relatório mensal de gastos e receitas recebidas.
-  void relatorioMensal(int mes);
+    void relatorioMensal(int mes);
   
   //Função que permite ao usuário emitir um relatório de gastos e receitas recebidas desde que começou a usar o sistema.
-  void relatorioGeral();
+    void relatorioGeral();
   
   //Função que permite ao usuário emitir um relatório do dia atual.
-  void relatorioAtual();
+    void relatorioAtual();
+
 };
 
 #endif

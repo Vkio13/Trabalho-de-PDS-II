@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include <fstream>
-#include "despesa.hpp"
 #include <list>
 #include <ctime>
+#include "dados.hpp"
 
 
 class Categoria{
@@ -30,11 +30,6 @@ class Categoria{
         double get_orcamento();
         void verificaLimite();
         virtual void relatorioDeCategoria();
-
-        /*Arquivo
-        void registraDespesa(Despesa despesa);
-        void imprimeDespesa();
-        */
 };
 
 #endif

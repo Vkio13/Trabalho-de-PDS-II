@@ -26,7 +26,12 @@ double Categoria::get_orcamento(){
 
 //Ajusta o gasto da categoria e verifica o limite
 void Categoria::set_gasto(double valor){
-    _gastoTotal = get_gasto() + valor;
+    _gastoTotal=valor;
+    verificaLimite();
+};
+
+void Categoria::adiciona_Gasto(double valor){
+    _gastoTotal += valor;
     verificaLimite();
 }
 
