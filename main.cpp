@@ -36,14 +36,23 @@ int main(){
             sistema.boletosAPagar();
             break;
         case 5:
-            break;
+            std::cin>>nome;
+            std::cin >>orcamento;
+            sistema.adicionaCategoria(Categoria(nome,orcamento));
         case 6:
-            break;
+            std::cin>>nome;
+            std::cin>>valor;
+            std::cin>>descricao;
+            sistema.novoGasto(nome,valor,descricao);
         case 7:
-            break;
+            std::cin>>descricao;
+            std::cin>>valor;
+            sistema.novaReceita(descricao,valor);
         case 8:
-            sistema.adicionaBoleto();
-            break;
+            std::cin>>nome;
+            std::cin>>val;
+            std::cin>>vencimento;
+            sistema.adicionaBoleto(Boleto(nome,val,vencimento));
         case 9:
             break;
         default:
