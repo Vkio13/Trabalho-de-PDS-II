@@ -75,6 +75,14 @@ void Kapemgga::novoGasto(std::string nome, double valor, std::string descricao){
     }
 }
 
+void Kapemgga::resumoDeCaixa(){
+    _caixa.resumoDeCaixa();
+}
+
+void Kapemgga::adicionaBoleto(Boleto novoBol){
+    _boletos.push_back(novoBol);
+}
+
 void Kapemgga::pagaBoleto(std::string nome){
     _boletos[LocalizaBoleto(nome)].pagaBoleto();
     _caixa.adicionaGasto(_boletos[LocalizaBoleto(nome)].get_orcamento());

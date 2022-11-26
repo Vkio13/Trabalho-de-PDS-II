@@ -7,7 +7,6 @@
 #include "categoria.hpp"
 #include "caixa.hpp"
 #include "boleto.hpp"
-#include "categoria.hpp"
 #include "inicializador.hpp"
 
 
@@ -48,6 +47,12 @@ class Kapemgga{
   
   //Função para pagar determinado boleto, de acordo com seu nome.
     void pagaBoleto(std::string nome);
+
+  //Função que imprime um resumo do caixa.
+    void resumoDeCaixa();
+
+  //Função que adiciona um boleto ao vetor boletos.
+    void adicionaBoleto(Boleto novoBol);
   
   //Função que genencia boletos pagos e não pagos ao final de um mês.
     void encerraBoletos();
