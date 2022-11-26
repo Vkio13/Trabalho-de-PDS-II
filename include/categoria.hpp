@@ -14,9 +14,7 @@
  */
 #include <iostream>
 #include <fstream>
-#include <list>
 #include <ctime>
-#include "dados.hpp"
 
 /**
          * @brief Contém informações e valores genéricos

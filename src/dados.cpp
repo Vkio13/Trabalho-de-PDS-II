@@ -45,7 +45,7 @@ void Dados::adicionaReceita(double valor, std::string descricao){
 void Dados::adicionaCategoria(std::string categoria, double ocamento){
     std::ofstream arq;
     try{
-    arq.open(datcategoria, std::ios::app);
+    arq.open(datcat, std::ios::app);
     }
     catch(std::exception& e){
         e.what();
@@ -353,7 +353,7 @@ void Dados::deleteGasto(int codigo){
 int Dados::verificaCategoria(std::string nome){
     std::ifstream arq;
     try{
-    arq.open(datcategoria, std::ios::in | std::ios::out);
+    arq.open(datcat, std::ios::in | std::ios::out);
     }
     catch(std::exception& e){
         e.what();
@@ -375,7 +375,7 @@ void Dados::deleteCategoria(int codigo){
     std::ofstream arqw;
     std::ifstream arqr;
     try{
-    arqr.open(datcategoria, std::ios::in | std::ios::out);
+    arqr.open(datcat, std::ios::in | std::ios::out);
     }
     catch(std::exception& e){
         e.what();
@@ -391,7 +391,7 @@ void Dados::deleteCategoria(int codigo){
     }
     arqr.close();
     try{
-    arqw.open(datcategoria, std::ios::out);
+    arqw.open(datcat, std::ios::out);
     }
     catch(std::exception& e){
         e.what();
@@ -440,7 +440,7 @@ void Dados::deleteReceita(int codigo){
 void Dados::imprimeCategorias(){
     std::ifstream arq;
     try{
-    arq.open(datcategoria, std::ios::in);
+    arq.open(datcat, std::ios::in);
     }
     catch(std::exception& e){
         e.what();
@@ -454,10 +454,10 @@ void Dados::imprimeCategorias(){
         std::cout<<categoria<<" "<<orcamento<<std::endl;
     }
 }
-void Dados::vectorCategoria(std::vector<Categoria> v){
+void Dados::vectorCategoria(std::vector<Categoria>& v){
     std::ifstream arq;
     try{
-    arq.open(this->datcategoria, std::ios::in);
+    arq.open(this->datcat, std::ios::in);
     }
     catch(std::exception& e){
         e.what();
