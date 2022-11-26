@@ -167,6 +167,6 @@
          * @brief Vetor de categorias
          * @return Retorna as categorias
          **/ 
-      std::vector<Categoria> vectorCategoria();
+      void vectorCategoria(std::vector<Categoria> v);
   };
 #endif

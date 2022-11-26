@@ -23,7 +23,7 @@ Inicializador::Inicializador(){
         }
         void Inicializador::carregaCategorias(){
             //Carrega as categorias do arquivo;
-            _categorias=d.vectorCategoria();
+            d.vectorCategoria(_categorias);
             //Carrega os gastor de cada categoria;
             for(int i=0; i<_categorias.size(); i++){
                 _categorias[i].set_gasto(d.somaGastosCategoriaMensal(_categorias[i].get_nome(), 0));

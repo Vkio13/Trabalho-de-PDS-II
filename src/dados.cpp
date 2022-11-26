@@ -454,11 +454,10 @@ void Dados::imprimeCategorias(){
         std::cout<<categoria<<" "<<orcamento<<std::endl;
     }
 }
-std::vector<Categoria> Dados::vectorCategoria(){
-    std::vector<Categoria> v;
+void Dados::vectorCategoria(std::vector<Categoria> v){
     std::ifstream arq;
     try{
-    arq.open(datcategoria, std::ios::in);
+    arq.open(this->datcategoria, std::ios::in);
     }
     catch(std::exception& e){
         e.what();
@@ -471,6 +470,5 @@ std::vector<Categoria> Dados::vectorCategoria(){
         categoria=replace(categoria,'_',' ');
         v.push_back(Categoria(categoria,orcamento));
     }
-    return v;
 };
 
