@@ -51,6 +51,9 @@ class Kapemgga{
   //Função que imprime um resumo do caixa.
     void resumoDeCaixa();
 
+  //Função para imprimir todas as categorias que o usuário tem.
+    void imprimeBoletos();
+
   //Função que adiciona um boleto ao vetor boletos.
     void adicionaBoleto(Boleto novoBol);
   
