@@ -2,7 +2,7 @@
 
 
 //Construtor
-Boleto::Boleto(std::string nome, int valor, int vencimento){
+Boleto::Boleto(std::string nome, double valor, int vencimento){
     _nome = nome;
     _orcamento = valor;
     _gastoTotal = 0;

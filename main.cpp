@@ -19,6 +19,11 @@ int main(){
         <<"--------------------------"<<std::endl; 
         
         std::string busca;
+        std::string nome;
+        double orcamento;
+        double valor;
+        std::string descricao;
+        int vencimento;
 
         switch (op)
         {
@@ -36,23 +41,23 @@ int main(){
             sistema.boletosAPagar();
             break;
         case 5:
-            std::cin>>nome;
-            std::cin >>orcamento;
-            sistema.adicionaCategoria(Categoria(nome,orcamento));
+            std::cin >> nome;
+            std::cin >> orcamento;
+            sistema.adicionaCategoria (Categoria(nome,orcamento));
         case 6:
-            std::cin>>nome;
-            std::cin>>valor;
-            std::cin>>descricao;
+            std::cin >> nome;
+            std::cin >> valor;
+            std::cin >> descricao;
             sistema.novoGasto(nome,valor,descricao);
         case 7:
-            std::cin>>descricao;
-            std::cin>>valor;
+            std::cin >> descricao;
+            std::cin >> valor;
             sistema.novaReceita(descricao,valor);
         case 8:
-            std::cin>>nome;
-            std::cin>>val;
-            std::cin>>vencimento;
-            sistema.adicionaBoleto(Boleto(nome,val,vencimento));
+            std::cin >> nome;
+            std::cin >> valor;
+            std::cin >> vencimento;
+            sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
         case 9:
             break;
         default:
