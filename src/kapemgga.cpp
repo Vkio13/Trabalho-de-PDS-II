@@ -38,8 +38,13 @@ int Kapemgga::LocalizaBoleto(std::string nome){
 
 void Kapemgga::imprimeCategorias(){
     for(Categoria cat:_categorias){
-        std::cout << "Categoria:" << cat.get_nome() <<" "<< "Orçamento:" << cat.get_orcamento() << "Gastos:" << cat.get_gasto();
+        std::cout << "Categoria:" << cat.get_nome() << std::endl;
     }
+}
+
+void sobreUmaCategoria(std::string nome){
+    int b = LocalizaCategoria(nome);
+    _categorias[b].relatorioDeCategoria();
 }
 
 void Kapemgga::adicionaCategoria(Categoria cate){
