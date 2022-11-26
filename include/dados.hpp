@@ -40,7 +40,7 @@
         /**
          * @brief Arquivo onde são salvas as categorias
          **/ 
-      std::string datcategoria ="arquivos/categoria.txt";
+      std::string datcat ="arquivos/categoria.txt";
         /**
          * @brief Struct de tempo
          **/ 
@@ -167,6 +167,6 @@
          * @brief Vetor de categorias
          * @return Retorna as categorias
          **/ 
-      void vectorCategoria(std::vector<Categoria> v);
+      void vectorCategoria(std::vector<Categoria>& v);
   };
 #endif
