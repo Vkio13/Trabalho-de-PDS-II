@@ -36,6 +36,16 @@ int main(){
             sistema.boletosAPagar();
             break;
         case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            sistema.adicionaBoleto();
+            break;
+        case 9:
+            break;
         default:
             break;
         }
