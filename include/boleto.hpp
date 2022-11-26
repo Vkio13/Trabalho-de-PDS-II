@@ -21,7 +21,7 @@
          *
          */   
 class Boleto : public Categoria {
-    private:
+    protected:
     /**
          * @brief Valor do vencimento do boleto.
          */
@@ -50,6 +50,8 @@ class Boleto : public Categoria {
           /**
          * @brief efetua o pagamento do boleto
          */
+        void vencido();
+        bool get_pago();
         void pagaBoleto();
         /**
          * @brief função que diz se o boleto venceu
