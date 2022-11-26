@@ -17,6 +17,14 @@ Boleto::~Boleto(){
 }
 
 //Métodos
+void Boleto::vencido(){
+    _vencimento = 0;
+}
+
+bool Boleto::get_pago(){
+    return _pago;
+}
+
 bool Boleto::venceu(){
     time_t agora;
     struct tm * dataHora;
