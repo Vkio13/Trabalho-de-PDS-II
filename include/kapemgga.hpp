@@ -32,7 +32,7 @@ class Kapemgga{
     void imprimeCategorias();
 
   //Imprime o relatório de uma categoria específica.
-    void sobreUmaCategoria();
+    void sobreUmaCategoria(std::string nome);
   
   //Função que permite o usuário criar novas categorias.
     void adicionaCategoria(Categoria cate);

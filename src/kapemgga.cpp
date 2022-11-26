@@ -42,9 +42,12 @@ void Kapemgga::imprimeCategorias(){
     }
 }
 
-void sobreUmaCategoria(std::string nome){
-    int b = LocalizaCategoria(nome);
-    _categorias[b].relatorioDeCategoria();
+void Kapemgga::sobreUmaCategoria(std::string nome){
+    if(LocalizaCategoria(nome)>=0){
+    _categorias[LocalizaCategoria(nome)].relatorioDeCategoria();
+    }else{
+        std::cout<<"Categoria não encontrada, tente corrigir o nome ou adicionar essa categoria"<<std::endl;
+    }
 }
 
 void Kapemgga::adicionaCategoria(Categoria cate){
