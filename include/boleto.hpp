@@ -42,7 +42,7 @@ class Boleto : public Categoria {
          * @param vencimento Data do vencimento do boleto
          *
          */ 
-        Boleto(std::string nome, int valor, int vencimento);
+        Boleto(std::string nome, double valor, int vencimento);
         /**
          * @brief Destrutor da classe Boleto
          */

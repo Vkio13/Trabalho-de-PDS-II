@@ -88,6 +88,7 @@ class Caixa{
          * @param valor Valor a ser adicionado
          **/
         void adicionaReceita(double valor);
+        void resumoDeCaixa();
 };
 /**
          * @brief Caso de exceção do caixa.hpp

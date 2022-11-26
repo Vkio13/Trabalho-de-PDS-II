@@ -54,6 +54,12 @@ void Caixa::adicionaReceita(double valor){
     this->atualizaSaldo();
 };
 
+void Caixa::resumoDeCaixa(){
+    std::cout << "Receitas: " << getReceitas() << std::endl;
+    std::cout << "Despesas: " << getGastos() << std::endl;
+    std::cout << "SALDO: " << getSaldo() << std::endl;
+}
+
 const char* Excecao_Caixa::what() const noexcept{
     return "O valor inserido não é valido. Por favor, insira um valor positivo";
 };
