@@ -44,6 +44,12 @@ class Kapemgga{
   //Função para pagar determinado boleto, de acordo com seu nome.
     void pagaBoleto(std::string nome);
   
+  //Função que genencia boletos pagos e não pagos ao final de um mês.
+    void encerraBoletos();
+
+  //Função que lista os boletos ainda não pagos.
+    void boletosAPagar();
+  
   //Função responsável por dar o comando de fechar o mês.
     void encerraMes();
   
