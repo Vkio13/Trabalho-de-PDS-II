@@ -20,14 +20,16 @@ class Kapemgga{
 
   public:
   //Construtor do Kappemgga.
-    Kapemgga(std::vector<Boleto> boletos);
+    Kapemgga();
+
+    void inicializar();
   
     int LocalizaCategoria(std::string nome);
 
     int LocalizaBoleto(std::string nome);
 
   //Função para imprimir todas as categorias que o usuário tem.
-    void imprimeCategorias_e_Orcamento();
+    void imprimeCategorias();
   
   //Função que permite o usuário criar novas categorias.
     void adicionaCategoria(Categoria cate);

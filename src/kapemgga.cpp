@@ -1,12 +1,11 @@
 #include "../include/kapemgga.hpp"
 
-
-Kapemgga::Kapemgga( std::vector<Boleto> boletos){
+Kapemgga::Kapemgga (){};
+void Kapemgga::inicializar(){
     Inicializador i;
     _categorias = i.getCategorias();
     _caixa.setGastos(i.getGastos());
     _caixa.setReceitas(i.getEntradas());
-    std::vector<Boleto> _boletos = boletos;
 }
 
 int Kapemgga::LocalizaCategoria(std::string nome){
@@ -37,7 +36,7 @@ int Kapemgga::LocalizaBoleto(std::string nome){
     return -1;
 }
 
-void Kapemgga::imprimeCategorias_e_Orcamento(){
+void Kapemgga::imprimeCategorias(){
     for(Categoria cat:_categorias){
         std::cout << "Categoria:" << cat.get_nome() <<" "<< "Orçamento:" << cat.get_orcamento() << "Gastos:" << cat.get_gasto();
     }
