@@ -38,7 +38,15 @@ int Kapemgga::LocalizaBoleto(std::string nome){
 
 void Kapemgga::imprimeCategorias(){
     for(Categoria cat:_categorias){
-        std::cout << "Categoria:" << cat.get_nome() <<" "<< "Orçamento:" << cat.get_orcamento() << "Gastos:" << cat.get_gasto();
+        std::cout << "Categoria:" << cat.get_nome() << std::endl;
+    }
+}
+
+void Kapemgga::sobreUmaCategoria(std::string nome){
+    if(LocalizaCategoria(nome)>=0){
+    _categorias[LocalizaCategoria(nome)].relatorioDeCategoria();
+    }else{
+        std::cout<<"Categoria não encontrada, tente corrigir o nome ou adicionar essa categoria"<<std::endl;
     }
 }
 
