@@ -79,6 +79,14 @@ void Kapemgga::resumoDeCaixa(){
     _caixa.resumoDeCaixa();
 }
 
+void Kapemgga::sobreUmBoleto(std::string nome){
+    if(LocalizaBoleto(nome)>=0){
+    _boletos[LocalizaBoleto(nome)].relatorioDeCategoria();
+    }else{
+        std::cout<<"Boleto não encontrado, tente corrigir o nome ou adicionar esse boleto"<<std::endl;
+    }
+}
+
 void Kapemgga::adicionaBoleto(Boleto novoBol){
     _boletos.push_back(novoBol);
 }
