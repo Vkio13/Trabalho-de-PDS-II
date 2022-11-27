@@ -164,7 +164,7 @@
          **/ 
       void deleteCategoria(int codigo);
      /**
-         * @brief Vetor de categorias
+         * @brief Carrega vetor de categorias
          * @return Retorna as categorias
          **/ 
       void vectorCategoria(std::vector<Categoria>& v);

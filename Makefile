@@ -21,13 +21,13 @@ caixa:
 	$(CC) $(CFLAGS) -c src/caixa.cpp -o build/caixa.o
 
 kapemgga:inicializador caixa boleto 
-	$(CC) $(CFLAGS) -c build/categoria.o build/caixa.o build/boleto.o build/inicializador.o src/kapemgga.cpp -o build/kapemgga.o
+	$(CC) $(CFLAGS) -c build/dados.o build/categoria.o build/caixa.o build/boleto.o build/inicializador.o src/kapemgga.cpp -o build/kapemgga.o
 
 relatorio: ##falta incluir na main
 	$(CC) $(CFLAGS) -c src/relatorio.cpp -o build/relatorio.o
 
 main: kapemgga
-	$(CC) $(CFLAGS) build/categoria.o build/caixa.o build/boleto.o build/inicializador.o build/kapemgga.o main.cpp -o $(TARGET)
+	$(CC) $(CFLAGS) build/dados.o build/categoria.o build/caixa.o build/boleto.o build/inicializador.o build/kapemgga.o main.cpp -o $(TARGET)
 
 clean:
 	$(RM) -r $(BUILDDIR)/* $(TARGET)

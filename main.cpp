@@ -41,7 +41,7 @@ int main(){
             // sistema.sobreUmBoleto(busca);
             break;
         case 4:
-            sistema.imprimeBoletos();
+            //sistema.imprimeBoletos();
             break;
         case 5:
             break;
