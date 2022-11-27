@@ -20,44 +20,41 @@ void Caixa::atualizaSaldo(){
 
 void Caixa::setReceitas(double valor){
     if(valor<0){
-       // throw Excecao_Caixa();
-    }else{
-    _receitas = valor;
+       throw Excecao_Caixa();
     }
+    _receitas = valor;
     this->atualizaSaldo();
 };
 
 void Caixa::setGastos(double valor){
     if(valor<0){
         //throw Excecao_Caixa();
-    }else{
-    _gastos  = valor;
     }
+    _gastos  = valor;
     this->atualizaSaldo();
 };
 
 void Caixa::adicionaGasto(double valor){
     if(valor<0){
-       // throw Excecao_Caixa();
-    }else{
-    _gastos  += valor;
+       throw Excecao_Caixa();
     }
+    _gastos  += valor;
     this->atualizaSaldo();
 };
 
 void Caixa::adicionaReceita(double valor){
     if(valor<0){
-        //throw Excecao_Caixa();
-    }else{
-    _receitas  += valor;
+        throw Excecao_Caixa();
     }
+    _receitas  += valor;
+
     this->atualizaSaldo();
 };
 
 void Caixa::resumoDeCaixa(){
-    std::cout << "Receitas: " << getReceitas() << std::endl;
-    std::cout << "Despesas: " << getGastos() << std::endl;
-    std::cout << "SALDO: " << getSaldo() << std::endl;
+    std::cout << "Receitas: " << _receitas << std::endl;
+    std::cout << "Despesas: " << _gastos << std::endl;
+    std::cout << "SALDO: " << _saldo << std::endl;
 }
 
 const char* Excecao_Caixa::what() const noexcept{
