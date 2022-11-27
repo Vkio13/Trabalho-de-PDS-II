@@ -58,7 +58,7 @@ class Categoria{
         /**
          * @brief Destrutor
          **/ 
-        ~Categoria();
+        // ~Categoria();
         /**
          * @brief Obtém o nome da categoria
          * @return Nome da categoria

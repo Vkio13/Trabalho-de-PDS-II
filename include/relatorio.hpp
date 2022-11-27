@@ -1,5 +1,6 @@
 #ifndef RELATORIO_H
 #define RELATORIO_H
+#include <list>
 /**
  * @file relatorio.hpp
  * @brief Classe onde estão armazenados os relatorios

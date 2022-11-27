@@ -12,7 +12,7 @@ class Inicializador {
     //Construtor
         Inicializador();
     //Destrutor
-        ~Inicializador();
+    // ~Inicializador();
     //Métodos
         double getEntradas();
         double getGastos();
