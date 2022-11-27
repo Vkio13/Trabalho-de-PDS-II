@@ -37,8 +37,8 @@ int main(){
             break;
         case 3:
             sistema.resumoDeCaixa();
-            // std::cin >> busca;
-            // sistema.sobreUmBoleto(busca);
+            std::cin >> busca;
+            sistema.sobreUmBoleto(busca);
             break;
         case 4:
             //sistema.imprimeBoletos();
