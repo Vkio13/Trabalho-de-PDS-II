@@ -50,6 +50,8 @@ class Kapemgga{
 
   //Função que imprime um resumo do caixa.
     void resumoDeCaixa();
+  
+    void sobreUmBoleto(std::string nome);
 
   //Função para imprimir todas as categorias que o usuário tem.
     void imprimeBoletos();
