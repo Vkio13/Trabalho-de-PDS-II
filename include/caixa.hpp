@@ -95,7 +95,8 @@ class Caixa{
          *
          * @details Subclasse de exception 
          **/
-class Excecao_Caixa : public std::exception { // Vai faltar a implementação no main
+class Excecao_Caixa : public std::exception {
+        public : 
         const char* what() const noexcept;
 };
 

@@ -28,7 +28,7 @@ void Caixa::setReceitas(double valor){
 
 void Caixa::setGastos(double valor){
     if(valor<0){
-        //throw Excecao_Caixa();
+        throw Excecao_Caixa();
     }
     _gastos  = valor;
     this->atualizaSaldo();
