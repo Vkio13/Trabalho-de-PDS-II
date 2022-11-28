@@ -63,17 +63,17 @@ int main(){
             std::cin >> valor;
             std::cout << "Digite a descrição: " << std::endl;
             std::cin >> descricao;
-            try{
+            //try{
             sistema.novoGasto(nome,valor,descricao);
-            }catch(Excecao_Caixa &e){
-                do{
-                std::cout << e.what() << std::endl;
-                if(true){
-                std::cout << "Entrei no IF" << std::endl;
-                std::cin >> valor;
-                }
-                }while(valor<0);
-            }
+            // }catch(Excecao_Caixa &e){
+            //     do{
+            //     std::cout << e.what() << std::endl;
+            //     if(true){
+            //     std::cout << "Entrei no IF" << std::endl;
+            //     std::cin >> valor;
+            //     }
+            //     }while(valor<0);
+            // }
         case 9:
             std::cin >> descricao;
             std::cin >> valor;
