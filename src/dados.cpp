@@ -73,10 +73,12 @@ void Dados::imprimeGastosTodos(){
     std::string descricao;
     double valor;
     int mes, dia;
+    int linha = 1;
     while(arq>>mes>>dia>>valor>>categoria>>descricao){
         descricao=replace(descricao,'_',' ');
         categoria=replace(categoria,'_',' ');
-        std::cout<<mes<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
+        std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
+        linha++;
     }
 
 };
@@ -93,12 +95,14 @@ void Dados::imprimeGastosCategoriaTotal(std::string cat){
     std::string descricao;
     double valor;
     int mes, dia;
+    int linha = 1;
     while(arq>>mes>>dia>>valor>>categoria>>descricao){
         descricao=replace(descricao,'_',' ');
         categoria=replace(categoria,'_',' ');
         if(cat==categoria){
-            std::cout<<mes<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
+            std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
         }
+        linha++;
     }
 
 };
@@ -115,12 +119,14 @@ void Dados::imprimeGastosMensal(int inmes){
     std::string descricao;
     double valor;
     int mes, dia;
+    int linha = 1;
     while(arq>>mes>>dia>>valor>>categoria>>descricao){
         descricao=replace(descricao,'_',' ');
         categoria=replace(categoria,'_',' ');
         if(inmes==mes){
-            std::cout<<mes<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
+            std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
         }
+        linha++;
     }
 
 };
@@ -141,12 +147,14 @@ std::ifstream arq;
     std::string descricao;
     double valor;
     int mes, dia;
+    int linha = 1;
     while(arq>>mes>>dia>>valor>>categoria>>descricao){
         descricao=replace(descricao,'_',' ');
         categoria=replace(categoria,'_',' ');
         if(inmes==mes && cat==categoria){
-            std::cout<<mes<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
+            std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
         }
+        linha++;
     }
 
 };
@@ -293,8 +301,9 @@ void Dados::imprimeEntradaTotal(){
     std::string descricao;
     double valor;
     int mes, dia;
+    int linha = 1;
     while(arq>>mes>>dia>>valor>>descricao){
-        std::cout<<mes<<"/"<<dia<<" R$"<<valor<<" "<<descricao<<std::endl;
+        std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" "<<descricao<<std::endl;
     }
 };
 void Dados::imprimeEntradaMensal(int inmes){
@@ -310,10 +319,12 @@ void Dados::imprimeEntradaMensal(int inmes){
     std::string descricao;
     double valor;
     int mes, dia;
+    int linha = 1;
     while(arq>>mes>>dia>>valor>>descricao){
         if(inmes==mes){
-        std::cout<<mes<<"/"<<dia<<" R$"<<valor<<" "<<descricao<<std::endl;
+        std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" "<<descricao<<std::endl;
         }
+        linha++;
     }
 };
 void Dados::deleteGasto(int codigo){
@@ -471,4 +482,38 @@ void Dados::vectorCategoria(std::vector<Categoria>& v){
         v.push_back(Categoria(categoria,orcamento));
     }
 };
-
+void Dados::editaGasto(int inlinha, int inmes, int india, double invalor, std::string incategoria, std::string indescricao){
+std::ofstream arqw;
+    std::ifstream arqr;
+    try{
+    arqr.open(datgastos, std::ios::in | std::ios::out);
+    }
+    catch(std::exception& e){
+        e.what();
+        exit(1);
+    }
+    std::vector<std::string> linhas;
+    std::string linha;
+    ;
+    while(getline(arqr, linha)){
+        linhas.push_back(linha);
+    }
+    arqr.close();
+    try{
+    arqw.open(datgastos, std::ios::out);
+    }
+    catch(std::exception& e){
+        e.what();
+        exit(1);
+    }
+    for(long unsigned int i=1;i<=linhas.size();i++){
+        if(i==inlinha){
+            indescricao=replace(indescricao,' ','_');
+            incategoria=replace(incategoria,' ','_');
+            arqw<<inmes<<" "<<india<<" "<<invalor<<" "<<incategoria<<" "<<indescricao<<std::endl;
+        }else{
+            arqw<<linhas[i-1]<<std::endl;
+        }
+    }
+    arqw.close();
+};

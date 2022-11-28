@@ -1,4 +1,5 @@
 #include "include/kapemgga.hpp"
+#include "include/dados.hpp"
 int main(){
     Kapemgga sistema;
     sistema.inicializar();
@@ -27,6 +28,9 @@ int main(){
         std::string descricao;
         int vencimento;
 
+        Dados d;
+        int mes, dia, linha;
+        std::string descricao_, categoria_;
         switch (op){
         case 1:
             sistema.imprimeCategorias();
@@ -67,6 +71,22 @@ int main(){
             std::cin >> vencimento;
             sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
         case 11:
+            break;
+        case 20:
+            std::cout<<"Linha: ";
+            std::cin>>linha;
+            std::cout<<"Mes: ";
+            std::cin>>mes;
+            std::cout<<"Dia: ";
+            std::cin>>dia;
+            std::cout<<"Valor: ";
+            std::cin>>valor;
+            getchar();
+            std::cout<<"Categoria: ";
+            getline(std::cin, categoria_);
+            std::cout<<"Descrição: ";
+            getline(std::cin, descricao_);
+            d.editaGasto(linha, mes, dia, valor, categoria_, descricao_);
             break;
         default:
             break;

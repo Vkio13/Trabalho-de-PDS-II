@@ -168,5 +168,10 @@
          * @return Retorna as categorias
          **/ 
       void vectorCategoria(std::vector<Categoria>& v);
+      /**
+         * @brief Carrega vetor de categorias
+         * @return Retorna as categorias
+         **/ 
+      void editaGasto(int inlinha, int inmes, int india, double invalor, std::string incategoria, std::string indescricao);
   };
 #endif
