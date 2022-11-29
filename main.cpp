@@ -56,33 +56,42 @@ int main(){
             std::cin >> nome;
             std::cin >> orcamento;
             sistema.adicionaCategoria (Categoria(nome,orcamento));
+            break;
         case 8:
-            std::cout << "Digite o nome da Categoria" << std::endl;
+            std::cout << "Digite o nome da Categoria: " << std::endl;
             std::cin >> nome;
             std::cout << "Digite o valor: " << std::endl;
             std::cin >> valor;
             std::cout << "Digite a descrição: " << std::endl;
-            std::cin >> descricao;
-            //try{
+            std::cin.ignore();
+            std::getline(std::cin, descricao);
+            try{
             sistema.novoGasto(nome,valor,descricao);
-            // }catch(Excecao_Caixa &e){
-            //     do{
-            //     std::cout << e.what() << std::endl;
-            //     if(true){
-            //     std::cout << "Entrei no IF" << std::endl;
-            //     std::cin >> valor;
-            //     }
-            //     }while(valor<0);
-            // }
+            }catch(Excecao_Caixa &e){
+                 do{
+                    std::cout << e.what() << std::endl;
+                    if(true){
+                    std::cin >> valor;
+                    }
+                    }while(valor<0);
+            sistema.novoGasto(nome,valor,descricao);
+            // Aqui ainda tem um erro - Precisa digitar uma string para dar prosseguimento a função. Não sei o motivo.
+            }
+            break;
         case 9:
-            std::cin >> descricao;
+            std::cin.ignore();
+            std::cout << "Digite a descrição da sua receita: " << std::endl;
+            std::getline(std::cin, descricao);
+            std::cout << "Digite o valor: " << std::endl;
             std::cin >> valor;
             sistema.novaReceita(descricao,valor);
+            break;
         case 10:
             std::cin >> nome;
             std::cin >> valor;
             std::cin >> vencimento;
             sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
+            break;
         case 11:
             
             d.imprimeGastosTodos();
