@@ -170,7 +170,7 @@
       void vectorCategoria(std::vector<Categoria>& v);
       /**
          * @brief Carrega vetor de categorias
-         * @return Retorna as categorias
+         * @param inlinha Linha a ser editada,
          **/ 
       void editaGasto(int inlinha, int inmes, int india, double invalor, std::string incategoria, std::string indescricao);
   };

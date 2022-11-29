@@ -84,6 +84,8 @@ int main(){
             std::cin >> vencimento;
             sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
         case 11:
+            
+            d.imprimeGastosTodos();
             break;
         case 20:
             std::cout<<"Linha: ";

@@ -510,7 +510,7 @@ std::ofstream arqw;
         if(i==inlinha){
             indescricao=replace(indescricao,' ','_');
             incategoria=replace(incategoria,' ','_');
-            arqw<<inmes<<" "<<india<<" "<<invalor<<" "<<incategoria<<" "<<indescricao<<std::endl;
+            arqw<<inmes<<' '<<india<<' '<<invalor<<' '<<incategoria<<' '<<indescricao<<std::endl;
         }else{
             arqw<<linhas[i-1]<<std::endl;
         }
