@@ -84,7 +84,18 @@ int main(){
             std::getline(std::cin, descricao);
             std::cout << "Digite o valor: " << std::endl;
             std::cin >> valor;
+            try{
+            sistema.novaReceita(descricao,valor);;
+            }catch(Excecao_Caixa &e){
+                 do{
+                    std::cout << e.what() << std::endl;
+                    if(true){
+                    std::cin >> valor;
+                    }
+                    }while(valor<0);
             sistema.novaReceita(descricao,valor);
+            // Aqui ainda tem um erro - Precisa digitar uma string para dar prosseguimento a função. Não sei o motivo.
+            }
             break;
         case 10:
             std::cin >> nome;

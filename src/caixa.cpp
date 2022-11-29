@@ -58,5 +58,5 @@ void Caixa::resumoDeCaixa(){
 }
 
 const char* Excecao_Caixa::what() const noexcept{
-    return "O valor inserido não é valido. Por favor, insira um valor positivo";
+    return "O valor inserido não é valido. Por favor, insira um valor positivo: ";
 };
