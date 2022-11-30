@@ -1,6 +1,20 @@
 #ifndef KAPEMGGA_HPP
 #define KAPEMGGA_HPP
 
+/**
+ * @file kapemgga.hpp
+ * @brief Superclasse principal onde se juntam
+ * todos os módulos.
+ * @version 1.0
+ * @date 2022-11-30
+ * @details TAD com função principal de 
+ * juntar todo o cógido e funcionar
+ * como um todo
+ * 
+ * @copyright GNU General Public License 
+ * 
+ */
+
 #include <vector>
 #include <string>
 #include <iostream>
@@ -10,71 +24,169 @@
 #include "inicializador.hpp"
 
 
+/**
+         * @brief Classe contendo informações gerais
+         * de todo o código
+         *
+         * @details Obtém informações de todas as partes
+         * do código e as torna um só.
+         *
+         */   
 class Kapemgga{
   private:
+  
+  
+  /**
+         * @brief Vetor contendo todas as categorias.
+         */
     std::vector<Categoria>_categorias;
+  
+  
+  /**
+         * @brief Caixa do sistema como um todo.
+         */
     Caixa _caixa;
+  
+  
+  /**
+         * @brief Vetor de boletos.
+         */
     std::vector<Boleto>_boletos;
+  
+  
+  /**
+         * @brief Varável do tipo dados para funções gerais.
+         */
     Dados d;
 
   public:
-  //Construtor do Kappemgga.
+  /**
+         * @brief Construtor do Kapemgga
+         **/ 
     Kapemgga();
-
+  
+  
+/**
+         * @brief Função para iniciar o código.
+         **/ 
     void inicializar();
   
+  
+  /**
+         * @brief Localiza uma determinada categoria.
+         * @param nome Nome da categoria a se encontrar.
+         * @return Retorna a localização da categoria.
+         **/ 
     int LocalizaCategoria(std::string nome);
-
+  
+  
+/**
+         * @brief Localiza um determinado boleto.
+         * @param nome Nome do boleto a se encontrar.
+         * @return Retorna a localização do boleto.
+         **/ 
     int LocalizaBoleto(std::string nome);
-
-  //Função para imprimir todas as categorias que o usuário tem.
+  
+  
+/**
+         * @brief Função que imprime todas as categorias que o usuário tem.
+         **/ 
     void imprimeCategorias();
-
-  //Imprime o relatório de uma categoria específica.
+  
+  
+/**
+  * @brief Imprime o relatório de uma categoria específica.
+  **/ 
     void sobreUmaCategoria(std::string nome);
   
-  //Função que permite o usuário criar novas categorias.
+  
+  /**
+ * @brief Função que permite o usuário criar novas categorias.
+  **/ 
     void adicionaCategoria(Categoria cate);
   
-  //Função que permite o usuário excluir alguma categoria.
+  
+  /**
+  * @brief Função que permite o usuário excluir alguma categoria.
+  **/ 
     void removeCategoria(std::string nome);
   
-  //Função que permite o usuário somar um valor x ao que ele já tem disponível, e especificar a origem do dinheiro.
+  
+  /**
+  * @brief Função que permite o usuário somar um valor x ao que ele já tem disponível, e especificar a origem do dinheiro.
+  **/ 
     void novaReceita(std::string descricao, double valor);
   
-  //Função responsável por realizar um gasto dentro de uma categoria especificada.
+  
+  /**
+  * @brief Função responsável por realizar um gasto dentro de uma categoria especificada.
+  **/ 
     void novoGasto(std::string categoria, double valor, std::string descricao);
   
-  //Função para pagar determinado boleto, de acordo com seu nome.
+  
+  /**
+  * @brief Função para pagar determinado boleto, de acordo com seu nome.
+  **/ 
     void pagaBoleto(std::string nome);
-
-  //Função que imprime um resumo do caixa.
+  
+  
+/**
+  * @brief Função que imprime um resumo do caixa.
+  **/ 
     void resumoDeCaixa();
   
+  
+  /**
+  * @brief Função que imprime o relatório de um boleto específico.
+  **/ 
     void sobreUmBoleto(std::string nome);
-
-  //Função para imprimir todas as categorias que o usuário tem.
+  
+  
+/**
+  * @brief Função para imprimir todas as categorias que o usuário tem.
+  **/ 
     void imprimeBoletos();
-
-  //Função que adiciona um boleto ao vetor boletos.
+  
+  
+/**
+  * @brief Função que adiciona um boleto ao vetor boletos.
+  **/ 
     void adicionaBoleto(Boleto novoBol);
   
-  //Função que genencia boletos pagos e não pagos ao final de um mês.
+  
+  /**
+  * @brief Função que gerencia boletos pagos e não pagos ao final de um mês.
+  **/ 
     void encerraBoletos();
-
-  //Função que lista os boletos ainda não pagos.
+  
+  
+/**
+  * @brief Função que lista os boletos ainda não pagos.
+  **/ 
     void boletosAPagar();
   
-  //Função responsável por dar o comando de fechar o mês.
+  
+  /**
+  * @brief Função responsável por dar o comando de fechar o mês.
+  **/ 
     void encerraMes();
   
-  //Função que permite ao usuário emitir um relatório mensal de gastos e receitas recebidas.
+  
+  /**
+  * @brief Função que permite ao usuário emitir um relatório mensal de gastos e receitas recebidas.
+  **/ 
     void relatorioMensal(int mes);
   
-  //Função que permite ao usuário emitir um relatório de gastos e receitas recebidas desde que começou a usar o sistema.
+  
+  /**
+  * @brief Função que permite ao usuário emitir um relatório de gastos e receitas recebidas desde que começou a usar o sistema.
+  **/ 
     void relatorioGeral();
   
-  //Função que permite ao usuário emitir um relatório do dia atual.
+  
+  /**
+  * @brief Função que permite ao usuário emitir um relatório do dia atual.
+  **/ 
     void relatorioAtual();
 
 };
