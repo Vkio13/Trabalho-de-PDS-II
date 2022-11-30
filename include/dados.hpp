@@ -4,8 +4,8 @@
  * @file dados.hpp
  * @brief Classe onde ocorre a conexão 
  * entre arquivo e código
- * @version 1.0
- * @date 2022-11-24
+ * @version 1.3
+ * @date 2022-11-30
  * @details TAD com função principal de 
  * criar uma interação entre arquivos de 
  * salvamento de dasdos e o código
@@ -170,7 +170,12 @@
       void vectorCategoria(std::vector<Categoria>& v);
       /**
          * @brief Carrega vetor de categorias
-         * @param inlinha Linha a ser editada,
+         * @param inlinha Linha a ser editada
+         * @param inmes Mes a ser editado
+         * @param india Dia a ser editado
+         * @param invalor Valor a ser editado
+         * @param incategoria Categoria a ser editada
+         * @param indescricao Descrição a ser editada
          **/ 
       void editaGasto(int inlinha, int inmes, int india, double invalor, std::string incategoria, std::string indescricao);
   };
