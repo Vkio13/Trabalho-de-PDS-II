@@ -4,6 +4,9 @@
 //Construtor
 Boleto::Boleto(std::string nome, double valor, int vencimento){
     _nome = nome;
+    if(valor<0){
+        throw Excecao_Boleto();
+    }
     _orcamento = valor;
     _gastoTotal = 0;
     _limite = false;
@@ -54,3 +57,7 @@ void Boleto::relatorioDeCategoria(){
         }
     }
 }
+
+    const char* Excecao_Boleto::what() const noexcept{ 
+        return "O valor inserido não é valido. Por favor, insira um valor positivo: ";
+    }

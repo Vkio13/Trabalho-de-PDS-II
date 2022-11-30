@@ -98,10 +98,25 @@ int main(){
             }
             break;
         case 10:
+        /*O NOME DO BOLETO NÃO SERIA MELHOR COLOCAR COMO STRING?*/
+            std::cout << "Digite o nome do Boleto: " << std::endl;
             std::cin >> nome;
+            std::cout << "Digite o valor do Boleto: " << std::endl;
             std::cin >> valor;
+            std::cout << "Digite a data de Vencimento: " << std::endl;
             std::cin >> vencimento;
+            try{
             sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
+            }catch(Excecao_Boleto &e){
+            do{
+                std::cout << e.what() << std::endl;
+                if(true){
+                std::cin >> valor;
+                }
+            }while(valor<0);
+            sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
+            }
+            /*AQUI O BOLETO PODE TER PROBLEMA COM A DATA QUE O USUARIO COLOCAR, SERÁ NECESSÁRIO VERIFICAR ESSES NUMEROS*/
             break;
         case 11:
             

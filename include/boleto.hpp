@@ -64,4 +64,9 @@ class Boleto : public Categoria {
          */
         void relatorioDeCategoria() override;
 };
+    class Excecao_Boleto : public std::exception {
+        public : 
+        const char* what() const noexcept;
+    };
+
 #endif
