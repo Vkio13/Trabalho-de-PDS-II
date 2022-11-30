@@ -93,5 +93,8 @@ class Categoria{
          **/ 
         virtual void relatorioDeCategoria();
 };
-
+class Excecao_Categoria : std::exception{
+    public : 
+    const char* what() const noexcept;
+};
 #endif

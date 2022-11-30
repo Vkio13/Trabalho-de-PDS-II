@@ -53,11 +53,23 @@ int main(){
             sistema.boletosAPagar();
             break;
         case 7:
+        /*ACHO QUE SERIA INTERESSANTE COLOCAR STRING NO NOME E LIMITAR O NUMERO DE CARACTERES PARA 20 OU ALGO DO GENERO*/
             std::cin >> nome;
             std::cin >> orcamento;
+            try{
+                sistema.adicionaCategoria (Categoria(nome,orcamento));
+            }catch(Excecao_Categoria &e){
+                 do{
+                    std::cout << e.what() << std::endl;
+                    if(true){
+                    std::cin >> orcamento;
+                    }
+                    }while(orcamento<0);
             sistema.adicionaCategoria (Categoria(nome,orcamento));
+            }
             break;
         case 8:
+        /*ACHO QUE SERIA INTERESSANTE COLOCAR STRING NO NOME E LIMITAR O NUMERO DE CARACTERES PARA 20 OU ALGO DO GENERO*/
             std::cout << "Digite o nome da Categoria: " << std::endl;
             std::cin >> nome;
             std::cout << "Digite o valor: " << std::endl;
@@ -99,6 +111,7 @@ int main(){
             break;
         case 10:
         /*O NOME DO BOLETO NÃO SERIA MELHOR COLOCAR COMO STRING?*/
+        /*ACHO QUE SERIA INTERESSANTE COLOCAR STRING NO NOME E LIMITAR O NUMERO DE CARACTERES PARA 20 OU ALGO DO GENERO*/
             std::cout << "Digite o nome do Boleto: " << std::endl;
             std::cin >> nome;
             std::cout << "Digite o valor do Boleto: " << std::endl;

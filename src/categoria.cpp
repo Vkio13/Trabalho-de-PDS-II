@@ -4,6 +4,9 @@
 // Construtor:
 Categoria::Categoria(std::string nome, double orcamento){
     _nome = nome;
+    if(orcamento<0){
+        throw Excecao_Categoria();
+    }
     _orcamento = orcamento;
     _gastoTotal = 0;
     _limite = false;
@@ -52,6 +55,10 @@ void Categoria::relatorioDeCategoria() {
     }else{
         std::cout << "Orcamento ainda nao atingido." << std::endl;
     }
+}
+
+const char* Excecao_Categoria::what() const noexcept{
+    return "O valor do Orçamento tem que ser positivo e maior que zero. Por favor, digite novamente o valor atendendo as especificações citadas: ";
 }
 
 /* ARQUIVOS - FORA DE USO
