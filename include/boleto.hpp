@@ -48,10 +48,18 @@ class Boleto : public Categoria {
          */
         ~Boleto();
           /**
-         * @brief efetua o pagamento do boleto
+         * @brief ...
          */
         void vencido();
+        /**
+         * @brief função que diz se o boleto foi pago
+         *
+         * @return retorna se foi pago ou não
+         */
         bool get_pago();
+        /**
+         * @brief efetua o pagamento do boleto
+         */
         void pagaBoleto();
         /**
          * @brief função que diz se o boleto venceu
