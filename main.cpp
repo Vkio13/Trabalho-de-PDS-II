@@ -116,7 +116,8 @@ int main(){
             }while(valor<0);
             sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
             }
-            /*AQUI O BOLETO PODE TER PROBLEMA COM A DATA QUE O USUARIO COLOCAR, SERÁ NECESSÁRIO VERIFICAR ESSES NUMEROS*/
+            /*AQUI O BOLETO PODE TER PROBLEMA COM A DATA QUE O USUARIO COLOCAR, SERÁ NECESSÁRIO VERIFICAR ESSES NUMEROS
+            OUTRO ERRO QUE PODE TER NO VALOR É O ERRO DE OVERFLOW*/
             break;
         case 11:
             
