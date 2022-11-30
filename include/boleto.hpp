@@ -3,8 +3,8 @@
 /**
  * @file boleto.hpp
  * @brief Subclasse Boleto 
- * @version 1.0
- * @date 2022-11-24
+ * @version 1.3
+ * @date 2022-11-30
  * @details TAD com função principal de 
  * conter a data de vencimento de um 
  * determinado boleto
