@@ -4,7 +4,7 @@
  * @file caixa.hpp
  * @brief Classe onde estão armazenados os dados do 
  * caixa financeiro
- * @version 1.0
+ * @version 1.5
  * @date 2022-11-24
  * @details TAD com função principal de 
  * conter os valores de caixa e facilitar
