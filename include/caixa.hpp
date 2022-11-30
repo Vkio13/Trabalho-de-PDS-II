@@ -88,6 +88,9 @@ class Caixa{
          * @param valor Valor a ser adicionado
          **/
         void adicionaReceita(double valor);
+        /**
+         * @brief Apresenta um resumo do caixa
+         **/
         void resumoDeCaixa();
 };
 /**
