@@ -3,6 +3,9 @@
 
 //Construtor
 Boleto::Boleto(std::string nome, double valor, int vencimento){
+    if(nome.size()>20){
+        throw Excecao_Caracteres_Boleto();
+    }
     _nome = nome;
     if(valor<0){
         throw Excecao_Boleto();

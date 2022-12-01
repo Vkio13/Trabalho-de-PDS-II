@@ -76,5 +76,11 @@ class Boleto : public Categoria {
         public : 
         const char* what() const noexcept;
     };
+    class Excecao_Caracteres_Boleto : public Excecao_Boleto{
+        public : 
+        const char* what() const noexcept{
+             return "O número de caracteres excede o número permitido pelo programa. Por favor, digite novamente o nome.";
+        }
+    };
 
 #endif

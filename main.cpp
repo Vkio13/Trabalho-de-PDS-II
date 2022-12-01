@@ -69,7 +69,6 @@ int main(){
             }
             break;
         case 8:
-        /*ACHO QUE SERIA INTERESSANTE COLOCAR STRING NO NOME E LIMITAR O NUMERO DE CARACTERES PARA 20 OU ALGO DO GENERO*/
             std::cout << "Digite o nome da Categoria: " << std::endl;
             std::cin >> nome;
             std::cout << "Digite o valor: " << std::endl;
@@ -87,6 +86,7 @@ int main(){
                     }
                     }while(valor<0);
             sistema.novoGasto(nome,valor,descricao);
+            //Vamos limitar o tamanho de caracteres da descricao, nao consegui implementar isso agr
             // Aqui ainda tem um erro - Precisa digitar uma string para dar prosseguimento a função. Não sei o motivo.
             }
             break;
@@ -113,7 +113,8 @@ int main(){
         /*O NOME DO BOLETO NÃO SERIA MELHOR COLOCAR COMO STRING?*/
         /*ACHO QUE SERIA INTERESSANTE COLOCAR STRING NO NOME E LIMITAR O NUMERO DE CARACTERES PARA 20 OU ALGO DO GENERO*/
             std::cout << "Digite o nome do Boleto: " << std::endl;
-            std::cin >> nome;
+            std::cin.ignore();
+            std::getline(std::cin, nome);
             std::cout << "Digite o valor do Boleto: " << std::endl;
             std::cin >> valor;
             std::cout << "Digite a data de Vencimento: " << std::endl;
@@ -121,12 +122,19 @@ int main(){
             try{
             sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
             }catch(Excecao_Boleto &e){
-            do{
+            if(valor<0){
+                do{
                 std::cout << e.what() << std::endl;
-                if(true){
-                std::cin >> valor;
-                }
-            }while(valor<0);
+                std::cin >> valor;  
+                }while(valor<0);
+            }
+            if(nome.size()>20){
+             do{
+                std::cout << e.what() << std::endl;
+                std::cin.ignore();
+                std::getline(std::cin, nome);  
+                }while(valor<0);
+            }
             sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
             }
             /*AQUI O BOLETO PODE TER PROBLEMA COM A DATA QUE O USUARIO COLOCAR, SERÁ NECESSÁRIO VERIFICAR ESSES NUMEROS
