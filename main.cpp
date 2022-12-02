@@ -1,5 +1,6 @@
 #include "include/kapemgga.hpp"
 #include "include/dados.hpp"
+#include "include/usuario.hpp"
 int main(){
     Kapemgga sistema;
     sistema.inicializar();
@@ -31,6 +32,7 @@ int main(){
         Dados d;
         int mes, dia, linha;
         std::string descricao_, categoria_;
+        Usuario u;
         switch (op){
         case 1:
             sistema.imprimeCategorias();
@@ -160,6 +162,8 @@ int main(){
             getline(std::cin, descricao_);
             d.editaGasto(linha, mes, dia, valor, categoria_, descricao_);
             break;
+        case 21:
+            u.criarUsuario("gustavo", "12345");
         default:
             break;
         }

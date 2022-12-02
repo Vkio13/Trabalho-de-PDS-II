@@ -5,6 +5,9 @@ TARGET := main.out
 CFLAGS := -g -Wall -O3 -std=c++11 -I include/
 
 all: main
+usuario:
+	$(CC) $(CFLAGS) -c src/usuario.cpp -o build/usuario.o
+
 categoria:
 	$(CC) $(CFLAGS) -c src/categoria.cpp -o build/categoria.o
 
@@ -26,8 +29,8 @@ kapemgga:inicializador caixa boleto
 relatorio: ##falta incluir na main
 	$(CC) $(CFLAGS) -c src/relatorio.cpp -o build/relatorio.o
 
-main: kapemgga
-	$(CC) $(CFLAGS) build/dados.o build/categoria.o build/caixa.o build/boleto.o build/inicializador.o build/kapemgga.o main.cpp -o $(TARGET)
+main: kapemgga usuario
+	$(CC) $(CFLAGS) build/usuario.o build/dados.o build/categoria.o build/caixa.o build/boleto.o build/inicializador.o build/kapemgga.o main.cpp -o $(TARGET)
 
 clean:
 	$(RM) -r $(BUILDDIR)/* $(TARGET)
