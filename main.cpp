@@ -7,7 +7,7 @@ int main(){
     int op;
 
     while(std::cin>>op){
-        std::cout<<"---------- MENU ----------" << std::endl
+        std::cout<<"-------------------- MENU --------------------" << std::endl
         <<"Digite o número correspondete à função desejada:" << std::endl
         <<"1 - Listar categorias existentes" << std::endl
         <<"2 - Exibir descrição de uma categoria" << std::endl
@@ -20,8 +20,7 @@ int main(){
         <<"9 - Adicionar Receita" << std::endl
         <<"10 - Adicionar Boleto" << std::endl
         <<"11 - Relatórios" << std::endl
-        <<"12 - Encerrar o Programa" << std::endl
-        <<"--------------------------"<<std::endl; 
+        <<"----------------------------------------------"<<std::endl; 
         
         std::string busca;
         std::string nome;
@@ -48,7 +47,7 @@ int main(){
             sistema.sobreUmBoleto(busca);
             break;
         case 4:
-            //sistema.imprimeBoletos();
+            sistema.imprimeBoletos();
             break;
         case 5:
             break;
@@ -88,12 +87,6 @@ int main(){
                     std::cin >> valor;
                     }
                     }while(valor<0);
-            //      do{
-            //         std::cout << e.what() << std::endl;
-            //         std::cin.ignore();
-            //         std::getline(std::cin, nome);  
-            //         }while(nome.size()>20);
-            // }
             sistema.novoGasto(nome,valor,descricao);
             //Vamos limitar o tamanho de caracteres da descricao, nao consegui implementar isso agr
             // Aqui ainda tem um erro - Precisa digitar uma string para dar prosseguimento a função. Não sei o motivo.
@@ -114,12 +107,6 @@ int main(){
                     std::cin >> valor;
                     }
                     }while(valor<0);
-                //  do{
-                //     std::cout << e.what() << std::endl;
-                //     std::cin.ignore();
-                //     std::getline(std::cin, nome);  
-                //     }while(nome.size()>20);
-            // }
             sistema.novaReceita(descricao,valor);
             // Aqui ainda tem um erro - Precisa digitar uma string para dar prosseguimento a função. Não sei o motivo.
             }
@@ -144,11 +131,11 @@ int main(){
                 }while(valor<0);
             }
             if(nome.size()>20){
-            do{
+             do{
                 std::cout << e.what() << std::endl;
                 std::cin.ignore();
                 std::getline(std::cin, nome);  
-                }while(nome.size()>20);
+                }while(valor<0);
             }
             sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
             }
@@ -159,8 +146,6 @@ int main(){
             
             d.imprimeGastosTodos();
             break;
-        case 12: 
-            return 0;
         case 20:
             std::cout<<"Linha: ";
             std::cin>>linha;

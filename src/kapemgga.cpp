@@ -6,6 +6,7 @@ void Kapemgga::inicializar(){
     _categorias = i.getCategorias();
     _caixa.setGastos(i.getGastos());
     _caixa.setReceitas(i.getEntradas());
+    adicionaCategoria(Categoria ("Boletos Pagos", 1000000000000));
 }
 
 int Kapemgga::LocalizaCategoria(std::string nome){
@@ -94,6 +95,9 @@ void Kapemgga::adicionaBoleto(Boleto novoBol){
 void Kapemgga::pagaBoleto(std::string nome){
     _boletos[LocalizaBoleto(nome)].pagaBoleto();
     _caixa.adicionaGasto(_boletos[LocalizaBoleto(nome)].get_orcamento());
+    novoGasto("Boletos", 
+              _boletos[LocalizaBoleto(nome)].get_orcamento(),
+              _boletos[LocalizaBoleto(nome)].get_nome());
 
 }
 
