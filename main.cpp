@@ -48,7 +48,7 @@ int main(){
             sistema.sobreUmBoleto(busca);
             break;
         case 4:
-            //sistema.imprimeBoletos();
+            sistema.imprimeBoletos();
             break;
         case 5:
             std::cin>>busca;
@@ -178,7 +178,7 @@ int main(){
             break;
         case 12:
 
-            return 0;
+            exit(0);
 
         case 20:
             std::cout<<"Linha: ";
