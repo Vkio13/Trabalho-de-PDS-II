@@ -6,7 +6,7 @@ Categoria::Categoria(std::string nome, double orcamento){
     if(nome.size()>20){
         throw Excecao_Categoria_Caracter();
     }
-    if(orcamento<0){
+    if(orcamento<0 || orcamento > 2147483646){
         throw Excecao_Categoria();
     }
     _nome = nome;
@@ -61,7 +61,7 @@ void Categoria::relatorioDeCategoria() {
 }
 
 const char* Excecao_Categoria::what() const noexcept{
-    return "O valor do Orçamento tem que ser positivo e maior que zero. Por favor, digite novamente o valor atendendo as especificações citadas: ";
+    return "O valor do Orçamento tem que ser positivo, maior que zero e menor que 2.147.483.647. Por favor, digite novamente o valor atendendo as especificações citadas: ";
 }
 
 /* ARQUIVOS - FORA DE USO

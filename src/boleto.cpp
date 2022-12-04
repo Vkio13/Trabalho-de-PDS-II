@@ -7,7 +7,7 @@ Boleto::Boleto(std::string nome, double valor, int vencimento){
         throw Excecao_Caracteres_Boleto();
     }
     _nome = nome;
-    if(valor<0){
+    if(valor<0 || valor > 2147483646){
         throw Excecao_Boleto();
     }
     _orcamento = valor;
@@ -62,5 +62,5 @@ void Boleto::relatorioDeCategoria(){
 }
 
     const char* Excecao_Boleto::what() const noexcept{ 
-        return "O valor inserido não é valido. Por favor, insira um valor positivo: ";
+        return "O valor inserido não é valido. Por favor, insira um valor positivo ou de valor menor que o inserido: ";
     }

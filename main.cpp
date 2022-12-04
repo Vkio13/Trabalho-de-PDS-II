@@ -64,13 +64,13 @@ int main(){
             try{
                 sistema.adicionaCategoria (Categoria(nome,orcamento));
             }catch(Excecao_Categoria &e){
-                if(orcamento<0){
+                if(orcamento<0 || orcamento > 2147483646){
                     do{
                         std::cout << e.what() << std::endl;
                         if(orcamento<0){
                         std::cin >> orcamento;
                         }
-                        }while(orcamento<0);
+                        }while(orcamento<0 || orcamento > 2147483646);
                 }
                 if(nome.size()>20){
                     do{
@@ -92,13 +92,13 @@ int main(){
             try{
             sistema.novoGasto(nome,valor,descricao);
             }catch(Excecao_Caixa &e){
-                if(valor<0){
+                if(valor<0 || valor > 2147483646){
                     do{
                         std::cout << e.what() << std::endl;
                         if(true){
                         std::cin >> valor;
                         }
-                    }while(valor<0);
+                    }while(valor<0 || valor > 2147483646);
                 }
                 if(descricao.size()>100){
                     do{
@@ -121,13 +121,13 @@ int main(){
             try{
             sistema.novaReceita(descricao,valor);;
             }catch(Excecao_Caixa &e){
-                if(valor < 0){
+                if(valor < 0 || valor > 2147483646 ){
                  do{
                     std::cout << e.what() << std::endl;
                     if(true){
                     std::cin >> valor;
                     }
-                    }while(valor<0);
+                    }while(valor<0 || valor > 2147483646);
                 }
                 if(descricao.size()>100){
                     do{
@@ -154,11 +154,11 @@ int main(){
             try{
             sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
             }catch(Excecao_Boleto &e){
-            if(valor<0){
+            if(valor<0 || valor > 2147483646 ){
                 do{
                 std::cout << e.what() << std::endl;
                 std::cin >> valor;  
-                }while(valor<0);
+                }while(valor<0 || valor > 2147483646 );
             }
             if(nome.size()>20){
              do{

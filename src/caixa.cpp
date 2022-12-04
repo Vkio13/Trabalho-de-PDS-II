@@ -19,7 +19,7 @@ void Caixa::atualizaSaldo(){
 };
 
 void Caixa::setReceitas(double valor){
-    if(valor<0){
+    if(valor<0 || valor > 2147483646){
        throw Excecao_Caixa();
     }
     _receitas = valor;
@@ -27,7 +27,7 @@ void Caixa::setReceitas(double valor){
 };
 
 void Caixa::setGastos(double valor){
-    if(valor<0){
+    if(valor<0 || valor > 2147483646){
         throw Excecao_Caixa();
     }
     _gastos  = valor;
@@ -58,5 +58,5 @@ void Caixa::resumoDeCaixa(){
 }
 
 const char* Excecao_Caixa::what() const noexcept{
-    return "O valor inserido não é valido. Por favor, insira um valor positivo: ";
+    return "O valor inserido não é valido. Por favor, insira um outro valor: ";
 };
