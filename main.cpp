@@ -31,8 +31,6 @@ int main(){
         double orcamento;
         double valor;
         std::string descricao;
-        int dia;
-        int mes;
         Relatorio r;
         Dados d;
         int mes, dia, linha;
