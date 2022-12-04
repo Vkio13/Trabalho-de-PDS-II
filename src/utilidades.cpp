@@ -12,7 +12,4 @@ void menu(vector<string> opcoes){
     }
     cout<<endl;
 };
-int main (){
-    menu({"Pedro","Pedra","Nada"});
-    return 0;  
-}
+
