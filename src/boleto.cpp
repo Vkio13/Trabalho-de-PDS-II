@@ -44,6 +44,7 @@ bool Boleto::venceu(){
         } else { return false; }
     if(dataHora->tm_mon < (_vMes - 1)) {
         return false;
+        }
     }
 }
 
