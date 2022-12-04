@@ -178,7 +178,7 @@ int main(){
             break;
         case 12:
 
-            return;
+            return 0;
 
         case 20:
             std::cout<<"Linha: ";
