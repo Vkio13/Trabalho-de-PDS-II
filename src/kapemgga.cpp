@@ -94,6 +94,12 @@ void Kapemgga::sobreUmBoleto(std::string nome){
     }
 }
 
+void Kapemgga::imprimeBoletos(){
+    for(Boleto bole:_boletos){
+        std::cout << "Boleto:" << bole.get_nome() << std::endl;
+    }
+}
+
 void Kapemgga::adicionaBoleto(Boleto novoBol){
     _boletos.push_back(novoBol);
 }
