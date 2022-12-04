@@ -31,7 +31,8 @@ int main(){
         double orcamento;
         double valor;
         std::string descricao;
-        int vencimento;
+        int dia;
+        int mes;
         Relatorio r;
         Dados d;
         int mes, dia, linha;
@@ -152,25 +153,36 @@ int main(){
             std::getline(std::cin, nome);
             std::cout << "Digite o valor do Boleto: " << std::endl;
             std::cin >> valor;
-            std::cout << "Digite a data de Vencimento: " << std::endl;
-            std::cin >> vencimento;
+            std::cout << "Digite o dia de vencimento do boleto: " << std::endl;
+            std::cin >> dia;
+            std::cout << "Digite o mês de vencimento do boleto: " << std::endl;
+            std::cin >> mes;
             try{
-            sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
+                sistema.adicionaBoleto(Boleto(nome,valor,dia,mes));
             }catch(Excecao_Boleto &e){
-            if(valor<0 || valor > 2147483646 ){
-                do{
-                std::cout << e.what() << std::endl;
-                std::cin >> valor;  
-                }while(valor<0 || valor > 2147483646 );
-            }
-            if(nome.size()>20){
-             do{
-                std::cout << e.what() << std::endl;
-                std::cin.ignore();
-                std::getline(std::cin, nome);  
-                }while(nome.size()>20);
-            }
-            sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
+                if(valor<0 || valor > 2147483646 ){
+                    do{
+                        std::cout << e.what() << std::endl;
+                        std::cin >> valor;  
+                    }while(valor<0 || valor > 2147483646 );
+                }
+                if(nome.size()>20){
+                    do{
+                        std::cout << e.what() << std::endl;
+                        std::cin.ignore();
+                        std::getline(std::cin, nome);  
+                    }while(nome.size()>20);
+                }
+                if(dia < 1 || dia > 31 || mes < 1 || mes > 12){
+                    do{
+                        std::cout << e.what() << std::endl;
+                        std::cout << "Digite o dia de vencimento do boleto: " << std::endl;
+                        std::cin >> dia;
+                        std::cout << "Digite o mês de vencimento do boleto: " << std::endl;
+                        std::cin >> mes;
+                    }while(dia < 1 || dia > 31 || mes < 1 || mes > 12);
+                }
+                sistema.adicionaBoleto(Boleto(nome,valor,dia,mes));
             }
             /*AQUI O BOLETO PODE TER PROBLEMA COM A DATA QUE O USUARIO COLOCAR, SERÁ NECESSÁRIO VERIFICAR ESSES NUMEROS
             OUTRO ERRO QUE PODE TER NO VALOR É O ERRO DE OVERFLOW*/
