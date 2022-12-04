@@ -1,6 +1,7 @@
 #include "kapemgga.hpp"
 #include "dados.hpp"
 #include "usuario.hpp"
+#include "relatorio.hpp"
 int main(){
     Kapemgga sistema;
     sistema.inicializar();
@@ -29,7 +30,7 @@ int main(){
         double valor;
         std::string descricao;
         int vencimento;
-
+        Relatorio r;
         Dados d;
         int mes, dia, linha;
         std::string descricao_, categoria_;
@@ -199,6 +200,8 @@ int main(){
         case 21:
             u.criarUsuario("gustavo", "12345");
             std::cout<<u.procuraUsuario("gustavo");
+        case 22:
+            r.relatorioGeral();
         default:
             break;
         }

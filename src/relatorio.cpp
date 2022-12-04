@@ -1,12 +1,26 @@
 #include "../include/relatorio.hpp"
 
 //Construtor
-Relatorio::Relatorio(std::list<Categoria> categorias){
-    _categorias = categorias;
-}
+Relatorio::Relatorio(){
+
+};
 //
 void Relatorio::relatorioGeral(){
-//PREENCHER
+Dados d;
+    double entradas;
+    double gastos;
+    d.vectorCategoria(_categorias);
+    for(int i=0; i<_categorias.size(); i++){
+        _categorias[i].set_gasto(d.somaGastosCategoria(_categorias[i].get_nome()));
+    }
+    entradas = d.somaEntradas();
+    gastos = d.somaGastosTotal();
+    std::cout<<"===================| Relatório Geral (Total) | ================="<<std::endl;
+    std::cout<<"Entradas: "<<entradas<<" | Gastos: "<<gastos<<std::endl;
+    for(int i=0; i<_categorias.size(); i++){
+        std::cout<<_categorias[i].get_nome()<<": "<<_categorias[i].get_gasto()<<std::endl;
+    }
+    std::cout<<"================================================================"<<std::endl;
 }
 void Relatorio::relatorioMensal(){
 //PREENCHER

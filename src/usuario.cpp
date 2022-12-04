@@ -8,8 +8,6 @@ std::string Usuario::replace(std::string n, char c, char s){
     }
     return n;
 };
-
-//Construtor
 Usuario::Usuario(){
     _logado= false;
     _usuario="";

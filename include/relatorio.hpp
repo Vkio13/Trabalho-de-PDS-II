@@ -1,6 +1,8 @@
 #ifndef RELATORIO_H
 #define RELATORIO_H
-#include <list>
+#include <vector>
+#include "dados.hpp"
+#include "categoria.hpp"
 /**
  * @file relatorio.hpp
  * @brief Classe onde estão armazenados os relatorios
@@ -14,7 +16,6 @@
  * @copyright GNU General Public License 
  * 
  */
-#include "../include/categoria.hpp"
 /**
          * @brief Gera um relatorio de todas as 
          * categorias
@@ -32,7 +33,7 @@
          * e seus dados.
          *
          */ 
-        std::list<Categoria> _categorias;
+        std::vector<Categoria> _categorias;
     public : 
 /**
          * @brief Constrói o objeto Relatorio.
@@ -42,12 +43,12 @@
          * e seus dados.
          *
          */ 
-        Relatorio(std::list<Categoria> categorias);
+        Relatorio();
 /**
          * @brief Destrutor do objeto Relatorio.
          *
          */ 
-        ~Relatorio();
+        //~Relatorio();
  /**
          * @brief Printa o relatório mensal.
          * 
