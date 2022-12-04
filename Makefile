@@ -30,7 +30,7 @@ relatorio: ##falta incluir na main
 	$(CC) $(CFLAGS) -c src/relatorio.cpp -o build/relatorio.o
 
 main: kapemgga usuario relatorio
-	$(CC) $(CFLAGS) build/relatorio.o build/usuario.o build/dados.o build/categoria.o build/caixa.o build/boleto.o build/inicializador.o build/kapemgga.o main.cpp -o $(TARGET)
+	$(CC) $(CFLAGS)  build/relatorio.o build/usuario.o build/dados.o build/categoria.o build/caixa.o build/boleto.o build/inicializador.o build/kapemgga.o main.cpp -o $(TARGET)
 
 clean:
 	$(RM) -r $(BUILDDIR)/* $(TARGET)
