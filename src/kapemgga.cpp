@@ -56,6 +56,7 @@ void Kapemgga::adicionaCategoria(Categoria cate){
         throw Excecao_Nome_Categoria();
     } else {
     _categorias.push_back(cate);
+    d.adicionaCategoria(cate.get_nome(), cate.get_orcamento());
     }
 }
 
