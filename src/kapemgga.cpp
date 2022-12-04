@@ -53,6 +53,7 @@ void Kapemgga::sobreUmaCategoria(std::string nome){
 
 void Kapemgga::adicionaCategoria(Categoria cate){
     _categorias.push_back(cate);
+    d.adicionaCategoria(cate.get_nome(), cate.get_orcamento());
 }
 
 void Kapemgga::removeCategoria(std::string nome){
