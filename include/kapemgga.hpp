@@ -190,5 +190,10 @@ class Kapemgga{
     void relatorioAtual();
 
 };
-
+  class Excecao_Kapemgga: public Excecao_Caixa {
+    public :
+    const char* what() const noexcept{
+      return "O número de caracteres da descricao excede o permitido pelo programa. Por favor, digite uma descrição com menos de 100 caracteres";
+    }
+  };
 #endif

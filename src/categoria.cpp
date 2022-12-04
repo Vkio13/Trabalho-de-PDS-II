@@ -3,10 +3,13 @@
 
 // Construtor:
 Categoria::Categoria(std::string nome, double orcamento){
-    _nome = nome;
+    if(nome.size()>20){
+        throw Excecao_Categoria_Caracter();
+    }
     if(orcamento<0){
         throw Excecao_Categoria();
     }
+    _nome = nome;
     _orcamento = orcamento;
     _gastoTotal = 0;
     _limite = false;

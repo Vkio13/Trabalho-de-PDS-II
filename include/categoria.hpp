@@ -97,4 +97,10 @@ class Excecao_Categoria : std::exception{
     public : 
     const char* what() const noexcept;
 };
+class Excecao_Categoria_Caracter : public Excecao_Categoria {
+    public : 
+    const char* what() const noexcept{
+        return "O nome inserido possui muitos caracteres. Por favor, insira um nome com menos de 20 caracteres.";
+    }
+};
 #endif

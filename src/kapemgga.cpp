@@ -62,6 +62,9 @@ void Kapemgga::removeCategoria(std::string nome){
 
 void Kapemgga::novaReceita(std::string descricao, double valor){
     _caixa.setReceitas(_caixa.getReceitas() + valor);
+    if(descricao.size()>100){
+        throw Excecao_Kapemgga();
+    }
     d.adicionaReceita(valor, descricao);
 }
 
@@ -70,6 +73,9 @@ void Kapemgga::novoGasto(std::string nome, double valor, std::string descricao){
     if(LocalizaCategoria(nome)>=0){
     _categorias[LocalizaCategoria(nome)].set_gasto(valor);
     _caixa.adicionaGasto(valor);
+    if(descricao.size()>100){
+        throw Excecao_Kapemgga();
+    }
     d.adicionaGasto(valor, nome, descricao);
     }else{
         std::cout<<"Gasto não adicionado, tente corrigir o nome ou adicionar essa categoria"<<std::endl;

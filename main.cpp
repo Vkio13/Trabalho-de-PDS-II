@@ -48,7 +48,7 @@ int main(){
             sistema.sobreUmBoleto(busca);
             break;
         case 4:
-            sistema.imprimeBoletos();
+            //sistema.imprimeBoletos();
             break;
         case 5:
             std::cin>>busca;
@@ -58,18 +58,26 @@ int main(){
             sistema.boletosAPagar();
             break;
         case 7:
-        /*ACHO QUE SERIA INTERESSANTE COLOCAR STRING NO NOME E LIMITAR O NUMERO DE CARACTERES PARA 20 OU ALGO DO GENERO*/
+        /*Só aceita orçamento positivo e nome com menos de 20 caracteres*/
             std::cin >> nome;
             std::cin >> orcamento;
             try{
                 sistema.adicionaCategoria (Categoria(nome,orcamento));
             }catch(Excecao_Categoria &e){
-                 do{
-                    std::cout << e.what() << std::endl;
-                    if(true){
-                    std::cin >> orcamento;
-                    }
-                    }while(orcamento<0);
+                if(orcamento<0){
+                    do{
+                        std::cout << e.what() << std::endl;
+                        if(orcamento<0){
+                        std::cin >> orcamento;
+                        }
+                        }while(orcamento<0);
+                }
+                if(nome.size()>20){
+                    do{
+                        std::cout << e.what() << std::endl;
+                        std::cin >> nome; 
+                        }while(nome.size()>20);
+                }            
             sistema.adicionaCategoria (Categoria(nome,orcamento));
             }
             break;
@@ -84,12 +92,21 @@ int main(){
             try{
             sistema.novoGasto(nome,valor,descricao);
             }catch(Excecao_Caixa &e){
-                 do{
-                    std::cout << e.what() << std::endl;
-                    if(true){
-                    std::cin >> valor;
-                    }
+                if(valor<0){
+                    do{
+                        std::cout << e.what() << std::endl;
+                        if(true){
+                        std::cin >> valor;
+                        }
                     }while(valor<0);
+                }
+                if(descricao.size()>100){
+                    do{
+                        std::cout << e.what() << std::endl;
+                        std::cin.ignore();
+                        std::getline(std::cin, descricao);
+                    }while(descricao.size()>100);
+                }
             sistema.novoGasto(nome,valor,descricao);
             //Vamos limitar o tamanho de caracteres da descricao, nao consegui implementar isso agr
             // Aqui ainda tem um erro - Precisa digitar uma string para dar prosseguimento a função. Não sei o motivo.
@@ -104,12 +121,22 @@ int main(){
             try{
             sistema.novaReceita(descricao,valor);;
             }catch(Excecao_Caixa &e){
+                if(valor < 0){
                  do{
                     std::cout << e.what() << std::endl;
                     if(true){
                     std::cin >> valor;
                     }
                     }while(valor<0);
+                }
+                if(descricao.size()>100){
+                    do{
+                        std::cout << e.what() << std::endl;
+                        std::cin.ignore();
+                        std::getline(std::cin, descricao);
+                    }while(descricao.size()>100);
+                }
+            
             sistema.novaReceita(descricao,valor);
             // Aqui ainda tem um erro - Precisa digitar uma string para dar prosseguimento a função. Não sei o motivo.
             }
@@ -138,7 +165,7 @@ int main(){
                 std::cout << e.what() << std::endl;
                 std::cin.ignore();
                 std::getline(std::cin, nome);  
-                }while(valor<0);
+                }while(nome.size()>20);
             }
             sistema.adicionaBoleto(Boleto(nome,valor,vencimento));
             }
