@@ -189,3 +189,6 @@ void Usuario::sair(){
         std::cout<<"Você não está logado."<<std::endl;
     }
 }
+bool Usuario::getLogado(){
+    return _logado;
+};

@@ -67,5 +67,6 @@
         void deletarUsuario(std::string innome);
         std::string replace(std::string n, char c, char s);
         void sair();
+        bool getLogado();
     };
 #endif

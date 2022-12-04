@@ -7,8 +7,62 @@ int main(){
     Kapemgga sistema;
     sistema.inicializar();
     int op;
-    Usuario u;
-    
+    Usuario usuario;
+    while(true){
+        menu({"Login","Criar Usuário","Entrar","Deletar Usuário","Sair"});
+        std::cin>>op;
+        std::string nome, senha;
+        switch (op)
+        {
+        case 1:
+            std::cout<<"Nome: ";
+            std::cin>>nome;
+            std::cout<<"Senha: ";
+            std::cin>>senha;
+            usuario.entrarUsuario(nome, senha);
+            break;
+        case 2:
+            std::cout<<"Nome: ";
+            std::cin>>nome;
+            std::cout<<"Senha: ";
+            std::cin>>senha;
+            usuario.entrarUsuario(nome, senha);
+            break;
+        case 3:
+            std::cout<<"Nome: ";
+            std::cin>>nome;
+            usuario.deletarUsuario(nome); 
+            break;
+        case 4:
+            usuario.~Usuario();
+            exit(0);
+            break;
+        default:
+            std::cout<<"Escolha uma opção válida."<<std::endl;
+            break;
+        }
+        while(usuario.getLogado()){
+            menu({"Menu KAPEMGGA","Entradas","Categorias","Gastos","Boletos","Caixa","Editar Senha","Trocar Usuário / Sair"});
+            std::cin>>op;
+            switch (op)
+            {
+            case 1:
+                menu({"Entradas","Adicionar Entrada", ""});
+                break;
+            case 6:
+                std::cout<<"Senha: ";
+                std::cin>>senha;
+                usuario.editarSenha(senha);
+                break;
+            case 7:
+                usuario.sair();
+                break;
+            default:
+                std::cout<<"Escolha uma opção válida"<<std::endl;
+                break;
+            }
+        }
+    }
     while(std::cin>>op){
         std::cout<<"-------------------- MENU --------------------" << std::endl
         <<"Digite o número correspondete à função desejada:" << std::endl
@@ -211,8 +265,8 @@ int main(){
             d.editaGasto(linha, mes, dia, valor, categoria_, descricao_);
             break;
         case 21:
-            u.criarUsuario("gustavo", "12345");
-            std::cout<<u.procuraUsuario("gustavo");
+            usuario.criarUsuario("gustavo", "12345");
+            std::cout<<usuario.procuraUsuario("gustavo");
             break;
         case 22:
             r.relatorioGeral();
@@ -226,22 +280,22 @@ int main(){
             std::cin>>nome;
             std::cout<<"Senha: ";
             std::cin>>senha;
-            u.criarUsuario(nome, senha);
+            usuario.criarUsuario(nome, senha);
             break;
         case 25:
             std::cout<<"Nome: ";
             std::cin>>nome;
             std::cout<<"Senha: ";
             std::cin>>senha;
-            u.entrarUsuario(nome, senha);
+            usuario.entrarUsuario(nome, senha);
             break;
         case 26:
             std::cout<<"Senha: ";
             std::cin>>senha;
-            u.editarSenha(senha);
+            usuario.editarSenha(senha);
             break;
         case 27:
-            u.sair();
+            usuario.sair();
             break;
         default:
             break;
