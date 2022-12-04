@@ -2,12 +2,13 @@
 #include "dados.hpp"
 #include "usuario.hpp"
 #include "relatorio.hpp"
+#include "src/utilidades.cpp"
 int main(){
     Kapemgga sistema;
     sistema.inicializar();
     int op;
     Usuario u;
-
+    
     while(std::cin>>op){
         std::cout<<"-------------------- MENU --------------------" << std::endl
         <<"Digite o número correspondete à função desejada:" << std::endl
