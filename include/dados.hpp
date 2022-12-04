@@ -32,15 +32,15 @@
     /**
          * @brief Arquivo onde são salvos os gastos
          **/ 
-      std::string datgastos ="arquivos/gastos.txt";
+      std::string datgastos ="arquivos/atual/gastos.txt";
         /**
          * @brief Arquivo onde são salvas as receitas
          **/ 
-      std::string datreceita ="arquivos/receita.txt";
+      std::string datreceita ="arquivos/atual/receita.txt";
         /**
          * @brief Arquivo onde são salvas as categorias
          **/ 
-      std::string datcat ="arquivos/categoria.txt";
+      std::string datcat ="arquivos/atual/categoria.txt";
         /**
          * @brief Struct de tempo
          **/ 
