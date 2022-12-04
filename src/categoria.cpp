@@ -63,33 +63,3 @@ void Categoria::relatorioDeCategoria() {
 const char* Excecao_Categoria::what() const noexcept{
     return "O valor do Orçamento tem que ser positivo, maior que zero e menor que 2.147.483.647. Por favor, digite novamente o valor atendendo as especificações citadas: ";
 }
-
-/* ARQUIVOS - FORA DE USO
-void Categoria::registraDespesa(Despesa despesa){
-    std::string nome = this->_nome + ".bin";
-    std::ofstream arq;
-    arq.open(nome, std::ios::binary | std::ios::app);
-    ///arq.seekp(std::ios_base::end);
-    arq.write((char*)&despesa, sizeof(Despesa));
-    //char pula= '\n';
-    //arq.write((char*)&pula, sizeof(char));
-    arq.close();
-};
-
-void Categoria::imprimeDespesa(){
-    Despesa *despesa =new Despesa("0",0);
-    std::string nome = this->_nome + ".bin";
-    std::ifstream arq;
-    arq.open(nome, std::ios::in | std::ios::binary);
-    //arq.seekg(std::ios_base::beg);
-    //int i=0;
-    while(!arq.eof()){
-        arq.read((char*)despesa, sizeof(Despesa));
-        std::cout<<despesa->getDescricao()<<" : "<<despesa->getValor()<<std::endl;
-        
-        //i++;
-        //arq.seekg(sizeof(Despesa)*i,std::ios_base::beg);
-    }
-    arq.close();
-};
-*/

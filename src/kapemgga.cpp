@@ -52,8 +52,12 @@ void Kapemgga::sobreUmaCategoria(std::string nome){
 }
 
 void Kapemgga::adicionaCategoria(Categoria cate){
+    if(LocalizaCategoria(cate.get_nome())=!-1){
+        throw Excecao_Nome_Categoria();
+    } else {
     _categorias.push_back(cate);
     d.adicionaCategoria(cate.get_nome(), cate.get_orcamento());
+    }
 }
 
 void Kapemgga::removeCategoria(std::string nome){
@@ -102,7 +106,11 @@ void Kapemgga::imprimeBoletos(){
 }
 
 void Kapemgga::adicionaBoleto(Boleto novoBol){
+    if(LocalizaBoleto(novoBol.get_nome())=!-1){
+        throw Excecao_Nome_Boleto();
+    } else {
     _boletos.push_back(novoBol);
+    }
 }
 
 void Kapemgga::pagaBoleto(std::string nome){

@@ -58,7 +58,7 @@ void Boleto::pagaBoleto(){
 
 void Boleto::relatorioDeCategoria(){
     std::cout << "Boleto: " << Categoria::_nome << std::endl;
-    std::cout << "Valor: " << _gastoTotal << std::endl;
+    std::cout << "Valor: " << _orcamento << std::endl;
     if(_pago){ 
         std::cout << "Boleto pago!" << std::endl;
     }else{
@@ -66,7 +66,7 @@ void Boleto::relatorioDeCategoria(){
             std::cout << "ATENCAO! Boleto VENCIDO ainda nao pago!" << std::endl;    
         }else{
             std::cout << "ATENCAO! Boleto nao pago!" << std::endl;
-            std::cout << "Vencimento no dia " << _vDia << "do mês " << _vMes <<  std::endl;
+            std::cout << "Vencimento no dia " << _vDia << " do mês " << _vMes <<  std::endl;
         }
     }
 }
