@@ -177,7 +177,8 @@ int main(){
             d.imprimeGastosTodos();
             break;
         case 12:
-            return 0;
+
+            return;
 
         case 20:
             std::cout<<"Linha: ";

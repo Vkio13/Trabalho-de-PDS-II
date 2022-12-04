@@ -6,7 +6,7 @@ Categoria::Categoria(std::string nome, double orcamento){
     if(nome.size()>20){
         throw Excecao_Categoria_Caracter();
     }
-    if(orcamento<0 || orcamento > 2147483646){
+    if(orcamento<0){
         throw Excecao_Categoria();
     }
     _nome = nome;
