@@ -483,7 +483,7 @@ void Dados::vectorCategoria(std::vector<Categoria>& v){
     }
 };
 void Dados::editaGasto(int inlinha, int inmes, int india, double invalor, std::string incategoria, std::string indescricao){
-std::ofstream arqw;
+    std::ofstream arqw;
     std::ifstream arqr;
     try{
     arqr.open(datgastos, std::ios::in | std::ios::out);
@@ -494,7 +494,7 @@ std::ofstream arqw;
     }
     std::vector<std::string> linhas;
     std::string linha;
-    ;
+    
     while(getline(arqr, linha)){
         linhas.push_back(linha);
     }

@@ -198,6 +198,7 @@ int main(){
             break;
         case 21:
             u.criarUsuario("gustavo", "12345");
+            std::cout<<u.procuraUsuario("gustavo");
         default:
             break;
         }

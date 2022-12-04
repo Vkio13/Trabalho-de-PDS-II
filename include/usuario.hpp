@@ -2,6 +2,8 @@
 #define USUARIO_H
 #include <fstream>
 #include <string>
+#include <iostream>
+#include <vector>
 /**
  * @file usuario.hpp
  * @brief Classe onde estão armazenados os usuarios
@@ -33,6 +35,7 @@
          *
          */ 
         std::string _usuario;
+        int _id;
         bool _logado;
     public : 
 /**
@@ -60,7 +63,8 @@
          */
         void entrarUsuario(std::string nome, std::string senha);
         int procuraUsuario(std::string innome);
-        void editarSenha();
+        void editarSenha(std::string insenha);
+        void deletarUsuario(std::string innome);
         std::string replace(std::string n, char c, char s);
     };
 #endif
