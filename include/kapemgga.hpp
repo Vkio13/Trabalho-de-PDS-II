@@ -154,12 +154,6 @@ class Kapemgga{
     void adicionaBoleto(Boleto novoBol);
   
   
-  /**
-  * @brief Função que gerencia boletos pagos e não pagos ao final de um mês.
-  **/ 
-    void encerraBoletos();
-  
-  
 /**
   * @brief Função que lista os boletos ainda não pagos.
   **/ 
