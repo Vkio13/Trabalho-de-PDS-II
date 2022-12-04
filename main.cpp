@@ -5,13 +5,16 @@
 void menu(std::vector<std::string> opcoes);
 int main(){
     Kapemgga sistema;
+    Dados dados;
     sistema.inicializar();
     int op;
     Usuario usuario;
     while(true){
         menu({"Login","Criar Usuário","Entrar","Deletar Usuário","Sair"});
         std::cin>>op;
-        std::string nome, senha;
+        std::string nome, senha, descricao;
+        int mes;
+        double valor;
         switch (op)
         {
         case 1:
@@ -19,7 +22,7 @@ int main(){
             std::cin>>nome;
             std::cout<<"Senha: ";
             std::cin>>senha;
-            usuario.entrarUsuario(nome, senha);
+            usuario.criarUsuario(nome, senha);
             break;
         case 2:
             std::cout<<"Nome: ";
@@ -42,12 +45,54 @@ int main(){
             break;
         }
         while(usuario.getLogado()){
-            menu({"Menu KAPEMGGA","Entradas","Categorias","Gastos","Boletos","Caixa","Editar Senha","Trocar Usuário / Sair"});
+            menu({"Menu KAPEMGGA","Caixa","Receita","Boletos","Categorias","Gastos","Editar Senha","Trocar Usuário / Sair"});
             std::cin>>op;
             switch (op)
             {
-            case 1:
-                menu({"Entradas","Adicionar Entrada", ""});
+            case 2:
+                menu({"Receita","Adicionar Receitas", "Imprime Receitas", "Imprime Receitas Mensal",/*"Excluir Receita",*/ "Voltar"});
+                std::cin>>op;
+                switch(op){
+                    case 1:
+                        std::cin.ignore();
+                        std::cout << "Digite a descrição da sua receita: " << std::endl;
+                        std::getline(std::cin, descricao);
+                        std::cout << "Digite o valor: " << std::endl;
+                        std::cin >> valor;
+                        try{
+                        sistema.novaReceita(descricao,valor);
+                        }catch(Excecao_Caixa &e){
+                            if(valor < 0 || valor > 2147483646 ){
+                            do{
+                                std::cout << e.what() << std::endl;
+                                if(true){
+                                std::cin >> valor;
+                                }
+                                }while(valor<0 || valor > 2147483646);
+                            }
+                            if(descricao.size()>100){
+                                do{
+                                    std::cout << e.what() << std::endl;
+                                    std::cin.ignore();
+                                    std::getline(std::cin, descricao);
+                                }while(descricao.size()>100);
+                            }
+                        }
+                        break;
+                    case 2:
+                        dados.imprimeEntradaTotal();
+                        break;
+                    case 3:
+                        std::cout<<"Escolha o mês: ";
+                        std::cin>>mes;
+                        dados.imprimeEntradaMensal(mes);
+                        break;
+                    case 4:
+                        std::cout<<"Voltando para o menu principal"<<std::endl;
+                    default:
+                        std::cout<<"Voltando para o menu principal"<<std::endl;
+
+                }
                 break;
             case 6:
                 std::cout<<"Senha: ";
