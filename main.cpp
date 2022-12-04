@@ -202,6 +202,9 @@ int main(){
             std::cout<<u.procuraUsuario("gustavo");
         case 22:
             r.relatorioGeral();
+        case 23:
+            std::cin>>mes;
+            r.relatorioMensal(mes);
         default:
             break;
         }
