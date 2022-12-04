@@ -83,5 +83,4 @@ class Boleto : public Categoria {
              return "A data de vencimento inserida é inválida. Certifique-se que o dia de vencimento está entre 1 e 31 e o mês entre 1 e 12.";
         }
     };
-
 #endif

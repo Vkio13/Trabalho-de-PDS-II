@@ -190,4 +190,19 @@ class Kapemgga{
       return "O número de caracteres da descricao excede o permitido pelo programa. Por favor, digite uma descrição com menos de 100 caracteres";
     }
   };
+
+  class Excecao_Nome_Boleto: public Excecao_Boleto {
+    public :
+    const char* what() const noexcept{
+      return "Já existe um boleto com o nome digitado. Por favor, escolha outro.";
+    }
+  };
+
+  class Excecao_Nome_Categoria: public Excecao_Categoria {
+    public :
+    const char* what() const noexcept{
+      return "Já existe uma categoria com o nome digitado. Por favor, escolha outro.";
+    }
+  };
+  
 #endif
