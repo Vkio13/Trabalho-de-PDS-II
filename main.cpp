@@ -1,6 +1,6 @@
-#include "include/kapemgga.hpp"
-#include "include/dados.hpp"
-#include "include/usuario.hpp"
+#include "kapemgga.hpp"
+#include "dados.hpp"
+#include "usuario.hpp"
 int main(){
     Kapemgga sistema;
     sistema.inicializar();
@@ -50,6 +50,8 @@ int main(){
             sistema.imprimeBoletos();
             break;
         case 5:
+            std::cin>>busca;
+            sistema.sobreUmBoleto(busca);
             break;
         case 6:
             sistema.boletosAPagar();
