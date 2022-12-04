@@ -177,6 +177,7 @@ int main(){
             d.imprimeGastosTodos();
             break;
         case 12:
+
             return 0;
 
         case 20:
