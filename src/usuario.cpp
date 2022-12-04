@@ -26,7 +26,7 @@ void Usuario::criarUsuario(std::string nome, std::string senha){
     nome=replace(nome,' ','_');
     senha=replace(senha,' ','_');
     arq<<nome<<' '<<senha<<' '<<std::endl;
-    std::string comando = "mkdir ../arquivos "+nome;
+    std::string comando = "mkdir /../arquivos/" + nome ;
     system(comando.c_str());
 };
 int Usuario::procuraUsuario(std::string innome){
@@ -49,6 +49,8 @@ int Usuario::procuraUsuario(std::string innome){
         }
         linha++;
     }
+    arq.close();
+    return -1;
 
 };
 void Usuario::entrarUsuario(std::string innome, std::string insenha){
