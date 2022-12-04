@@ -20,6 +20,7 @@ int main(){
         <<"9 - Adicionar Receita" << std::endl
         <<"10 - Adicionar Boleto" << std::endl
         <<"11 - Relatórios" << std::endl
+        <<"12 - Encerrar o programa" << std::endl
         <<"----------------------------------------------"<<std::endl; 
         
         std::string busca;
@@ -148,6 +149,9 @@ int main(){
             
             d.imprimeGastosTodos();
             break;
+        case 12:
+            return 0;
+
         case 20:
             std::cout<<"Linha: ";
             std::cin>>linha;
