@@ -6,6 +6,7 @@ int main(){
     Kapemgga sistema;
     sistema.inicializar();
     int op;
+    Usuario u;
 
     while(std::cin>>op){
         std::cout<<"-------------------- MENU --------------------" << std::endl
@@ -26,6 +27,7 @@ int main(){
         
         std::string busca;
         std::string nome;
+        std::string senha;
         double orcamento;
         double valor;
         std::string descricao;
@@ -34,7 +36,7 @@ int main(){
         Dados d;
         int mes, dia, linha;
         std::string descricao_, categoria_;
-        Usuario u;
+        
         switch (op){
         case 1:
             sistema.imprimeCategorias();
@@ -200,11 +202,36 @@ int main(){
         case 21:
             u.criarUsuario("gustavo", "12345");
             std::cout<<u.procuraUsuario("gustavo");
+            break;
         case 22:
             r.relatorioGeral();
+            break;
         case 23:
             std::cin>>mes;
             r.relatorioMensal(mes);
+            break;
+        case 24:
+            std::cout<<"Nome: ";
+            std::cin>>nome;
+            std::cout<<"Senha: ";
+            std::cin>>senha;
+            u.criarUsuario(nome, senha);
+            break;
+        case 25:
+            std::cout<<"Nome: ";
+            std::cin>>nome;
+            std::cout<<"Senha: ";
+            std::cin>>senha;
+            u.entrarUsuario(nome, senha);
+            break;
+        case 26:
+            std::cout<<"Senha: ";
+            std::cin>>senha;
+            u.editarSenha(senha);
+            break;
+        case 27:
+            u.sair();
+            break;
         default:
             break;
         }
