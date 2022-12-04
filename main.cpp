@@ -2,7 +2,7 @@
 #include "dados.hpp"
 #include "usuario.hpp"
 #include "relatorio.hpp"
-#include "src/utilidades.cpp"
+void menu(std::vector<std::string> opcoes);
 int main(){
     Kapemgga sistema;
     sistema.inicializar();
@@ -248,3 +248,25 @@ int main(){
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+void menu(std::vector<std::string> opcoes){
+    std::cout<<"==============================| "<<opcoes[0]<<" |=============================="<<std::endl;
+    for(int i=1; i<opcoes.size(); i++){
+        std::cout<<i<<" - "<<opcoes[i]<<std::endl;
+    }
+    for(int i=0; i<64+opcoes[0].size(); i++){
+        std::cout<<"=";
+    }
+    std::cout<<std::endl;
+};
