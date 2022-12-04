@@ -2,7 +2,7 @@
 
 
 //Construtor
-Boleto::Boleto(std::string nome, double valor, int vencimento){
+Boleto::Boleto(std::string nome, double valor, int dia, int mes){
     if(nome.size()>20){
         throw Excecao_Caracteres_Boleto();
     }
@@ -13,7 +13,8 @@ Boleto::Boleto(std::string nome, double valor, int vencimento){
     _orcamento = valor;
     _gastoTotal = 0;
     _limite = false;
-    _vencimento = vencimento;
+    _vDia = dia;
+    _vMes = mes;
     _pago = false;
 };
 
@@ -23,10 +24,6 @@ Boleto::~Boleto(){
 }
 
 //Métodos
-void Boleto::vencido(){
-    _vencimento = 0;
-}
-
 bool Boleto::get_pago(){
     return _pago;
 }
@@ -38,7 +35,16 @@ bool Boleto::venceu(){
     time(&agora);
     dataHora = localtime(&agora);
 
-    return (dataHora->tm_mday > _vencimento);
+    if(dataHora->tm_mon > (_vMes - 1)){
+        return true;
+    }
+    if(dataHora->tm_mon == (_vMes - 1)){
+        if(dataHora->tm_mday > _vDia) {
+            return true;
+        } else { return false; }
+    if(dataHora->tm_mon < (_vMes - 1)) {
+        return false;
+    }
 }
 
 void Boleto::pagaBoleto(){
@@ -56,7 +62,7 @@ void Boleto::relatorioDeCategoria(){
             std::cout << "ATENCAO! Boleto VENCIDO ainda nao pago!" << std::endl;    
         }else{
             std::cout << "ATENCAO! Boleto nao pago!" << std::endl;
-            std::cout << "Vencimento no dia " << _vencimento << std::endl;
+            std::cout << "Vencimento no dia " << _vDia << "do mês " << _vMes <<  std::endl;
         }
     }
 }

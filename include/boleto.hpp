@@ -25,7 +25,8 @@ class Boleto : public Categoria {
     /**
          * @brief Valor do vencimento do boleto.
          */
-        int _vencimento;
+        int _vDia;
+        int _vMes;
     /**
          * @brief bool dizendo se o boleto venceu ou não
          */
@@ -42,19 +43,13 @@ class Boleto : public Categoria {
          * @param vencimento Data do vencimento do boleto
          *
          */ 
-        Boleto(std::string nome, double valor, int vencimento);
+        Boleto(std::string nome, double valor, int dia, int mes);
         /**
          * @brief Destrutor da classe Boleto
          */
         ~Boleto();
           /**
          * @brief ...
-         */
-        void vencido();
-        /**
-         * @brief função que diz se o boleto foi pago
-         *
-         * @return retorna se foi pago ou não
          */
         bool get_pago();
         /**

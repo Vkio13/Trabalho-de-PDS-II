@@ -6,7 +6,7 @@ void Kapemgga::inicializar(){
     _categorias = i.getCategorias();
     _caixa.setGastos(i.getGastos());
     _caixa.setReceitas(i.getEntradas());
-    adicionaCategoria(Categoria ("Boletos Pagos", 1000000000000));
+    adicionaCategoria(Categoria ("Boletos Pagos", 999999999));
 }
 
 int Kapemgga::LocalizaCategoria(std::string nome){
@@ -107,10 +107,9 @@ void Kapemgga::adicionaBoleto(Boleto novoBol){
 void Kapemgga::pagaBoleto(std::string nome){
     _boletos[LocalizaBoleto(nome)].pagaBoleto();
     _caixa.adicionaGasto(_boletos[LocalizaBoleto(nome)].get_orcamento());
-    novoGasto("Boletos", 
+    novoGasto("Boletos Pagos", 
               _boletos[LocalizaBoleto(nome)].get_orcamento(),
               _boletos[LocalizaBoleto(nome)].get_nome());
-
 }
 
 void Kapemgga::boletosAPagar(){
@@ -118,16 +117,6 @@ void Kapemgga::boletosAPagar(){
         if(bol.get_pago()){
         }else{
             bol.relatorioDeCategoria();
-        }
-    }
-}
-
-void Kapemgga::encerraBoletos(){
-    for(Boleto bol:_boletos){
-        if(bol.get_pago()){
-            ;
-        }else{
-            bol.vencido();
         }
     }
 }
