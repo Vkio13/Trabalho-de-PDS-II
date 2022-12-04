@@ -77,5 +77,11 @@ class Boleto : public Categoria {
              return "O número de caracteres excede o número permitido pelo programa. Por favor, digite novamente o nome.";
         }
     };
+    class Excecao_Vencimento_Boleto : public Excecao_Boleto{
+        public : 
+        const char* what() const noexcept{
+             return "A data de vencimento inserida é inválida. Certifique-se que o dia de vencimento está entre 1 e 31 e o mês entre 1 e 12.";
+        }
+    };
 
 #endif

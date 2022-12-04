@@ -10,6 +10,9 @@ Boleto::Boleto(std::string nome, double valor, int dia, int mes){
     if(valor<0 || valor > 2147483646){
         throw Excecao_Boleto();
     }
+    if (dia < 1 || dia > 31 || mes < 1 || mes > 12){
+        throw Excecao_Vencimento_Boleto();
+    }
     _orcamento = valor;
     _gastoTotal = 0;
     _limite = false;
