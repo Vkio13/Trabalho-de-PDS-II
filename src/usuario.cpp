@@ -13,6 +13,9 @@ Usuario::Usuario(){
     _usuario="";
     _id=0;
 }
+Usuario::~Usuario(){
+    sair();
+}
 void Usuario::criarUsuario(std::string nome, std::string senha){
         std::ofstream arquser;
     try{
@@ -80,6 +83,8 @@ void Usuario::entrarUsuario(std::string innome, std::string insenha){
                 this->_logado=true;
                 this->_usuario=nome;
                 this->_id=linha;
+                std::string comando= "mv arquivos/" + this->_usuario + " arquivos/atual";
+                system(comando.c_str());
                 break;
             }
         }
@@ -173,3 +178,14 @@ void Usuario::deletarUsuario(std::string innome){
         std::cout<<"Usuário não encontrado"<<std::endl;
     }
 };
+void Usuario::sair(){
+    if(_logado){
+        std::string comando= "mv arquivos/atual arquivos/"+ this->_usuario;
+        system(comando.c_str());
+        _logado= false;
+        _usuario="";
+        _id=0;
+    }else{
+        std::cout<<"Você não está logado."<<std::endl;
+    }
+}

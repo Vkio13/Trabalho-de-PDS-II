@@ -51,7 +51,7 @@
          * @brief Destrutor do objeto Usuario.
          *
          */ 
-        //~Usuario();
+        ~Usuario();
  /**
          * @brief .
          * 
@@ -66,5 +66,6 @@
         void editarSenha(std::string insenha);
         void deletarUsuario(std::string innome);
         std::string replace(std::string n, char c, char s);
+        void sair();
     };
 #endif
