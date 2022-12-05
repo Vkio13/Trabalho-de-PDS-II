@@ -1,0 +1,6 @@
+11 5 500.000000 Aluguel Aluguel
+11 5 300.000000 Mercado Mantimentos
+11 5 100.000000 Mercado Produtos_de_Limpeza
+11 5 100.000000 Mercado Outros
+11 5 150.000000 Contas Energia
+11 5 150.000000 Boletos_Pagos Condominio

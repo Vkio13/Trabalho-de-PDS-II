@@ -13,6 +13,7 @@
  * @copyright GNU General Public License 
  * 
  */
+/*
  * @file categoria.hpp
  * @brief Superclasse principal de uma categoria
  * @version 1.0

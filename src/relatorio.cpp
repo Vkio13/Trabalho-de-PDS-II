@@ -38,7 +38,7 @@ void Relatorio::relatorioMensal(int mes){
     std::cout<<"===================| Relatório Mensal| ================="<<std::endl;
     std::cout<<"Entradas: "<<entradas<<" | Gastos: "<<gastos<<std::endl;
     for(int i=0; i<_categorias.size(); i++){
-        std::cout<<_categorias[i].get_nome()<<": "<<_categorias[i].get_gasto()<<" / "<<_categorias[i].get_orcamento()*12<<std::endl;
+        std::cout<<_categorias[i].get_nome()<<": "<<_categorias[i].get_gasto()<<" / "<<_categorias[i].get_orcamento()<<std::endl;
     }
     std::cout<<"========================================================"<<std::endl;
 };
