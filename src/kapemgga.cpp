@@ -19,7 +19,6 @@ int Kapemgga::LocalizaCategoria(std::string nome){
             return localizacao;
         }
     }
-    std::cout<<"Categoria não encontrada"<<std::endl;
     return -1;
 }
 
@@ -33,7 +32,6 @@ int Kapemgga::LocalizaBoleto(std::string nome){
             return localizacao;
         }
     }
-    std::cout<<"Boleto não encontrado"<<std::endl;
     return -1;
 }
 
@@ -117,7 +115,6 @@ void Kapemgga::adicionaBoleto(Boleto novoBol){
 
 void Kapemgga::pagaBoleto(std::string nome){
     _boletos[LocalizaBoleto(nome)].pagaBoleto();
-    _caixa.adicionaGasto(_boletos[LocalizaBoleto(nome)].get_orcamento());
     novoGasto("Boletos Pagos", 
               _boletos[LocalizaBoleto(nome)].get_orcamento(),
               _boletos[LocalizaBoleto(nome)].get_nome());
