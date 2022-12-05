@@ -13,9 +13,8 @@ int main(){
     while(true){
         menu({"Login","Criar Usuário","Entrar","Deletar Usuário","Sair"});
         std::cin>>op;
-        std::string nome, senha, descricao;
-        int mes,dia;
-        std::string busca;
+        std::string busca, nome, senha, descricao, categoria;
+        int codigo,mes,dia;
         double valor,orcamento;
         switch (op)
         {
@@ -184,9 +183,10 @@ int main(){
                     break;
 
                     case 4:
-                    std::cout << "Digite o nome do boleto: "<<std::endl;
-                    std::cin >> nome;
-                    sistema.pagaBoleto(nome);
+                        std::cout << "Digite o nome do boleto: "<<std::endl;
+                        getchar();
+                        std::getline(std::cin, nome);
+                        sistema.pagaBoleto(nome);
                     break;
 
                     case 5:
@@ -204,15 +204,17 @@ int main(){
                 break;
 
                 case 2:
-                std::cin >> busca;
-                sistema.sobreUmaCategoria(busca);
-                break;
+                    getchar();
+                    std::getline(std::cin, busca);
+                    sistema.sobreUmaCategoria(busca);
+                    break;
 
                 case 3:
-                std::cout << "Digite o nome da Categoria: " << std::endl;
-                std::cin >> nome;
-                std::cout << "Digite o orçamento da Categoria: " << std::endl;
-                std::cin >> orcamento;
+                    std::cout << "Digite o nome da Categoria: " << std::endl;
+                    getchar();
+                    std::getline(std::cin, nome);
+                    std::cout << "Digite o orçamento da Categoria: " << std::endl;
+                    std::cin >> orcamento;
                     try{
                         sistema.adicionaCategoria (Categoria(nome,orcamento));
                     }catch(Excecao_Categoria &e){
@@ -234,11 +236,18 @@ int main(){
                         }
                 break;
                 case 4:
+                    std::cout<<"Digite o código da categoria que deseja excluir: ";
+                    std::cin>>codigo;
+                    try{
+                    dados.deleteCategoria(codigo);
+                    }catch(Excecao_ValorInvalido_Dados &e){
+                        std::cout<<e.what()<<std::endl;
+                    }
                 break;
                 }
             break;
             case 5:
-                menu({"Gastos","Imprimir Gastos Totais","Imprimir Gastos Mensais","Adicionar Gastos"});
+                menu({"Gastos","Imprimir Gastos Totais","Imprimir Gastos Mensais","Adicionar Gastos", "Editar Gasto", "Excluir Gasto","Voltar"});
                 std::cin>>op;
                 switch(op){
                     case 1:
@@ -285,6 +294,37 @@ int main(){
                     }
                     break;
                     case 4:
+                        std::cout<<"Código: ";
+                        std::cin>>codigo;
+                        std::cout<<"Mês: ";
+                        std::cin>>mes;
+                        std::cout<<"Dia: ";
+                        std::cin>>dia;
+                        std::cout<<"Valor: ";
+                        std::cin>>valor;
+                        std::cout<<"Categoria: ";
+                        std::cin.ignore();
+                        std::getline(std::cin, categoria);  
+                        std::cout<<"Descrição: ";
+                        std::getline(std::cin, descricao);                                             
+                        try{
+                            dados.editaGasto(codigo, mes, dia, valor, categoria, descricao);
+                        }
+                        catch(Excecao_ValorInvalido_Dados &e){
+                            std::cout<<e.what()<<std::endl;
+                        }
+                    break;
+                    case 5:
+                        std::cout<<"Código: ";
+                        std::cin>>codigo;
+                        try{
+                            dados.deleteGasto(codigo);
+                        }
+                        catch(Excecao_ValorInvalido_Dados &e){
+                            std::cout<<e.what()<<std::endl;
+                        }
+                    break;                        
+                    case 6:
                         std::cout<<"Voltando para o menu principal"<<std::endl;
                     default:
                         std::cout<<"Voltando para o menu principal"<<std::endl;
@@ -292,7 +332,8 @@ int main(){
                 break;
             case 6:
                 std::cout<<"Senha: ";
-                std::cin>>senha;
+                getchar();
+                std::getline(std::cin, senha);
                 usuario.editarSenha(senha);
                 break;
             case 7:

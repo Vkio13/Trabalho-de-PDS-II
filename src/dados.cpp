@@ -572,15 +572,13 @@ void Dados::editaGasto(int inlinha, int inmes, int india, double invalor, std::s
     }
     if (inmes==0){
         getTime();
-        tempo->tm_mon;
+        inmes==tempo->tm_mon;
     }else{
         inmes--;
     }
     if (india==0){
         getTime();
-        tempo->tm_mon;
-    }else{
-        india--;
+        india=tempo->tm_mday;
     }
     for(long unsigned int i=1;i<=linhas.size();i++){
         if(i==inlinha){
