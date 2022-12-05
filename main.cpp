@@ -222,7 +222,7 @@ int main(){
                     std::cout << "Digite o orçamento da Categoria: " << std::endl;
                     std::cin >> orcamento;
                     try{
-                        sistema.adicionaCategoria (Categoria(nome,orcamento));
+                        sistema.adicionaCategoria(Categoria(nome,orcamento));
                     }catch(Excecao_Categoria &e){
                         if(orcamento<0 || orcamento > 2147483646){
                             do{
@@ -244,7 +244,7 @@ int main(){
                                 std::cin >> nome; 
                             }while(sistema.LocalizaCategoria(nome)!=-1); 
                         }
-                        sistema.adicionaCategoria (Categoria(nome,orcamento));
+                        sistema.adicionaCategoria(Categoria(nome,orcamento));
                     }
                 break;
                 case 4:
