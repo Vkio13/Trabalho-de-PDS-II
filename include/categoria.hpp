@@ -3,24 +3,24 @@
 /**
  * @file categoria.hpp
  * @brief Classe onde estão armazenados os dados do 
- * caixa financeiro
- * @version 1.4
- * @date 2022-11-24
+ * caixa financeiro.
+ * @version 1.5
+ * @date 2022-12-05
  * @details TAD com função principal de 
  * conter os valores de caixa e facilitar
- * contas e acesso a dados
+ * contas e acesso a dados.
  * 
  * @copyright GNU General Public License 
  * 
  */
 /*
  * @file categoria.hpp
- * @brief Superclasse principal de uma categoria
+ * @brief Superclasse principal de uma categoria.
  * @version 1.0
  * @date 2022-11-24
  * @details TAD com função principal de 
  * conter valores genéricos para que as
- * demais categorias possa herda-la
+ * demais categorias possa herda-la.
  * 
  * @copyright GNU General Public License 
  * 
@@ -31,10 +31,10 @@
 
 /**
          * @brief Contém informações e valores genéricos
-         * para outras classes
+         * para outras classes.
          *
          * @details Armazena variáveis em comum com as 
-         * categorias
+         * categorias.
          *
          */      
 class Categoria{
@@ -44,7 +44,7 @@ class Categoria{
          **/ 
         std::string _nome;
         /**
-         * @brief orçamento de uma categoria.
+         * @brief Orçamento de uma categoria.
          **/ 
         double _orcamento;
         /**
@@ -52,67 +52,69 @@ class Categoria{
          **/ 
         double _gastoTotal;
         /**
-         * @brief Limite de uma categoria
+         * @brief Limite de uma categoria.
          **/ 
         bool _limite;
     public:
          /**
-         * @brief Construtor ca classe Categoria
+         * @brief Construtor ca classe Categoria.
          *
-         * @param nome Nome da categoria
-         * @param orcamento Orçamento de uma categoria
+         * @param nome Nome da categoria.
+         * @param orcamento Orçamento de uma categoria.
          *
          **/ 
         Categoria (std::string nome, double orcamento);
          /**
-         * @brief Sobrecarga do construtor da classe Categoria
+         * @brief Sobrecarga do construtor da classe Categoria.
          **/ 
         Categoria();
-        /**
-         * @brief Destrutor
-         **/ 
         // ~Categoria();
         /**
-         * @brief Obtém o nome da categoria
-         * @return Nome da categoria
+         * @brief Obtém o nome de uma categoria.
+         * @return Nome da categoria.
          **/ 
         std::string get_nome();
         /**
-         * @brief Obtém o gasto de uma categoria
-         * @return Valor do gasto
+         * @brief Obtém o gasto de uma categoria.
+         * @return Valor do gasto.
          **/ 
         double get_gasto();
         /**
-         * @brief Define o valor de um gasto
-         * @param valor Valor a ser definido
+         * @brief Define o valor de um gasto.
+         * @param valor Valor a ser definido.
          **/ 
         void set_gasto(double valor);  // Aqui é plausível que tenha erros propositais por parte do usuário. Seria interessante um teste aqui.
         /**
-         * @brief Adiciona um gasto à categoria
-         * @param valor Valor a ser adicionado
+         * @brief Adiciona um gasto à categoria.
+         * @param valor Valor a ser adicionado.
          **/ 
         void adiciona_Gasto(double valor);
         /**
-         * @brief Obtém o orçamento
-         * @return Retorna o valor do orçamento
+         * @brief Obtém o orçamento.
+         * @return Retorna o valor do orçamento.
          **/ 
         double get_orcamento();
         /**
-         * @brief Verifica a situação do limite
+         * @brief Verifica a situação do limite.
          **/ 
         void verificaLimite();
         /**
-         * @brief Função virtual
+         * @brief Função virtual do relatório de uma determinada categoria.
          **/ 
         virtual void relatorioDeCategoria();
 };
 /**
-         * @brief Função de exceções de categoria.hpp
+         * @brief Função de exceções de categoria.
+         * @details É executada quando o valor é inválido(menor que zero ou maior que 2.147.483.647).
          **/ 
 class Excecao_Categoria : std::exception{
     public : 
     const char* what() const noexcept;
 };
+/**
+         * @brief Função de exceções de categoria.
+         * @details É executada quando o número de caracteres é inválido.
+         **/ 
 class Excecao_Categoria_Caracter : public Excecao_Categoria {
     public : 
     const char* what() const noexcept{
