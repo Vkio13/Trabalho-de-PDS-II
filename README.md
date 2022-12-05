@@ -46,7 +46,7 @@ cada categoria e total, indicando a evolução conforme o tempo de cada despesa.
 5. Como usuário gostaria de ter conhecimento de possíveis problemas.
 - Ao requerer um relatório, caso as despesas atinjam um limite (definido pelo usuário), gostaria de ser avisado
 sobre;
-- Ao requerer um relatório, caso o boletos estejam perto do vencimento, gostaria de receber a data desse venciomento;
+- Ao requerer um relatório, caso o boletos estejam perto do vencimento, gostaria de receber a data desse vencimento;
 - Ao requerer um relatório, caso o valor em caixa esteja muito baixo quero ser informado sobre.
 
 # Compilação
