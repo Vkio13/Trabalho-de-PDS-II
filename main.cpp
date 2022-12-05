@@ -49,6 +49,13 @@ int main(){
             std::cin>>op;
             switch (op)
             {
+            case 1:
+                menu({"Caixa","Resumo do Caixa"});
+                std::cin>>op;
+                switch(op){
+
+                }
+            break;
             case 2:
                 menu({"Receita","Adicionar Receitas", "Imprime Receitas", "Imprime Receitas Mensal",/*"Excluir Receita",*/ "Voltar"});
                 std::cin>>op;
@@ -92,6 +99,65 @@ int main(){
                     default:
                         std::cout<<"Voltando para o menu principal"<<std::endl;
 
+                }
+                break;
+            case 3:
+                menu({"Boletos","Descrição de um Boleto","Imprimir Boleto","Adicionar Boleto","Pagar Boleto", "Boletos Pendentes"});
+                std::cin>>op;
+                switch(op){
+
+                }
+            break;
+            case 4:
+                menu({"Categoria","Imprimir Categorias","Descrição de uma Categoria","Adicionar Categoria", "Remover Categoria"});
+                std::cin>>op;
+                switch(op){
+                
+                }
+            break;
+            case 5:
+                menu({"Gastos","Imprimir Gastos Totais","Imprimir Gastos Mensais","Adicionar Gastos"});
+                std::cin>>op;
+                switch(op){
+                    case 1:
+
+                    break;
+                    case 2:
+
+                    break; 
+                    case 3:
+                    std::cout << "Digite o nome da Categoria: " << std::endl;
+                    std::cin >> nome;
+                    std::cout << "Digite o valor: " << std::endl;
+                    std::cin >> valor;
+                    std::cout << "Digite a descrição: " << std::endl;
+                    std::cin.ignore();
+                    std::getline(std::cin, descricao);
+                        try{
+                            sistema.novoGasto(nome,valor,descricao);
+                        }catch(Excecao_Caixa &e){
+                            if(valor<0 || valor > 2147483646){
+                            do{
+                                std::cout << e.what() << std::endl;
+                                if(true){
+                                std::cin >> valor;
+                            }
+                                }while(valor<0 || valor > 2147483646);
+                            }
+                            if(descricao.size()>100){
+                            do{
+                                std::cout << e.what() << std::endl;
+                                std::cin.ignore();
+                                std::getline(std::cin, descricao);
+                            }while(descricao.size()>100);
+                        }
+                    sistema.novoGasto(nome,valor,descricao);
+                    }
+                    break;
+                    case 4:
+                        std::cout<<"Voltando para o menu principal"<<std::endl;
+                    default:
+                        std::cout<<"Voltando para o menu principal"<<std::endl;
                 }
                 break;
             case 6:
