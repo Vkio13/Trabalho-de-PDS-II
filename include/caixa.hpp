@@ -106,7 +106,7 @@ class Excecao_Caixa : public std::exception {
 class Excecao_Caracteres_Caixa : public Excecao_Caixa {
         public : 
         const char* what() const noexcept{
-            return "O número de caracteres excede o número permitido pelo programa. Por favor, digite novamente o nome.";
+            return "O número de caracteres inserido é inválido. Por favor, digite novamente: ";
         }
 };
 

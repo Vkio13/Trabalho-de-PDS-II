@@ -90,20 +90,21 @@ int main(){
                         try{
                         sistema.novaReceita(descricao,valor);
                         }catch(Excecao_Caixa &e){
+                            if(descricao.size()>20){
+                                do{
+                                    std::cout << e.what() << std::endl;
+                                    std::cin.ignore();
+                                    std::getline(std::cin, descricao);
+                                }while(descricao.size()>20);
+                            }
                             if(valor < 0 || valor > 2147483646 ){
                             do{
+                                
                                 std::cout << e.what() << std::endl;
                                 if(true){
                                 std::cin >> valor;
                                 }
                                 }while(valor<0 || valor > 2147483646);
-                            }
-                            if(descricao.size()>100){
-                                do{
-                                    std::cout << e.what() << std::endl;
-                                    std::cin.ignore();
-                                    std::getline(std::cin, descricao);
-                                }while(descricao.size()>100);
                             }
                             sistema.novaReceita(descricao,valor);
                         }
