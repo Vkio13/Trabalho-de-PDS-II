@@ -57,7 +57,6 @@ int Usuario::procuraUsuario(std::string innome){
         nome=replace(nome,'_',' ');
         senha=replace(senha,'_',' ');
         if(!innome.compare(nome)){
-            std::cout<<linha<<std::endl;
             return linha;
         }
         linha++;
@@ -192,6 +191,7 @@ void Usuario::sair(){
         _logado= false;
         _usuario="";
         _id=0;
+        std::cout<<"Você saiu do seu usuário."<<std::endl;
     }else{
         std::cout<<"Você não está logado."<<std::endl;
     }
