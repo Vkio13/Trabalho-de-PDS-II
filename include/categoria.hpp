@@ -93,6 +93,9 @@ class Categoria{
          **/ 
         virtual void relatorioDeCategoria();
 };
+/**
+         * @brief Função de exceções de categoria.hpp
+         **/ 
 class Excecao_Categoria : std::exception{
     public : 
     const char* what() const noexcept;
