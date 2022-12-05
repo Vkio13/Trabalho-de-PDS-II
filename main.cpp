@@ -92,14 +92,15 @@ int main(){
                             if(descricao.size()>20){
                                 do{
                                     std::cout << e.what() << std::endl;
+                                    std::cout << "Insira a descrição: " << std::endl;
                                     std::cin.ignore();
                                     std::getline(std::cin, descricao);
                                 }while(descricao.size()>20);
                             }
                             if(valor < 0 || valor > 2147483646 ){
                             do{
-                                
                                 std::cout << e.what() << std::endl;
+                                std::cout << "Insira o valor: " << std::endl;
                                 if(true){
                                 std::cin >> valor;
                                 }
