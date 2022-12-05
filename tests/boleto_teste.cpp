@@ -10,3 +10,6 @@ TEST_CASE("Testando as exceções"){
         CHECK_THROWS(sistemas.adicionaBoleto(Boleto("Teste de Exceçao",-100,30,12)));
         CHECK_THROWS(sistemas.adicionaBoleto(Boleto("UmValorComMaisDeVinteCaracteresParaOTesteDeExcecao",100,30,12)));
 }
+TEST_CASE("Testando as Funções"){
+        
+}
