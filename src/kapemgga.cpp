@@ -53,7 +53,7 @@ void Kapemgga::sobreUmaCategoria(std::string nome){
 
 void Kapemgga::adicionaCategoria(Categoria cate){
     if(LocalizaCategoria(cate.get_nome())!=-1){
-        throw Excecao_Nome_Categoria();
+        //throw Excecao_Nome_Categoria();
     } else {
     _categorias.push_back(cate);
     d.adicionaCategoria(cate.get_nome(), cate.get_orcamento());

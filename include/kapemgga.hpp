@@ -198,11 +198,11 @@ class Kapemgga{
     }
   };
 
-  class Excecao_Nome_Categoria: public Excecao_Categoria {
-    public :
-    const char* what() const noexcept{
-      return "Já existe uma categoria com o nome digitado. Por favor, escolha outro.";
-    }
-  };
+  // class Excecao_Nome_Categoria: public Excecao_Categoria {
+  //   public :
+  //   const char* what() const noexcept{
+  //     return "Já existe uma categoria com o nome digitado. Por favor, escolha outro.";
+  //   }
+  // };
   
 #endif

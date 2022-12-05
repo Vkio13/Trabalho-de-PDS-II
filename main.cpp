@@ -16,7 +16,7 @@ int main(){
         std::string nome, senha, descricao;
         int mes,dia;
         std::string busca;
-        double valor;
+        double valor,orcamento;
         switch (op)
         {
         case 1:
@@ -56,8 +56,7 @@ int main(){
                 std::cin>>op;
                 switch(op){
                     case 1:
-                    //std::cout<< sistema.resumoDeCaixa()<< std::endl;
-                    //Vai precisar de sobrecarregar o operador aqui.
+                    sistema.resumoDeCaixa();
                     break;
                 }
             break;
@@ -174,7 +173,43 @@ int main(){
                 menu({"Categoria","Imprimir Categorias","Descrição de uma Categoria","Adicionar Categoria", "Remover Categoria"});
                 std::cin>>op;
                 switch(op){
-                
+
+                case 1:
+                sistema.imprimeCategorias();
+                break;
+
+                case 2:
+                std::cin >> busca;
+                sistema.sobreUmaCategoria(busca);
+                break;
+
+                case 3:
+                std::cout << "Digite o nome da Categoria: " << std::endl;
+                std::cin >> nome;
+                std::cout << "Digite o orçamento da Categoria: " << std::endl;
+                std::cin >> orcamento;
+                    try{
+                        sistema.adicionaCategoria (Categoria(nome,orcamento));
+                    }catch(Excecao_Categoria &e){
+                        if(orcamento<0 || orcamento > 2147483646){
+                            do{
+                                std::cout << e.what() << std::endl;
+                                if(orcamento<0){
+                                std::cin >> orcamento;
+                                }
+                            }while(orcamento<0 || orcamento > 2147483646);
+                        }
+                        if(nome.size()>20){
+                            do{
+                                std::cout << e.what() << std::endl;
+                                std::cin >> nome; 
+                            }while(nome.size()>20);
+                        }            
+                        sistema.adicionaCategoria (Categoria(nome,orcamento));
+                        }
+                break;
+                case 4:
+                break;
                 }
             break;
             case 5:
