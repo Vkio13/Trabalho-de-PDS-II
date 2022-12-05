@@ -87,7 +87,8 @@ void Usuario::entrarUsuario(std::string innome, std::string insenha){
                 this->_logado=true;
                 this->_usuario=nome;
                 this->_id=linha;
-                std::string comando= "mv arquivos/" + this->_usuario + " arquivos/atual";
+                nome=replace(nome,' ','_');
+                std::string comando= "mv arquivos/" + nome + " arquivos/atual";
                 system(comando.c_str());
                 break;
             }
@@ -152,27 +153,29 @@ void Usuario::deletarUsuario(std::string innome){
        // }
     }
     arqr.close();
-    try{
-    arqw.open("arquivos/usuarios.txt", std::ios::out);
-    }
-    catch(std::exception& e){
-        e.what();
-        exit(1);
-    }
-    int codigo = procuraUsuario(this->_usuario);
+
+    int codigo = procuraUsuario(innome);
     if(codigo>0){
         std::cout<<"Você tem certeza que deseja deletar seus dados, eles não poderam ser recuperados (S/N)"<<std::endl;
         char op;
         std::cin>>op;
         if(op=='s'|| op=='S'){
+            try{
+                arqw.open("arquivos/usuarios.txt", std::ios::out);
+            }
+            catch(std::exception& e){
+                e.what();
+                exit(1);
+            }
             for(long unsigned int i=1;i<=linhas.size();i++){
                 if(int(i)!=codigo){
                     arqw<<linhas[i-1]<<std::endl;
                 }
             }
             arqw.close();
-            std::string comando = "rm -r arquivos/" + _usuario ;
-            system("delete");
+            std::string comando = "rm -r arquivos/" + replace(innome,' ','_') ;
+            std::cout<<comando<<std::endl;
+            system(comando.c_str());
         }
         else{
              std::cout<<"Seus dados não foram deletados :)"<<std::endl;
@@ -184,7 +187,7 @@ void Usuario::deletarUsuario(std::string innome){
 };
 void Usuario::sair(){
     if(_logado){
-        std::string comando= "mv arquivos/atual arquivos/"+ this->_usuario;
+        std::string comando= "mv arquivos/atual arquivos/"+ replace(this->_usuario,' ','_');
         system(comando.c_str());
         _logado= false;
         _usuario="";

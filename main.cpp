@@ -4,11 +4,11 @@
 #include "relatorio.hpp"
 void menu(std::vector<std::string> opcoes);
 int main(){
-    Kapemgga sistema;
     Dados dados;
-    sistema.inicializar();
-    int op;
     Usuario usuario;
+    Kapemgga sistema;
+    Relatorio relatorio;
+    int op;
     //usuario.verifica();
     while(true){
         menu({"Login","Criar Usuário","Entrar","Deletar Usuário","Sair"});
@@ -21,21 +21,24 @@ int main(){
         {
         case 1:
             std::cout<<"Nome: ";
-            std::cin>>nome;
+            getchar();
+            std::getline(std::cin, nome);
             std::cout<<"Senha: ";
-            std::cin>>senha;
+            std::getline(std::cin, senha);
             usuario.criarUsuario(nome, senha);
             break;
         case 2:
             std::cout<<"Nome: ";
-            std::cin>>nome;
+            getchar();
+            std::getline(std::cin, nome);
             std::cout<<"Senha: ";
-            std::cin>>senha;
+            std::getline(std::cin, senha);
             usuario.entrarUsuario(nome, senha);
             break;
         case 3:
             std::cout<<"Nome: ";
-            std::cin>>nome;
+            getchar();
+            std::getline(std::cin, nome);
             usuario.deletarUsuario(nome); 
             break;
         case 4:
@@ -47,16 +50,30 @@ int main(){
             break;
         }
         while(usuario.getLogado()){
-            menu({"Menu KAPEMGGA","Caixa","Receita","Boletos","Categorias","Gastos","Editar Senha","Trocar Usuário / Sair"});
+            menu({"Menu KAPEMGGA","Relatórios","Receita","Boletos","Categorias","Gastos","Editar Senha","Trocar Usuário / Sair"});
             std::cin>>op;
+            sistema.inicializar();
             switch (op)
             {
             case 1:
-                menu({"Caixa","Resumo do Caixa"});
+                menu({"Relatórios","Resumo do Caixa", "Relatório Total", "Relatório Mensal"});
                 std::cin>>op;
                 switch(op){
                     case 1:
-                    sistema.resumoDeCaixa();
+                        sistema.resumoDeCaixa();
+                    break;
+                    case 2:
+                        relatorio.relatorioGeral();
+                    break;
+                    case 3:
+                    std::cout<<"Escolha o mês: ";
+                        std::cin>>mes;
+                        try{
+                            relatorio.relatorioMensal(0);
+                        }
+                        catch(Excecao_ValorInvalido_Relatorio &e){
+                            std::cout<<e.what()<<std::endl;
+                        }
                     break;
                 }
             break;
@@ -88,6 +105,7 @@ int main(){
                                     std::getline(std::cin, descricao);
                                 }while(descricao.size()>100);
                             }
+                            sistema.novaReceita(descricao,valor);
                         }
                         break;
                     case 2:
@@ -96,7 +114,13 @@ int main(){
                     case 3:
                         std::cout<<"Escolha o mês: ";
                         std::cin>>mes;
+                        try{
                         dados.imprimeEntradaMensal(mes);
+                        }
+                        catch(Excecao_ValorInvalido_Dados &e){
+                            std::cout<<e.what()<<std::endl;
+
+                        }
                         break;
                     case 4:
                         std::cout<<"Voltando para o menu principal"<<std::endl;
@@ -217,10 +241,18 @@ int main(){
                 std::cin>>op;
                 switch(op){
                     case 1:
-
+                        dados.imprimeGastosTodos();
                     break;
                     case 2:
+                        std::cout<<"Escolha o mês: ";
+                        std::cin>>mes;
+                        try{
+                        dados.imprimeGastosMensal(mes);
+                        }
+                        catch(Excecao_ValorInvalido_Dados &e){
+                            std::cout<<e.what()<<std::endl;
 
+                        }
                     break; 
                     case 3:
                     std::cout << "Digite o nome da Categoria: " << std::endl;
@@ -271,7 +303,7 @@ int main(){
             }
         }
     }
-    while(std::cin>>op){
+   /* while(std::cin>>op){
         std::cout<<"-------------------- MENU --------------------" << std::endl
         <<"Digite o número correspondete à função desejada:" << std::endl
         <<"1 - Listar categorias existentes" << std::endl
@@ -323,7 +355,7 @@ int main(){
             sistema.boletosAPagar();
             break;
         case 7:
-        /*Só aceita orçamento positivo e nome com menos de 20 caracteres*/
+        //Só aceita orçamento positivo e nome com menos de 20 caracteres
             std::cin >> nome;
             std::cin >> orcamento;
             try{
@@ -407,8 +439,8 @@ int main(){
             }
             break;
         case 10:
-        /*O NOME DO BOLETO NÃO SERIA MELHOR COLOCAR COMO STRING?*/
-        /*ACHO QUE SERIA INTERESSANTE COLOCAR STRING NO NOME E LIMITAR O NUMERO DE CARACTERES PARA 20 OU ALGO DO GENERO*/
+        //O NOME DO BOLETO NÃO SERIA MELHOR COLOCAR COMO STRING?
+        //ACHO QUE SERIA INTERESSANTE COLOCAR STRING NO NOME E LIMITAR O NUMERO DE CARACTERES PARA 20 OU ALGO DO GENERO
             std::cout << "Digite o nome do Boleto: " << std::endl;
             std::cin.ignore();
             std::getline(std::cin, nome);
@@ -445,8 +477,8 @@ int main(){
                 }
                 sistema.adicionaBoleto(Boleto(nome,valor,dia,mes));
             }
-            /*AQUI O BOLETO PODE TER PROBLEMA COM A DATA QUE O USUARIO COLOCAR, SERÁ NECESSÁRIO VERIFICAR ESSES NUMEROS
-            OUTRO ERRO QUE PODE TER NO VALOR É O ERRO DE OVERFLOW*/
+            //AQUI O BOLETO PODE TER PROBLEMA COM A DATA QUE O USUARIO COLOCAR, SERÁ NECESSÁRIO VERIFICAR ESSES NUMEROS
+            //OUTRO ERRO QUE PODE TER NO VALOR É O ERRO DE OVERFLOW
             break;
         case 11:
             
@@ -508,7 +540,7 @@ int main(){
         default:
             break;
         }
-    }
+    }*/
 }
 
 

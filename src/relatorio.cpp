@@ -6,9 +6,10 @@ Relatorio::Relatorio(){
 };
 //
 void Relatorio::relatorioGeral(){
-Dados d;
+    Dados d;
     double entradas;
     double gastos;
+    _categorias.clear();
     d.vectorCategoria(_categorias);
     for(int i=0; i<_categorias.size(); i++){
         _categorias[i].set_gasto(d.somaGastosCategoria(_categorias[i].get_nome()));
@@ -26,6 +27,7 @@ void Relatorio::relatorioMensal(int mes){
     Dados d;
     double entradas;
     double gastos;
+    _categorias.clear();
     d.vectorCategoria(_categorias);
     for(int i=0; i<_categorias.size(); i++){
         _categorias[i].set_gasto(d.somaGastosCategoriaMensal(_categorias[i].get_nome(), mes));
@@ -39,4 +41,7 @@ void Relatorio::relatorioMensal(int mes){
         std::cout<<_categorias[i].get_nome()<<": "<<_categorias[i].get_gasto()<<" / "<<_categorias[i].get_orcamento()<<std::endl;
     }
     std::cout<<"========================================================"<<std::endl;
+};
+const char* Excecao_ValorInvalido_Relatorio::what() const noexcept{
+      return "O valor digitado é inválido, tente outro dentro do esperado.(Não podem ser menor que 0, ou mês maior que 12)";
 };

@@ -6,7 +6,7 @@ void Kapemgga::inicializar(){
     _categorias = i.getCategorias();
     _caixa.setGastos(i.getGastos());
     _caixa.setReceitas(i.getEntradas());
-    adicionaCategoria(Categoria ("Boletos Pagos", 999999999));
+    adicionaCategoria(Categoria ("Boletos Pagos", 0));
 }
 
 int Kapemgga::LocalizaCategoria(std::string nome){

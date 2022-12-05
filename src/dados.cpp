@@ -32,10 +32,7 @@ void Dados::adicionaGasto(double valor, std::string categoria, std::string descr
     getTime();
     arq<<tempo->tm_mon<<' '<<tempo->tm_mday<<' '<<std::to_string(valor)<<' '<<categoria<<' '<<descricao<<std::endl;
 };
-void Dados::adicionaReceita(double valor, std::string descricao){
-    if(valor<0){
-        throw Excecao_ValorInvalido_Dados();
-    }    
+void Dados::adicionaReceita(double valor, std::string descricao){ 
     std::ofstream arq;
     try{
     arq.open(datreceita, std::ios::out | std::ios::app);
@@ -115,7 +112,7 @@ void Dados::imprimeGastosCategoriaTotal(std::string cat){
     }
 
 };
-void Dados::imprimeGastosMensal(int inmes){
+void Dados::imprimeGastosMensal(int inmes=0){
     if(inmes<0||inmes>12){
         throw Excecao_ValorInvalido_Dados();
     }
@@ -132,7 +129,12 @@ void Dados::imprimeGastosMensal(int inmes){
     double valor;
     int mes, dia;
     int linha = 1;
-    inmes--;
+    if (inmes==0){
+        getTime();
+        inmes=tempo->tm_mon;
+    }else{
+        inmes--;
+    }
     while(arq>>mes>>dia>>valor>>categoria>>descricao){
         descricao=replace(descricao,'_',' ');
         categoria=replace(categoria,'_',' ');
@@ -191,7 +193,7 @@ double Dados::somaGastosMes(int inmes=0){
     }
     if (inmes==0){
         getTime();
-        tempo->tm_mon;
+        inmes=tempo->tm_mon;
     }else{
         inmes--;
     }
@@ -266,7 +268,7 @@ double Dados::somaGastosCategoriaMensal(std::string incategoria, int inmes=0){
     double soma=0;
     if (inmes==0){
         getTime();
-        tempo->tm_mon;
+        inmes=tempo->tm_mon;
     }else{
         inmes--;
     }
@@ -312,7 +314,7 @@ double Dados::somaEntradasMes(int inmes= 0){
     std::string descricao;
     if (inmes==0){
         getTime();
-        tempo->tm_mon;
+        inmes=tempo->tm_mon;
     }else{
         inmes--;
     }
@@ -341,7 +343,9 @@ void Dados::imprimeEntradaTotal(){
     int mes, dia;
     int linha = 1;
     while(arq>>mes>>dia>>valor>>descricao){
+        descricao=replace(descricao,'_',' ');
         std::cout<<linha<<" - "<<dia<<"/"<<mes+1<<" R$"<<valor<<" "<<descricao<<std::endl;
+        linha++;
     }
 };
 void Dados::imprimeEntradaMensal(int inmes=0){
@@ -363,13 +367,14 @@ void Dados::imprimeEntradaMensal(int inmes=0){
     int linha = 1;
     if (inmes==0){
         getTime();
-        tempo->tm_mon;
+        inmes=tempo->tm_mon; 
     }else{
         inmes--;
     }
     while(arq>>mes>>dia>>valor>>descricao){
         if(inmes==mes){
-        std::cout<<linha<<" - "<<dia<<"/"<<mes+1<<" R$"<<valor<<" "<<descricao<<std::endl;
+                descricao=replace(descricao,'_',' ');
+                std::cout<<linha<<" - "<<dia<<"/"<<mes+1<<" R$"<<valor<<" "<<descricao<<std::endl;
         }
         linha++;
     }

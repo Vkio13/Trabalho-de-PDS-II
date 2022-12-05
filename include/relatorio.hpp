@@ -60,4 +60,8 @@
          */
         void relatorioGeral();
     };
+class Excecao_ValorInvalido_Relatorio : public std::exception {
+   public : 
+   const char* what() const noexcept;
+};
 #endif
