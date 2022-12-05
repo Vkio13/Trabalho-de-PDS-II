@@ -15,13 +15,13 @@ TEST_CASE("Testando a exceção"){
 TEST_CASE("Testando as Funções"){
     Categoria teste("Mercado",1000);
     SUBCASE("Testando Get Orçamentos"){
-        CHECK_EQ(teste.get_orcamento,1000);
+        CHECK_EQ(teste.get_orcamento(),1000);
     }
     SUBCASE("Testando Get Gastos"){
         teste.set_gasto(1000);
         CHECK_EQ(teste.get_gasto(), 1000);
     }
     SUBCASE("Testando Get Nome"){
-        CHECK_EQ(teste.get_nome,"Mercado");
+        CHECK_EQ(teste.get_nome(),"Mercado");
     }
 }

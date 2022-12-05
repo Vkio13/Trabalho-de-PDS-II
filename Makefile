@@ -1,10 +1,13 @@
 CC := g++
 SRCDIR := src
+TESTDIR := tests
 BUILDDIR := build
 TARGET := main.out
 CFLAGS := -g -Wall -O3 -std=c++11 -I include/
 
-all: main
+all: main 
+test: usuario categoria dados kapemgga boleto inicializador caixa
+	$(CC) $(CFLAGS) $(TESTDIR)/Testes.cpp build/usuario.o build/categoria.o build/dados.o build/kapemgga.o build/boleto.o build/inicializador.o build/caixa.o -o $(TESTDIR)/test.out
 usuario:
 	$(CC) $(CFLAGS) -c src/usuario.cpp -o build/usuario.o
 

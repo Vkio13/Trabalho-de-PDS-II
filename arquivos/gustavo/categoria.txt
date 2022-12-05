@@ -1,2 +1,0 @@
-11 4 80.000000 Pedra
-11 5 0.000000 Boletos_Pagos
