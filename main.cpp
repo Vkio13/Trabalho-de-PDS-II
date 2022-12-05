@@ -14,7 +14,8 @@ int main(){
         menu({"Login","Criar Usuário","Entrar","Deletar Usuário","Sair"});
         std::cin>>op;
         std::string nome, senha, descricao;
-        int mes;
+        int mes,dia;
+        std::string busca;
         double valor;
         switch (op)
         {
@@ -54,7 +55,10 @@ int main(){
                 menu({"Caixa","Resumo do Caixa"});
                 std::cin>>op;
                 switch(op){
-
+                    case 1:
+                    //std::cout<< sistema.resumoDeCaixa()<< std::endl;
+                    //Vai precisar de sobrecarregar o operador aqui.
+                    break;
                 }
             break;
             case 2:
@@ -103,10 +107,67 @@ int main(){
                 }
                 break;
             case 3:
-                menu({"Boletos","Descrição de um Boleto","Imprimir Boleto","Adicionar Boleto","Pagar Boleto", "Boletos Pendentes"});
+                menu({"Boletos","Descrição de um Boleto","Imprimir Boletos","Adicionar Boleto","Pagar Boleto", "Boletos Pendentes"});
                 std::cin>>op;
                 switch(op){
+                    case 1:
+                        std::cout << "Digite o nome do boleto a ser pesquisado: " <<std::endl;
+                        std::cin>>busca;
+                        sistema.sobreUmBoleto(busca);
+                    break;
 
+                    case 2:
+                        sistema.imprimeBoletos();
+                    break;
+
+                    case 3:
+                        std::cout << "Digite o nome do Boleto: " << std::endl;
+                        std::cin.ignore();
+                        std::getline(std::cin, nome);
+                        std::cout << "Digite o valor do Boleto: " << std::endl;
+                        std::cin >> valor;
+                        std::cout << "Digite o dia de vencimento do boleto: " << std::endl;
+                        std::cin >> dia;
+                        std::cout << "Digite o mês de vencimento do boleto: " << std::endl;
+                        std::cin >> mes;
+                        try{
+                            sistema.adicionaBoleto(Boleto(nome,valor,dia,mes));
+                        }catch(Excecao_Boleto &e){
+                            if(valor<0 || valor > 2147483646 ){
+                                do{
+                                    std::cout << e.what() << std::endl;
+                                    std::cin >> valor;  
+                                }while(valor<0 || valor > 2147483646 );
+                            }
+                            if(nome.size()>20){
+                                do{
+                                    std::cout << e.what() << std::endl;
+                                    std::cin.ignore();
+                                    std::getline(std::cin, nome);  
+                                }while(nome.size()>20);
+                            }
+                            if(dia < 1 || dia > 31 || mes < 1 || mes > 12){
+                                do{
+                                    std::cout << e.what() << std::endl;
+                                    std::cout << "Digite o dia de vencimento do boleto: " << std::endl;
+                                    std::cin >> dia;
+                                    std::cout << "Digite o mês de vencimento do boleto: " << std::endl;
+                                    std::cin >> mes;
+                                }while(dia < 1 || dia > 31 || mes < 1 || mes > 12);
+                            }
+                            sistema.adicionaBoleto(Boleto(nome,valor,dia,mes));
+                        }
+                    break;
+
+                    case 4:
+                    std::cout << "Digite o nome do boleto: "<<std::endl;
+                    std::cin >> nome;
+                    sistema.pagaBoleto(nome);
+                    break;
+
+                    case 5:
+                    sistema.boletosAPagar();
+                    break;
                 }
             break;
             case 4:
