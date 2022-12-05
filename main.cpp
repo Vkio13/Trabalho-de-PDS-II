@@ -179,13 +179,13 @@ int main(){
                                     std::cin >> mes;
                                 }while(dia < 1 || dia > 31 || mes < 1 || mes > 12);
                             }
-                            if(LocalizaBoleto(nome)!=-1){
+                            if(sistema.LocalizaBoleto(nome)!=-1){
                                 do{
                                     std::cout << e.what() << std::endl;
                                     std::cin >> nome; 
-                                }while(LocalizaBoleto(nome)!=-1); 
+                                }while(sistema.LocalizaBoleto(nome)!=-1); 
                             }
-                            sistema.adicionaBoleto(Boleto(nome,valor,dia,mes);
+                            sistema.adicionaBoleto(Boleto(nome,valor,dia,mes));
                     }
                     break;
 
@@ -239,11 +239,11 @@ int main(){
                                 std::cin >> nome; 
                             }while(nome.size()>20);
                         }
-                        if(LocalizaCategoria(nome)!=-1){
+                        if(sistema.LocalizaCategoria(nome)!=-1){
                             do{
                                 std::cout << e.what() << std::endl;
                                 std::cin >> nome; 
-                            }while(LocalizaCategoria(nome)!=-1); 
+                            }while(sistema.LocalizaCategoria(nome)!=-1); 
                         }
                         sistema.adicionaCategoria (Categoria(nome,orcamento));
                     }
