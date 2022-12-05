@@ -2,12 +2,12 @@
 #define INICIALIZADOR_H
 /**
  * @file inicializador.hpp
- * @brief Inicializador do programa
- * @version 1.3
- * @date 2022-11-30
+ * @brief Inicializador do programa.
+ * @version 1.5
+ * @date 2022-12-05
  * @details TAD com função principal de 
  * conter a data de vencimento de um 
- * determinado boleto
+ * determinado boleto.
  * 
  * @copyright GNU General Public License 
  * 
@@ -24,10 +24,23 @@
          *
          */  
 class Inicializador {
-    private:
+    private:    
+        /**
+         * @brief Variavél contendo dados gerais pra inicialização do código.
+         */
         Dados d;
+        /**
+         * @brief Vetor contendo as categorias.
+         */
         std::vector<Categoria> _categorias;
-        double _entradas=0, _gastos=0;
+        /**
+         * @brief Variavél contendo o valor das entradas.
+         */
+        double _entradas=0;
+        /**
+         * @brief Variavél contendo o valor dos gastos.
+         */
+        double _gastos=0;
     public :
     /**
          * @brief Constrói a classe Inicializador.
@@ -38,19 +51,19 @@ class Inicializador {
     /**
          * @brief Obtém as entradas.
          *
-         * @return Retorna as entradas.
+         * @return As entradas.
          */
         double getEntradas();
     /**
          * @brief Obtém os gastos.
          *
-         * @return Retorna o valor dos gastos.
+         * @return Valor dos gastos.
          */
         double getGastos();
     /**
-         * @brief Obtém as categorias
+         * @brief Obtém todas as categorias
          *
-         * @return Retorna um vetor com as categorias.
+         * @return Vetor com as categorias.
          */
         std::vector<Categoria> getCategorias();
     /**
