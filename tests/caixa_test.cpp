@@ -34,7 +34,7 @@ TEST_CASE("Testando as Funções"){
         CHECK_EQ(teste.getGastos(), 1000.100);
     }
     SUBCASE("Teste do Get Receita"){
-        teste.SetReceitas(200.20);
+        teste.setReceitas(200.20);
         CHECK_EQ(teste.getReceitas(), 200.100);
     }
     SUBCASE("Teste do Get Saldo"){
