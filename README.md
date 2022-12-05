@@ -50,5 +50,5 @@ sobre;
 - Ao requerer um relatório, caso o valor em caixa esteja muito baixo quero ser informado sobre.
 
 # Compilação
-1 - make
-2 - ./main.out
+- 1 - make
+- 2 - ./main.out
