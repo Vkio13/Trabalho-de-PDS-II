@@ -178,8 +178,14 @@ int main(){
                                     std::cin >> mes;
                                 }while(dia < 1 || dia > 31 || mes < 1 || mes > 12);
                             }
-                            sistema.adicionaBoleto(Boleto(nome,valor,dia,mes));
-                        }
+                            if(LocalizaBoleto(nome)!=-1){
+                                do{
+                                    std::cout << e.what() << std::endl;
+                                    std::cin >> nome; 
+                                }while(LocalizaBoleto(nome)!=-1); 
+                            }
+                            sistema.adicionaBoleto(Boleto(nome,valor,dia,mes);
+                    }
                     break;
 
                     case 4:
@@ -231,9 +237,15 @@ int main(){
                                 std::cout << e.what() << std::endl;
                                 std::cin >> nome; 
                             }while(nome.size()>20);
-                        }            
-                        sistema.adicionaCategoria (Categoria(nome,orcamento));
                         }
+                        if(LocalizaCategoria(nome)!=-1){
+                            do{
+                                std::cout << e.what() << std::endl;
+                                std::cin >> nome; 
+                            }while(LocalizaCategoria(nome)!=-1); 
+                        }
+                        sistema.adicionaCategoria (Categoria(nome,orcamento));
+                    }
                 break;
                 case 4:
                     std::cout<<"Digite o código da categoria que deseja excluir: ";
