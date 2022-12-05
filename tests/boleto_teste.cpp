@@ -5,10 +5,18 @@
 
 TEST_CASE("Testando as exceções"){
         Kapemgga sistemas;
-        CHECK_THROWS(sistemas.adicionaBoleto(Boleto("Teste de Exceçao",100,30,13)));
-        CHECK_THROWS(sistemas.adicionaBoleto(Boleto("Teste de Exceçao",100,32,12)));
-        CHECK_THROWS(sistemas.adicionaBoleto(Boleto("Teste de Exceçao",-100,30,12)));
-        CHECK_THROWS(sistemas.adicionaBoleto(Boleto("UmValorComMaisDeVinteCaracteresParaOTesteDeExcecao",100,30,12)));
+        SUBCASE("Mês não existente"){
+                CHECK_THROWS(sistemas.adicionaBoleto(Boleto("Teste de Exceçao",100,30,13)));        
+        }
+        SUBCASE("Dia não existente"){
+                CHECK_THROWS(sistemas.adicionaBoleto(Boleto("Teste de Exceçao",100,32,12)));      
+        }
+        SUBCASE("Valor Negativo"){
+                CHECK_THROWS(sistemas.adicionaBoleto(Boleto("Teste de Exceçao",-100,30,12)));  
+        }
+        SUBCASE("Excedendo o número de Caracteres"){
+                CHECK_THROWS(sistemas.adicionaBoleto(Boleto("UmValorComMaisDeVinteCaracteresParaOTesteDeExcecao",100,30,12)));
+        }
 
         Boleto b1("Conta",10,30,12);
         Boleto b2("Bola",200,30,1);
