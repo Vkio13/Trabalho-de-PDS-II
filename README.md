@@ -41,7 +41,7 @@ porcentagem do total;
 - Através de um relatório geral, o usuário deve poder visualizar o histórico mensal de
 cada categoria e total, indicando a evolução conforme o tempo de cada despesa.
 - Por meio de um relatório de uma categoria específica, o usuário pode visualizar os gastos e fundos de uma categoria específica;
-- Por meio de um ppolimorfismo do relatório de categoria, o boleto também terá um relatório próprio, semelhante ao relatório de categoria.
+- Por meio de um polimorfismo do relatório de categoria, o boleto também terá um relatório próprio, semelhante ao relatório de categoria.
 
 5. Como usuário gostaria de ter conhecimento de possíveis problemas.
 - Ao requerer um relatório, caso as despesas atinjam um limite (definido pelo usuário), gostaria de ser avisado
