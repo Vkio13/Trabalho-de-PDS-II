@@ -9,6 +9,7 @@ int main(){
     sistema.inicializar();
     int op;
     Usuario usuario;
+    //usuario.verifica();
     while(true){
         menu({"Login","Criar Usuário","Entrar","Deletar Usuário","Sair"});
         std::cin>>op;

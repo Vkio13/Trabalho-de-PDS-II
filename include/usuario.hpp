@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <experimental/filesystem>
+#include <cstdlib>
 /**
  * @file usuario.hpp
  * @brief Classe onde estão armazenados os usuarios
@@ -67,6 +69,11 @@
         void deletarUsuario(std::string innome);
         std::string replace(std::string n, char c, char s);
         void sair();
+        //void verifica();
         bool getLogado();
-    };
+};
+class Excecao_Usuario : std::exception{
+    public : 
+    const char* what() const noexcept;
+};
 #endif

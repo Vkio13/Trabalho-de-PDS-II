@@ -73,7 +73,6 @@ void Kapemgga::novaReceita(std::string descricao, double valor){
     d.adicionaReceita(valor, descricao);
 }
 
-//Essa parte de entrada de dados com nome com espaço irá dar problemas
 void Kapemgga::novoGasto(std::string nome, double valor, std::string descricao){
     if(LocalizaCategoria(nome)>=0){
     _categorias[LocalizaCategoria(nome)].set_gasto(valor);

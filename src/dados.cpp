@@ -86,7 +86,7 @@ void Dados::imprimeGastosTodos(){
     while(arq>>mes>>dia>>valor>>categoria>>descricao){
         descricao=replace(descricao,'_',' ');
         categoria=replace(categoria,'_',' ');
-        std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
+        std::cout<<linha<<" - "<<dia<<"/"<<mes+1<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
         linha++;
     }
 
@@ -109,7 +109,7 @@ void Dados::imprimeGastosCategoriaTotal(std::string cat){
         descricao=replace(descricao,'_',' ');
         categoria=replace(categoria,'_',' ');
         if(cat==categoria){
-            std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
+            std::cout<<linha<<" - "<<mes+1<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
         }
         linha++;
     }
@@ -137,7 +137,7 @@ void Dados::imprimeGastosMensal(int inmes){
         descricao=replace(descricao,'_',' ');
         categoria=replace(categoria,'_',' ');
         if(inmes==mes){
-            std::cout<<linha<<" - "<<mes+1<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
+            std::cout<<linha<<" - "<<dia<<"/"<<mes+1<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
         }
         linha++;
     }
@@ -341,7 +341,7 @@ void Dados::imprimeEntradaTotal(){
     int mes, dia;
     int linha = 1;
     while(arq>>mes>>dia>>valor>>descricao){
-        std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" "<<descricao<<std::endl;
+        std::cout<<linha<<" - "<<dia<<"/"<<mes+1<<" R$"<<valor<<" "<<descricao<<std::endl;
     }
 };
 void Dados::imprimeEntradaMensal(int inmes=0){
@@ -369,7 +369,7 @@ void Dados::imprimeEntradaMensal(int inmes=0){
     }
     while(arq>>mes>>dia>>valor>>descricao){
         if(inmes==mes){
-        std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" "<<descricao<<std::endl;
+        std::cout<<linha<<" - "<<dia<<"/"<<mes+1<<" R$"<<valor<<" "<<descricao<<std::endl;
         }
         linha++;
     }
@@ -538,7 +538,7 @@ void Dados::vectorCategoria(std::vector<Categoria>& v){
         v.push_back(Categoria(categoria,orcamento));
     }
 };
-void Dados::editaGasto(int inlinha, int inmes=0, int india=0, double invalor, std::string incategoria, std::string indescricao){
+void Dados::editaGasto(int inlinha, int inmes, int india, double invalor, std::string incategoria, std::string indescricao){
     if(inlinha<1||inmes<0||inmes>12||india<0||india>31||invalor<0){
         throw Excecao_ValorInvalido_Dados();
     }
@@ -587,4 +587,7 @@ void Dados::editaGasto(int inlinha, int inmes=0, int india=0, double invalor, st
         }
     }
     arqw.close();
+};
+const char* Excecao_ValorInvalido_Dados::what() const noexcept{
+      return "O valor digitado é inválido, tente outro dentro do esperado.(Não podem ser menor que 0, ou mês maior que 12)";
 };

@@ -180,15 +180,8 @@
       void editaGasto(int inlinha, int inmes, int india, double invalor, std::string incategoria, std::string indescricao);
   };
 
-class Excecao_Dados : public std::exception {
+class Excecao_ValorInvalido_Dados : public std::exception {
    public : 
    const char* what() const noexcept;
-};
-
-class Excecao_ValorInvalido_Dados : public Excecao_Dados {
-   public : 
-   const char* what() const noexcept{
-      return "O valor digitado é inválido, tente outro dentro do esperado.(Não podem ser menor que 0, ou mês maior que 12)";
-   }
 };
 #endif

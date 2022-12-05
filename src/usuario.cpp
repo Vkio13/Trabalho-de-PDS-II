@@ -1,4 +1,8 @@
 #include "../include/usuario.hpp"
+#include <iostream>
+#include <fstream>
+#include <cstdint>
+#include <filesystem>
 
 std::string Usuario::replace(std::string n, char c, char s){
     for(long unsigned int i=0; i<n.size(); i++){
@@ -191,4 +195,17 @@ void Usuario::sair(){
 }
 bool Usuario::getLogado(){
     return _logado;
+};
+/*void Usuario::verifica(){
+    std::string home = getenv("HOME");
+    home="/arquivos/gustavo";
+    std::experimental::filesystem::path();
+    if(std::experimental::filesystem::exists(home)){
+        std::cout<<"Deu certo";
+    }else{
+        std::cout<<"Não deu certo";
+    }
+}*/
+const char* Excecao_Usuario::what() const noexcept{
+    return "";
 };
