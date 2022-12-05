@@ -16,6 +16,9 @@ Dados::Dados(){
     Dados::getTime();
 }
 void Dados::adicionaGasto(double valor, std::string categoria, std::string descricao){
+    if(valor<0){
+        throw Excecao_ValorInvalido_Dados();
+    }
     std::ofstream arq;
     try{
     arq.open(datgastos, std::ios::app);
@@ -30,6 +33,9 @@ void Dados::adicionaGasto(double valor, std::string categoria, std::string descr
     arq<<tempo->tm_mon<<' '<<tempo->tm_mday<<' '<<std::to_string(valor)<<' '<<categoria<<' '<<descricao<<std::endl;
 };
 void Dados::adicionaReceita(double valor, std::string descricao){
+    if(valor<0){
+        throw Excecao_ValorInvalido_Dados();
+    }    
     std::ofstream arq;
     try{
     arq.open(datreceita, std::ios::out | std::ios::app);
@@ -42,7 +48,10 @@ void Dados::adicionaReceita(double valor, std::string descricao){
     getTime();
     arq<<tempo->tm_mon<<' '<<tempo->tm_mday<<' '<<std::to_string(valor)<<' '<<descricao<<std::endl;
 };
-void Dados::adicionaCategoria(std::string categoria, double ocamento){
+void Dados::adicionaCategoria(std::string categoria, double orcamento){
+    if(orcamento<0){
+        throw Excecao_ValorInvalido_Dados();
+    }    
     std::ofstream arq;
     try{
     arq.open(datcat, std::ios::app);
@@ -57,7 +66,7 @@ void Dados::adicionaCategoria(std::string categoria, double ocamento){
     else{
     categoria=replace(categoria,' ','_');
     getTime();
-    arq<<tempo->tm_mon<<' '<<tempo->tm_mday<<' '<<std::to_string(ocamento)<<' '<<categoria<<std::endl;
+    arq<<tempo->tm_mon<<' '<<tempo->tm_mday<<' '<<std::to_string(orcamento)<<' '<<categoria<<std::endl;
     }
 };
 void Dados::imprimeGastosTodos(){
@@ -107,6 +116,9 @@ void Dados::imprimeGastosCategoriaTotal(std::string cat){
 
 };
 void Dados::imprimeGastosMensal(int inmes){
+    if(inmes<0||inmes>12){
+        throw Excecao_ValorInvalido_Dados();
+    }
     std::ifstream arq;
     try{
     arq.open(datgastos, std::ios::in);
@@ -120,45 +132,21 @@ void Dados::imprimeGastosMensal(int inmes){
     double valor;
     int mes, dia;
     int linha = 1;
+    inmes--;
     while(arq>>mes>>dia>>valor>>categoria>>descricao){
         descricao=replace(descricao,'_',' ');
         categoria=replace(categoria,'_',' ');
         if(inmes==mes){
-            std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
+            std::cout<<linha<<" - "<<mes+1<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
         }
         linha++;
     }
 
 };
 void Dados::imprimeGastosCategoriaMensal(std::string cat, int inmes=0){
-std::ifstream arq;
-    try{
-    arq.open(datgastos, std::ios::in);
+    if(inmes<0||inmes>12){
+        throw Excecao_ValorInvalido_Dados();
     }
-    catch(std::exception& e){
-        e.what();
-        exit(1);
-    }
-    if (inmes==0){
-        getTime();
-        tempo->tm_mon;
-    }
-    std::string categoria;
-    std::string descricao;
-    double valor;
-    int mes, dia;
-    int linha = 1;
-    while(arq>>mes>>dia>>valor>>categoria>>descricao){
-        descricao=replace(descricao,'_',' ');
-        categoria=replace(categoria,'_',' ');
-        if(inmes==mes && cat==categoria){
-            std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
-        }
-        linha++;
-    }
-
-};
-double Dados::somaGastosMes(int inmes=0){
     std::ifstream arq;
     try{
     arq.open(datgastos, std::ios::in);
@@ -170,6 +158,42 @@ double Dados::somaGastosMes(int inmes=0){
     if (inmes==0){
         getTime();
         tempo->tm_mon;
+    }else{
+    inmes--;        
+    }
+    std::string categoria;
+    std::string descricao;
+    double valor;
+    int mes, dia;
+    int linha = 1;
+
+    while(arq>>mes>>dia>>valor>>categoria>>descricao){
+        descricao=replace(descricao,'_',' ');
+        categoria=replace(categoria,'_',' ');
+        if(inmes==mes && cat==categoria){
+            std::cout<<linha<<" - "<<mes+1<<"/"<<dia<<" R$"<<valor<<" ("<<categoria<<") "<<descricao<<std::endl;
+        }
+        linha++;
+    }
+
+};
+double Dados::somaGastosMes(int inmes=0){
+    if(inmes<0||inmes>12){
+        throw Excecao_ValorInvalido_Dados();
+    }
+    std::ifstream arq;
+    try{
+    arq.open(datgastos, std::ios::in);
+    }
+    catch(std::exception& e){
+        e.what();
+        exit(1);
+    }
+    if (inmes==0){
+        getTime();
+        tempo->tm_mon;
+    }else{
+        inmes--;
     }
     std::string categoria;
     std::string descricao;
@@ -223,7 +247,10 @@ double Dados::somaGastosCategoria(std::string incategoria){
     }
     return soma;
 };
-double Dados::somaGastosCategoriaMensal(std::string incategoria, int inmes){
+double Dados::somaGastosCategoriaMensal(std::string incategoria, int inmes=0){
+    if(inmes<0||inmes>12){
+        throw Excecao_ValorInvalido_Dados();
+    }
     std::ifstream arq;
     try{
     arq.open(datgastos, std::ios::in);
@@ -237,6 +264,12 @@ double Dados::somaGastosCategoriaMensal(std::string incategoria, int inmes){
     double valor;
     int mes, dia;
     double soma=0;
+    if (inmes==0){
+        getTime();
+        tempo->tm_mon;
+    }else{
+        inmes--;
+    }
     while(arq>>mes>>dia>>valor>>categoria>>descricao){
         if(incategoria==incategoria && inmes==mes){
         soma+=valor;
@@ -264,6 +297,9 @@ double Dados::somaEntradas(){
     return soma;
 };
 double Dados::somaEntradasMes(int inmes= 0){
+    if(inmes<0||inmes>12){
+        throw Excecao_ValorInvalido_Dados();
+    }    
     std::ifstream arq;
     try{
     arq.open(datreceita, std::ios::in);
@@ -277,6 +313,8 @@ double Dados::somaEntradasMes(int inmes= 0){
     if (inmes==0){
         getTime();
         tempo->tm_mon;
+    }else{
+        inmes--;
     }
     double valor;
     int mes, dia;
@@ -306,7 +344,10 @@ void Dados::imprimeEntradaTotal(){
         std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" "<<descricao<<std::endl;
     }
 };
-void Dados::imprimeEntradaMensal(int inmes){
+void Dados::imprimeEntradaMensal(int inmes=0){
+    if(inmes<0||inmes>12){
+        throw Excecao_ValorInvalido_Dados();
+    }
     std::ifstream arq;
     try{
     arq.open(datreceita, std::ios::in);
@@ -320,6 +361,12 @@ void Dados::imprimeEntradaMensal(int inmes){
     double valor;
     int mes, dia;
     int linha = 1;
+    if (inmes==0){
+        getTime();
+        tempo->tm_mon;
+    }else{
+        inmes--;
+    }
     while(arq>>mes>>dia>>valor>>descricao){
         if(inmes==mes){
         std::cout<<linha<<" - "<<mes<<"/"<<dia<<" R$"<<valor<<" "<<descricao<<std::endl;
@@ -328,6 +375,9 @@ void Dados::imprimeEntradaMensal(int inmes){
     }
 };
 void Dados::deleteGasto(int codigo){
+    if(codigo<1){
+        throw Excecao_ValorInvalido_Dados();
+    }
     std::ofstream arqw;
     std::ifstream arqr;
     try{
@@ -383,6 +433,9 @@ int Dados::verificaCategoria(std::string nome){
     return 0;
 }
 void Dados::deleteCategoria(int codigo){
+    if(codigo<1){
+        throw Excecao_ValorInvalido_Dados();
+    }
     std::ofstream arqw;
     std::ifstream arqr;
     try{
@@ -416,6 +469,9 @@ void Dados::deleteCategoria(int codigo){
     arqw.close();
 }
 void Dados::deleteReceita(int codigo){
+    if(codigo<1){
+        throw Excecao_ValorInvalido_Dados();
+    }
     std::ofstream arqw;
     std::ifstream arqr;
     try{
@@ -482,7 +538,10 @@ void Dados::vectorCategoria(std::vector<Categoria>& v){
         v.push_back(Categoria(categoria,orcamento));
     }
 };
-void Dados::editaGasto(int inlinha, int inmes, int india, double invalor, std::string incategoria, std::string indescricao){
+void Dados::editaGasto(int inlinha, int inmes=0, int india=0, double invalor, std::string incategoria, std::string indescricao){
+    if(inlinha<1||inmes<0||inmes>12||india<0||india>31||invalor<0){
+        throw Excecao_ValorInvalido_Dados();
+    }
     std::ofstream arqw;
     std::ifstream arqr;
     try{
@@ -506,11 +565,23 @@ void Dados::editaGasto(int inlinha, int inmes, int india, double invalor, std::s
         e.what();
         exit(1);
     }
+    if (inmes==0){
+        getTime();
+        tempo->tm_mon;
+    }else{
+        inmes--;
+    }
+    if (india==0){
+        getTime();
+        tempo->tm_mon;
+    }else{
+        india--;
+    }
     for(long unsigned int i=1;i<=linhas.size();i++){
         if(i==inlinha){
             indescricao=replace(indescricao,' ','_');
             incategoria=replace(incategoria,' ','_');
-            arqw<<inmes<<' '<<india<<' '<<invalor<<' '<<incategoria<<' '<<indescricao<<std::endl;
+            arqw<<inmes<<' '<<india<<' '<<std::to_string(invalor)<<' '<<incategoria<<' '<<indescricao<<std::endl;
         }else{
             arqw<<linhas[i-1]<<std::endl;
         }
