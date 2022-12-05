@@ -243,6 +243,7 @@ double Dados::somaGastosCategoria(std::string incategoria){
     int mes, dia;
     double soma=0;
     while(arq>>mes>>dia>>valor>>categoria>>descricao){
+        categoria=replace(categoria,'_',' ');
         if(categoria==incategoria){
         soma+=valor;
         }
@@ -273,7 +274,8 @@ double Dados::somaGastosCategoriaMensal(std::string incategoria, int inmes=0){
         inmes--;
     }
     while(arq>>mes>>dia>>valor>>categoria>>descricao){
-        if(incategoria==incategoria && inmes==mes){
+        categoria=replace(categoria,'_',' ');
+        if(incategoria==categoria && inmes==mes){
         soma+=valor;
         }
     }
