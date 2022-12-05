@@ -273,7 +273,7 @@ double Dados::somaGastosCategoriaMensal(std::string incategoria, int inmes=0){
         inmes--;
     }
     while(arq>>mes>>dia>>valor>>categoria>>descricao){
-        if(incategoria==incategoria && inmes==mes){
+        if(incategoria==categoria && inmes==mes){
         soma+=valor;
         }
     }
