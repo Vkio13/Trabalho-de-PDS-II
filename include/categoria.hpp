@@ -2,6 +2,18 @@
 #define CATEGORIA_H
 /**
  * @file categoria.hpp
+ * @brief Classe onde estão armazenados os dados do 
+ * caixa financeiro
+ * @version 1.4
+ * @date 2022-11-24
+ * @details TAD com função principal de 
+ * conter os valores de caixa e facilitar
+ * contas e acesso a dados
+ * 
+ * @copyright GNU General Public License 
+ * 
+ */
+ * @file categoria.hpp
  * @brief Superclasse principal de uma categoria
  * @version 1.0
  * @date 2022-11-24
