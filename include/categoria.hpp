@@ -13,8 +13,12 @@
  * @copyright GNU General Public License 
  * 
  */
+<<<<<<< HEAD
 /*
  * @file categoria.hpp
+=======
+ /** @file categoria.hpp
+>>>>>>> 04fca3964ef10c7a8527688f2cc0affb1c9e0cde
  * @brief Superclasse principal de uma categoria
  * @version 1.0
  * @date 2022-11-24
