@@ -48,3 +48,7 @@ cada categoria e total, indicando a evolução conforme o tempo de cada despesa.
 sobre;
 - Ao requerer um relatório, caso o boletos estejam perto do vencimento, gostaria de receber a data desse venciomento;
 - Ao requerer um relatório, caso o valor em caixa esteja muito baixo quero ser informado sobre.
+
+# Compilação
+- 1 - make
+- 2 - ./main.out
