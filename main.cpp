@@ -101,9 +101,7 @@ int main(){
                             do{
                                 std::cout << e.what() << std::endl;
                                 std::cout << "Insira o valor: " << std::endl;
-                                if(true){
                                 std::cin >> valor;
-                                }
                                 }while(valor<0 || valor > 2147483646);
                             }
                             sistema.novaReceita(descricao,valor);
