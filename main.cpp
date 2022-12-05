@@ -210,6 +210,7 @@ int main(){
 
                 case 2:
                     getchar();
+                    std:: cout << "Digite o nome da Categoria: "<< std::endl;
                     std::getline(std::cin, busca);
                     sistema.sobreUmaCategoria(busca);
                     break;
