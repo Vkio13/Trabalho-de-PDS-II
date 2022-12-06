@@ -181,7 +181,7 @@ void Usuario::deletarUsuario(std::string innome){
             }
             arqw.close();
             std::string comando = "rm -r arquivos/" + replace(innome,' ','_') ;
-            std::cout<<comando<<std::endl;
+            std::cout<<"Seu usuário foi Excluído"<<std::endl;
             system(comando.c_str());
         }
         else{
