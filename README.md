@@ -12,7 +12,8 @@
 O "Kapemgga" é um sistema de gerenciamento de finanças pessoais com uma proposta simples: ajudar o usuário a administrar seu dinheiro em meio aos percalços do dia-a-dia, seja separando cada tipo de gasto que terá ao longo de seu mês, com um orçamento dedicado unicamente a ele, ou ainda organizando os boletos em uma lista que irá avisar quando um deles irá vencer e, se for o caso, se um boleto já venceu; tudo isso de uma forma intuitiva e eficiente, que facilite a vida do usuário.
 
 # Diagrama de Classes
-![Modelar bancos de dados (1)](https://user-images.githubusercontent.com/111925541/205712483-91a5e72a-0817-4b77-8f59-ad581a99026b.jpeg)
+![Diagrama de Classes](https://user-images.githubusercontent.com/111925541/205815073-83320e23-e112-4266-a068-261cc8cd3f9f.jpg)
+
 
 # Critérios de Aceitação e User Stories
 1. Como usuário eu quero adicionar novas categorias de gastos para organizar as
