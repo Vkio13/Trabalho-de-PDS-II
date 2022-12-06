@@ -67,10 +67,10 @@ void Kapemgga::novaReceita(std::string descricao, double valor){
     if(valor<0 || valor > 2147483646){
         throw Excecao_Caixa();
     }
-    _caixa.setReceitas(_caixa.getReceitas() + valor);
     if(descricao.size()>100){
         throw Excecao_Kapemgga();
     }
+    _caixa.setReceitas(_caixa.getReceitas() + valor);
     d.adicionaReceita(valor, descricao);
 }
 

@@ -9,7 +9,7 @@
 #include "../include/caixa.hpp"
 
 /*___________________________TESTES__BOLETOS______________________________*/
-TEST_CASE("Testando as exceções"){
+TEST_CASE("TESTES__BOLETOS"){
         Kapemgga sistemas;
         SUBCASE("Mês não existente"){
                 CHECK_THROWS_MESSAGE(sistemas.adicionaBoleto(Boleto("Teste de Exceçao",100,30,13)),"A data de vencimento inserida é inválida. Certifique-se que o dia de vencimento está entre 1 e 31 e o mês entre 1 e 12.");       
@@ -38,8 +38,9 @@ TEST_CASE("Testando as exceções"){
         }        
 }
 /*___________________________TESTES DE CAIXA____________________________*/
-TEST_CASE("Testando as exceções"){
+TEST_CASE("TESTES DE CAIXA"){
     Kapemgga sistema;
+    sistema.adicionaCategoria(Categoria("Mercado",1000));
     SUBCASE("Valor Negativo - Receita"){
         CHECK_THROWS(sistema.novaReceita("descricao",-10));
     }
@@ -47,19 +48,16 @@ TEST_CASE("Testando as exceções"){
         CHECK_THROWS(sistema.novaReceita("descricao",2147483648));
     }
     SUBCASE("Valor de Caracter Excedente - Receita"){
-        CHECK_THROWS(sistema.novaReceita("TesteComUmValorComMaisDeVinteCaracteres",1));
+        CHECK_THROWS(sistema.novaReceita("TesteComUmValorComMaisDeCemCaracteresTesteComUmValorComMaisDeCemCaracteresTesteComUmValorComMaisDeCemCaracteres",1));
     }
     SUBCASE("Valor Negativo - Gasto"){
-        CHECK_THROWS(sistema.novoGasto("nome",-10,"descricao"));
-    }
-    SUBCASE("Valor de Overflow - Gasto"){
-        CHECK_THROWS(sistema.novoGasto("nome",2147483648,"descricao"));
+        CHECK_THROWS(sistema.novoGasto("Mercado",-10,"descricao"));
     }
     SUBCASE("Valor de Caracter Excedente - Gastos"){
-        CHECK_THROWS(sistema.novoGasto("TesteComUmValorComMaisDeVinteCaracteres",2147483648,"descricao"));
+        CHECK_THROWS(sistema.novoGasto("Mercado",2147483648,"TesteComUmValorComMaisDeCemCaracteresTesteComUmValorComMaisDeCemCaracteresTesteComUmValorComMaisDeCemCaracteres"));
     }
     SUBCASE("Valor de Caracter Excedente - Descricao - Gastos"){
-        CHECK_THROWS(sistema.novoGasto("nome",2147483648,"TesteComUmValorComMaisDeCemCaracteresTesteComUmValorComMaisDeCemCaracteresTesteComUmValorComMaisDeCemCaracteres"));
+        CHECK_THROWS(sistema.novoGasto("Mercado",2147483648,"TesteComUmValorComMaisDeCemCaracteresTesteComUmValorComMaisDeCemCaracteresTesteComUmValorComMaisDeCemCaracteres"));
     }
 }
 TEST_CASE("Testando as Funções"){
@@ -81,7 +79,7 @@ TEST_CASE("Testando as Funções"){
 
 }
 /*____________________-TESTES DE CATEGORIA ____________________________*/
-TEST_CASE("Testando a exceção"){
+TEST_CASE("TESTES DE CATEGORIA"){
     Kapemgga sistema;
     SUBCASE("Valor negativo"){
         CHECK_THROWS(sistema.adicionaCategoria(Categoria("nome",-100)));
@@ -104,7 +102,7 @@ TEST_CASE("Testando as Funções"){
     }
 }
 /*_______________________TESTES DE DADOS __________________________*/
-TEST_CASE("Testando a função"){
+TEST_CASE("TESTES DE DADOS"){
     Usuario u;
     u.entrarUsuario("testes","123");
     Dados d;    
@@ -114,7 +112,6 @@ TEST_CASE("Testando a função"){
     }
     SUBCASE("somaGastosTotal"){
         CHECK_EQ(d.somaGastosTotal(),2300);
-        CHECK_THROWS(d.somaGastosTotal());
     }
     SUBCASE("somaGastosCategoria"){
         CHECK_EQ(d.somaGastosCategoria("Mercado"),500);
@@ -136,7 +133,7 @@ TEST_CASE("Testando a função"){
     u.~Usuario();
 }
 /*_____________________________TESTES DE INICIALIZADOR_______________________*/
-TEST_CASE("Testando a função"){
+TEST_CASE("TESTES DE INICIALIZADOR"){
     Usuario u;
     u.entrarUsuario("testes","123");
     Inicializador i;
