@@ -51,8 +51,9 @@ sobre;
 - Ao requerer um relatório, caso o valor em caixa esteja muito baixo quero ser informado sobre.
 
 # Compilação
-- 1 - make
-- 2 - ./main.out
+- 1 - Digitar "make" no terminal
+- 2 - Digitar "./main.out"
+- 3 - Após isso, basta ao usuário seguir as orientações dadas pela mensagem do Kapemgga, e digitar os números correspondentes da ação que quiser efetuar, números esses que são mostrados junto de suas funçõe spelo próprio sistema.
 
 # Apresentação
-inserir link aqui e pa
+Link para o vídeo da apresentação do trabalho: https://youtu.be/LX2UYLpK128
