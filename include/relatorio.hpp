@@ -6,8 +6,8 @@
 /**
  * @file relatorio.hpp
  * @brief Classe onde estão armazenados os relatorios
- * @version 1.5
- * @date 2022-11-24
+ * @version 1.6
+ * @date 2022-12-05
  * @details TAD com função principal de 
  * conter um relatório com todos os dados
  * sendo eles os gastos e outros inseridos
@@ -17,8 +17,8 @@
  * 
  */
 /**
-         * @brief Gera um relatorio de todas as 
-         * categorias
+         * @brief Gera um relatório de todas as 
+         * categorias.
          *
          * @details Recebe as categorias e as insere
          * dentro do relatório.
@@ -26,7 +26,7 @@
          */      
     class Relatorio{
 /**
-         * @brief Lista de categorias
+         * @brief Lista de categorias.
          *
          * @param categorias Lista do tipo Categoria
          * contendo todas as categorias registradas
@@ -38,19 +38,12 @@
 /**
          * @brief Constrói o objeto Relatorio.
          *
-         * @param categorias Lista do tipo Categoria
-         * contendo todas as categorias registradas
-         * e seus dados.
-         *
          */ 
         Relatorio();
-/**
-         * @brief Destrutor do objeto Relatorio.
-         *
-         */ 
         //~Relatorio();
  /**
          * @brief Printa o relatório mensal.
+         * @param mes Mês solicitado.
          * 
          */
         void relatorioMensal(int mes);
@@ -60,6 +53,11 @@
          */
         void relatorioGeral();
     };
+/**
+         * @brief Exceção de Relatório.
+         * @details Ocorre quando o valor digitado é inválido.
+         *
+         */ 
 class Excecao_ValorInvalido_Relatorio : public std::exception {
    public : 
    const char* what() const noexcept;

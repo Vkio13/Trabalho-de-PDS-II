@@ -5,11 +5,11 @@
  * @file kapemgga.hpp
  * @brief Superclasse principal onde se juntam
  * todos os módulos.
- * @version 1.0
- * @date 2022-11-30
+ * @version 1.1
+ * @date 2022-12-05
  * @details TAD com função principal de 
  * juntar todo o cógido e funcionar
- * como um todo
+ * como um todo.
  * 
  * @copyright GNU General Public License 
  * 
@@ -26,7 +26,7 @@
 
 /**
          * @brief Classe contendo informações gerais
-         * de todo o código
+         * de todo o código.
          *
          * @details Obtém informações de todas as partes
          * do código e as torna um só.
@@ -61,7 +61,7 @@ class Kapemgga{
 
   public:
   /**
-         * @brief Construtor do Kapemgga
+         * @brief Construtor do Kapemgga.
          **/ 
     Kapemgga();
   
@@ -75,7 +75,7 @@ class Kapemgga{
   /**
          * @brief Localiza uma determinada categoria.
          * @param nome Nome da categoria a se encontrar.
-         * @return Retorna a localização da categoria.
+         * @return Localização da categoria.
          **/ 
     int LocalizaCategoria(std::string nome);
   
@@ -83,7 +83,7 @@ class Kapemgga{
 /**
          * @brief Localiza um determinado boleto.
          * @param nome Nome do boleto a se encontrar.
-         * @return Retorna a localização do boleto.
+         * @return Localização do boleto.
          **/ 
     int LocalizaBoleto(std::string nome);
   
@@ -101,7 +101,7 @@ class Kapemgga{
   
   
   /**
- * @brief Função que permite o usuário criar novas categorias.
+ * @brief Função que permite o usuário adicionar novas categorias.
   **/ 
     void adicionaCategoria(Categoria cate);
   
@@ -114,6 +114,8 @@ class Kapemgga{
   
   /**
   * @brief Função que permite o usuário somar um valor x ao que ele já tem disponível, e especificar a origem do dinheiro.
+  * @param descricao Descrição da nova receita a ser adicionada.
+  * @param valor Valor da receita a ser adicionada.
   **/ 
     void novaReceita(std::string descricao, double valor);
   
@@ -125,7 +127,8 @@ class Kapemgga{
   
   
   /**
-  * @brief Função para pagar determinado boleto, de acordo com seu nome.
+  * @brief Função para pagar determinado boleto.
+  * @param nome Nome do boleto a ser pago.
   **/ 
     void pagaBoleto(std::string nome);
   
@@ -138,18 +141,20 @@ class Kapemgga{
   
   /**
   * @brief Função que imprime o relatório de um boleto específico.
+  * @param nome Nome do boleto a ser examinado.
   **/ 
     void sobreUmBoleto(std::string nome);
   
   
 /**
-  * @brief Função para imprimir todas as categorias que o usuário tem.
+  * @brief Função para imprimir todos os boletos que o usuário tem.
   **/ 
     void imprimeBoletos();
   
   
 /**
   * @brief Função que adiciona um boleto ao vetor boletos.
+  * @param novoBol Boleto a ser adicionado.
   **/ 
     void adicionaBoleto(Boleto novoBol);
   
@@ -168,6 +173,7 @@ class Kapemgga{
   
   /**
   * @brief Função que permite ao usuário emitir um relatório mensal de gastos e receitas recebidas.
+  * @param mes Mês a ser analisado.
   **/ 
     void relatorioMensal(int mes);
   
@@ -184,13 +190,20 @@ class Kapemgga{
     void relatorioAtual();
 
 };
+/**
+  * @brief Classe de exceções de Kapemgga.
+  * @details Ocorre quando o número de caracteres é inválido.
+  **/ 
   class Excecao_Kapemgga: public Excecao_Caixa {
     public :
     const char* what() const noexcept{
       return "O número de caracteres da descricao excede o permitido pelo programa. Por favor, digite uma descrição com menos de 100 caracteres";
     }
   };
-
+/**
+  * @brief Classe de exceções de Kapemgga.
+  * @details Ocorre quando o nome solicitado para o boleto é inválido.
+  **/ 
   class Excecao_Nome_Boleto: public Excecao_Boleto {
     public :
     const char* what() const noexcept{
