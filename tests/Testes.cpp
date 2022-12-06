@@ -12,7 +12,7 @@
 TEST_CASE("Testando as exceções"){
         Kapemgga sistemas;
         SUBCASE("Mês não existente"){
-                CHECK_THROWS(sistemas.adicionaBoleto(Boleto("Teste de Exceçao",100,30,13)));        
+                CHECK_THROWS_MESSAGE(sistemas.adicionaBoleto(Boleto("Teste de Exceçao",100,30,13)),"A data de vencimento inserida é inválida. Certifique-se que o dia de vencimento está entre 1 e 31 e o mês entre 1 e 12.");       
         }
         SUBCASE("Dia não existente"){
                 CHECK_THROWS(sistemas.adicionaBoleto(Boleto("Teste de Exceçao",100,32,12)));      
@@ -34,7 +34,7 @@ TEST_CASE("Testando as exceções"){
         SUBCASE("Pago"){
                 b2.pagaBoleto();
                 CHECK_EQ(b1.get_pago(),false);
-                CHECK_EQ(b2.get_gasto(),true);
+                CHECK_EQ(b2.get_pago(),true);
         }        
 }
 /*___________________________TESTES DE CAIXA____________________________*/
@@ -65,16 +65,18 @@ TEST_CASE("Testando as exceções"){
 TEST_CASE("Testando as Funções"){
     Caixa teste;
     SUBCASE("Teste do Get Gasto"){
-        teste.setGastos(1000.100);
-        CHECK_EQ(teste.getGastos(), 1000.100);
+        teste.setGastos(1000);
+        CHECK_EQ(teste.getGastos(), 1000);
     }
     SUBCASE("Teste do Get Receita"){
-        teste.setReceitas(200.20);
-        CHECK_EQ(teste.getReceitas(), 200.100);
+        teste.setReceitas(200);
+        CHECK_EQ(teste.getReceitas(), 200);
     }
     SUBCASE("Teste do Get Saldo"){
+        teste.setGastos(1000);
+        teste.setReceitas(200);
         teste.atualizaSaldo();
-        CHECK_EQ(teste.getSaldo(), 800);
+        CHECK_EQ(teste.getSaldo(), -800);
     }
 
 }
@@ -107,11 +109,11 @@ TEST_CASE("Testando a função"){
     u.entrarUsuario("testes","123");
     Dados d;    
     SUBCASE("somaGastosMes"){
-        CHECK_EQ(d.somaGastosMes(12),1300);
+        CHECK_EQ(d.somaGastosMes(12),2300);
         CHECK_THROWS(d.somaGastosMes(-1));
     }
     SUBCASE("somaGastosTotal"){
-        CHECK_EQ(d.somaGastosTotal(),1300);
+        CHECK_EQ(d.somaGastosTotal(),2300);
         CHECK_THROWS(d.somaGastosTotal());
     }
     SUBCASE("somaGastosCategoria"){
@@ -142,7 +144,7 @@ TEST_CASE("Testando a função"){
         CHECK_EQ(i.getEntradas(),2000);
     }
     SUBCASE("Get Gastos"){
-        CHECK_EQ(i.getGastos(),1300);
+        CHECK_EQ(i.getGastos(),2300);
     }
     u.sair();
 }

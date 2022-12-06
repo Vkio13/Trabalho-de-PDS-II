@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>KAPEMGGA(TP Final): Código-Fonte de kapemgga.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">KAPEMGGA(TP Final)
+   &#160;<span id="projectnumber">1.2</span>
+   </div>
+   <div id="projectbrief">O &quot;Kapemgga&quot; é um sistema de gerenciamento de finanças pessoais com uma proposta simples: ajudar o usuário a administrar seu dinheiro em meio aos percalços do dia-a-dia, seja separando cada tipo de gasto que terá ao longo de seu mês, com um orçamento dedicado unicamente a ele, ou ainda organizando os boletos em uma lista que irá avisar quando um deles irá vencer e, se for o caso, se um boleto já venceu; tudo isso de uma forma intuitiva e eficiente, que facilite a vida do usuário.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">kapemgga.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="kapemgga_8hpp.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef KAPEMGGA_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define KAPEMGGA_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="categoria_8hpp.html">categoria.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="caixa_8hpp.html">caixa.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="boleto_8hpp.html">boleto.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="inicializador_8hpp.html">inicializador.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_kapemgga.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_kapemgga.html">Kapemgga</a>{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::vector&lt;Categoria&gt;_categorias;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_caixa.html">Caixa</a> _caixa;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    std::vector&lt;Boleto&gt;_boletos;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_dados.html">Dados</a> d;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="class_kapemgga.html#af2c25d730113948ac2a141ba4afe74a1">Kapemgga</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#a358e324d2ebc28ae6903ebf0b437be0f">inicializar</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_kapemgga.html#a1475ca745e6631132932f2ba0742fd17">LocalizaCategoria</a>(std::string nome);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_kapemgga.html#a5dec45d3746560938d0a85684e90028e">LocalizaBoleto</a>(std::string nome);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#aa4605e0e970ab3a6d9bb1c540f7fafc0">imprimeCategorias</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#a1f59bc1791c6b034a53c7e70c4600bc5">sobreUmaCategoria</a>(std::string nome);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#a49a42f98dda9ea18a87e72a5c5d3fb95">adicionaCategoria</a>(<a class="code" href="class_categoria.html">Categoria</a> cate);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#aa2138441c3e899b7b2823bd1ee406cc2">removeCategoria</a>(std::string nome);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#afd1792133bd1dd0b72d2cd836369ff60">novaReceita</a>(std::string descricao, <span class="keywordtype">double</span> valor);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#a853702a09af30623d01c1dcac5d893f8">novoGasto</a>(std::string categoria, <span class="keywordtype">double</span> valor, std::string descricao);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#aa2b417b557ca3261e9c9d5f5068932df">pagaBoleto</a>(std::string nome);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#a5d93d5ed76e42ef36555b3125dae8074">resumoDeCaixa</a>();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#a649a68c3b5ed5d1a5fa40fedf2790c68">sobreUmBoleto</a>(std::string nome);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#a9f65bab4c81f615cac7748dbed829d35">imprimeBoletos</a>();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#a1ef2612db9645466aed4106eb4b7a187">adicionaBoleto</a>(<a class="code" href="class_boleto.html">Boleto</a> novoBol);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#a6926335e7588db1a3938112c5af3c8af">boletosAPagar</a>();</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#a7d53ffb5c25c53295c65d1ce64d330f4">encerraMes</a>();</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#a356d19c13266336feb571f4e0c2d4e8f">relatorioMensal</a>(<span class="keywordtype">int</span> mes);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#af16b2f0359e265da82a410f3825adbf9">relatorioGeral</a>();</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_kapemgga.html#ab653177339e1e1c6dc52fb47ed9bb9f8">relatorioAtual</a>();</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;};</div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="class_excecao___kapemgga.html">  197</a></span>&#160;  <span class="keyword">class </span><a class="code" href="class_excecao___kapemgga.html">Excecao_Kapemgga</a>: <span class="keyword">public</span> <a class="code" href="class_excecao___caixa.html">Excecao_Caixa</a> {</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    public :</div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="class_excecao___kapemgga.html#a0c4aa0c314cd97084da40a9caca85cb1">  199</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_excecao___kapemgga.html#a0c4aa0c314cd97084da40a9caca85cb1">what</a>() const noexcept{</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;O número de caracteres da descricao excede o permitido pelo programa. Por favor, digite uma descrição com menos de 100 caracteres&quot;</span>;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    }</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  };</div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="class_excecao___nome___boleto.html">  207</a></span>&#160;  <span class="keyword">class </span><a class="code" href="class_excecao___nome___boleto.html">Excecao_Nome_Boleto</a>: <span class="keyword">public</span> <a class="code" href="class_excecao___boleto.html">Excecao_Boleto</a> {</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    public :</div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="class_excecao___nome___boleto.html#a68e2765a3000468c5052e6ef17962da1">  209</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_excecao___nome___boleto.html#a68e2765a3000468c5052e6ef17962da1">what</a>() const noexcept{</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;Já existe um boleto com o nome digitado. Por favor, escolha outro.&quot;</span>;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    }</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  };</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  <span class="comment">// class Excecao_Nome_Categoria: public Excecao_Categoria {</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <span class="comment">//   public :</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  <span class="comment">//   const char* what() const noexcept{</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  <span class="comment">//     return &quot;Já existe uma categoria com o nome digitado. Por favor, escolha outro.&quot;;</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="comment">//   }</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="comment">// };</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="ainicializador_8hpp_html"><div class="ttname"><a href="inicializador_8hpp.html">inicializador.hpp</a></div><div class="ttdoc">Inicializador do programa.</div></div>
+<div class="ttc" id="aclass_excecao___nome___boleto_html_a68e2765a3000468c5052e6ef17962da1"><div class="ttname"><a href="class_excecao___nome___boleto.html#a68e2765a3000468c5052e6ef17962da1">Excecao_Nome_Boleto::what</a></div><div class="ttdeci">const char * what() const noexcept</div><div class="ttdef"><b>Definition:</b> kapemgga.hpp:209</div></div>
+<div class="ttc" id="aclass_kapemgga_html"><div class="ttname"><a href="class_kapemgga.html">Kapemgga</a></div><div class="ttdoc">Classe contendo informações gerais de todo o código.</div><div class="ttdef"><b>Definition:</b> kapemgga.hpp:35</div></div>
+<div class="ttc" id="aclass_kapemgga_html_a649a68c3b5ed5d1a5fa40fedf2790c68"><div class="ttname"><a href="class_kapemgga.html#a649a68c3b5ed5d1a5fa40fedf2790c68">Kapemgga::sobreUmBoleto</a></div><div class="ttdeci">void sobreUmBoleto(std::string nome)</div><div class="ttdoc">Função que imprime o relatório de um boleto específico.</div></div>
+<div class="ttc" id="aclass_kapemgga_html_aa2b417b557ca3261e9c9d5f5068932df"><div class="ttname"><a href="class_kapemgga.html#aa2b417b557ca3261e9c9d5f5068932df">Kapemgga::pagaBoleto</a></div><div class="ttdeci">void pagaBoleto(std::string nome)</div><div class="ttdoc">Função para pagar determinado boleto.</div></div>
+<div class="ttc" id="aclass_caixa_html"><div class="ttname"><a href="class_caixa.html">Caixa</a></div><div class="ttdoc">Armazena dados de caixa.</div><div class="ttdef"><b>Definition:</b> caixa.hpp:26</div></div>
+<div class="ttc" id="aclass_kapemgga_html_a1ef2612db9645466aed4106eb4b7a187"><div class="ttname"><a href="class_kapemgga.html#a1ef2612db9645466aed4106eb4b7a187">Kapemgga::adicionaBoleto</a></div><div class="ttdeci">void adicionaBoleto(Boleto novoBol)</div><div class="ttdoc">Função que adiciona um boleto ao vetor boletos.</div></div>
+<div class="ttc" id="aclass_categoria_html"><div class="ttname"><a href="class_categoria.html">Categoria</a></div><div class="ttdoc">Contém informações e valores genéricos para outras classes.</div><div class="ttdef"><b>Definition:</b> categoria.hpp:40</div></div>
+<div class="ttc" id="aclass_kapemgga_html_af2c25d730113948ac2a141ba4afe74a1"><div class="ttname"><a href="class_kapemgga.html#af2c25d730113948ac2a141ba4afe74a1">Kapemgga::Kapemgga</a></div><div class="ttdeci">Kapemgga()</div><div class="ttdoc">Construtor do Kapemgga.</div></div>
+<div class="ttc" id="aclass_kapemgga_html_aa2138441c3e899b7b2823bd1ee406cc2"><div class="ttname"><a href="class_kapemgga.html#aa2138441c3e899b7b2823bd1ee406cc2">Kapemgga::removeCategoria</a></div><div class="ttdeci">void removeCategoria(std::string nome)</div><div class="ttdoc">Função que permite o usuário excluir alguma categoria.</div></div>
+<div class="ttc" id="aclass_excecao___boleto_html"><div class="ttname"><a href="class_excecao___boleto.html">Excecao_Boleto</a></div><div class="ttdoc">Classe de exceção de boleto.</div><div class="ttdef"><b>Definition:</b> boleto.hpp:78</div></div>
+<div class="ttc" id="aclass_dados_html"><div class="ttname"><a href="class_dados.html">Dados</a></div><div class="ttdoc">Armazena e lê os dados do código.</div><div class="ttdef"><b>Definition:</b> dados.hpp:30</div></div>
+<div class="ttc" id="aclass_kapemgga_html_a7d53ffb5c25c53295c65d1ce64d330f4"><div class="ttname"><a href="class_kapemgga.html#a7d53ffb5c25c53295c65d1ce64d330f4">Kapemgga::encerraMes</a></div><div class="ttdeci">void encerraMes()</div><div class="ttdoc">Função responsável por dar o comando de fechar o mês.</div></div>
+<div class="ttc" id="aclass_kapemgga_html_a358e324d2ebc28ae6903ebf0b437be0f"><div class="ttname"><a href="class_kapemgga.html#a358e324d2ebc28ae6903ebf0b437be0f">Kapemgga::inicializar</a></div><div class="ttdeci">void inicializar()</div><div class="ttdoc">Função para iniciar o código.</div></div>
+<div class="ttc" id="aclass_kapemgga_html_af16b2f0359e265da82a410f3825adbf9"><div class="ttname"><a href="class_kapemgga.html#af16b2f0359e265da82a410f3825adbf9">Kapemgga::relatorioGeral</a></div><div class="ttdeci">void relatorioGeral()</div><div class="ttdoc">Função que permite ao usuário emitir um relatório de gastos e receitas recebidas desde que começou a ...</div></div>
+<div class="ttc" id="aboleto_8hpp_html"><div class="ttname"><a href="boleto_8hpp.html">boleto.hpp</a></div><div class="ttdoc">Subclasse Boleto.</div></div>
+<div class="ttc" id="aclass_kapemgga_html_aa4605e0e970ab3a6d9bb1c540f7fafc0"><div class="ttname"><a href="class_kapemgga.html#aa4605e0e970ab3a6d9bb1c540f7fafc0">Kapemgga::imprimeCategorias</a></div><div class="ttdeci">void imprimeCategorias()</div><div class="ttdoc">Função que imprime todas as categorias que o usuário tem.</div></div>
+<div class="ttc" id="aclass_excecao___caixa_html"><div class="ttname"><a href="class_excecao___caixa.html">Excecao_Caixa</a></div><div class="ttdoc">Caso de exceção do caixa.</div><div class="ttdef"><b>Definition:</b> caixa.hpp:101</div></div>
+<div class="ttc" id="aclass_kapemgga_html_a853702a09af30623d01c1dcac5d893f8"><div class="ttname"><a href="class_kapemgga.html#a853702a09af30623d01c1dcac5d893f8">Kapemgga::novoGasto</a></div><div class="ttdeci">void novoGasto(std::string categoria, double valor, std::string descricao)</div><div class="ttdoc">Função responsável por realizar um gasto dentro de uma categoria especificada.</div></div>
+<div class="ttc" id="aclass_kapemgga_html_a356d19c13266336feb571f4e0c2d4e8f"><div class="ttname"><a href="class_kapemgga.html#a356d19c13266336feb571f4e0c2d4e8f">Kapemgga::relatorioMensal</a></div><div class="ttdeci">void relatorioMensal(int mes)</div><div class="ttdoc">Função que permite ao usuário emitir um relatório mensal de gastos e receitas recebidas.</div></div>
+<div class="ttc" id="aclass_kapemgga_html_a5dec45d3746560938d0a85684e90028e"><div class="ttname"><a href="class_kapemgga.html#a5dec45d3746560938d0a85684e90028e">Kapemgga::LocalizaBoleto</a></div><div class="ttdeci">int LocalizaBoleto(std::string nome)</div><div class="ttdoc">Localiza um determinado boleto.</div></div>
+<div class="ttc" id="aclass_kapemgga_html_a6926335e7588db1a3938112c5af3c8af"><div class="ttname"><a href="class_kapemgga.html#a6926335e7588db1a3938112c5af3c8af">Kapemgga::boletosAPagar</a></div><div class="ttdeci">void boletosAPagar()</div><div class="ttdoc">Função que lista os boletos ainda não pagos.</div></div>
+<div class="ttc" id="aclass_kapemgga_html_a9f65bab4c81f615cac7748dbed829d35"><div class="ttname"><a href="class_kapemgga.html#a9f65bab4c81f615cac7748dbed829d35">Kapemgga::imprimeBoletos</a></div><div class="ttdeci">void imprimeBoletos()</div><div class="ttdoc">Função para imprimir todos os boletos que o usuário tem.</div></div>
+<div class="ttc" id="aclass_kapemgga_html_a1475ca745e6631132932f2ba0742fd17"><div class="ttname"><a href="class_kapemgga.html#a1475ca745e6631132932f2ba0742fd17">Kapemgga::LocalizaCategoria</a></div><div class="ttdeci">int LocalizaCategoria(std::string nome)</div><div class="ttdoc">Localiza uma determinada categoria.</div></div>
+<div class="ttc" id="aclass_kapemgga_html_a49a42f98dda9ea18a87e72a5c5d3fb95"><div class="ttname"><a href="class_kapemgga.html#a49a42f98dda9ea18a87e72a5c5d3fb95">Kapemgga::adicionaCategoria</a></div><div class="ttdeci">void adicionaCategoria(Categoria cate)</div><div class="ttdoc">Função que permite o usuário adicionar novas categorias.</div></div>
+<div class="ttc" id="aclass_excecao___nome___boleto_html"><div class="ttname"><a href="class_excecao___nome___boleto.html">Excecao_Nome_Boleto</a></div><div class="ttdoc">Classe de exceções de Kapemgga.</div><div class="ttdef"><b>Definition:</b> kapemgga.hpp:207</div></div>
+<div class="ttc" id="acategoria_8hpp_html"><div class="ttname"><a href="categoria_8hpp.html">categoria.hpp</a></div><div class="ttdoc">Classe onde estão armazenados os dados do caixa financeiro.</div></div>
+<div class="ttc" id="aclass_excecao___kapemgga_html_a0c4aa0c314cd97084da40a9caca85cb1"><div class="ttname"><a href="class_excecao___kapemgga.html#a0c4aa0c314cd97084da40a9caca85cb1">Excecao_Kapemgga::what</a></div><div class="ttdeci">const char * what() const noexcept</div><div class="ttdef"><b>Definition:</b> kapemgga.hpp:199</div></div>
+<div class="ttc" id="aclass_excecao___kapemgga_html"><div class="ttname"><a href="class_excecao___kapemgga.html">Excecao_Kapemgga</a></div><div class="ttdoc">Classe de exceções de Kapemgga.</div><div class="ttdef"><b>Definition:</b> kapemgga.hpp:197</div></div>
+<div class="ttc" id="acaixa_8hpp_html"><div class="ttname"><a href="caixa_8hpp.html">caixa.hpp</a></div><div class="ttdoc">Classe onde estão armazenados os dados do caixa financeiro.</div></div>
+<div class="ttc" id="aclass_kapemgga_html_a1f59bc1791c6b034a53c7e70c4600bc5"><div class="ttname"><a href="class_kapemgga.html#a1f59bc1791c6b034a53c7e70c4600bc5">Kapemgga::sobreUmaCategoria</a></div><div class="ttdeci">void sobreUmaCategoria(std::string nome)</div><div class="ttdoc">Imprime o relatório de uma categoria específica.</div></div>
+<div class="ttc" id="aclass_kapemgga_html_afd1792133bd1dd0b72d2cd836369ff60"><div class="ttname"><a href="class_kapemgga.html#afd1792133bd1dd0b72d2cd836369ff60">Kapemgga::novaReceita</a></div><div class="ttdeci">void novaReceita(std::string descricao, double valor)</div><div class="ttdoc">Função que permite o usuário somar um valor x ao que ele já tem disponível, e especificar a origem do...</div></div>
+<div class="ttc" id="aclass_kapemgga_html_ab653177339e1e1c6dc52fb47ed9bb9f8"><div class="ttname"><a href="class_kapemgga.html#ab653177339e1e1c6dc52fb47ed9bb9f8">Kapemgga::relatorioAtual</a></div><div class="ttdeci">void relatorioAtual()</div><div class="ttdoc">Função que permite ao usuário emitir um relatório do dia atual.</div></div>
+<div class="ttc" id="aclass_boleto_html"><div class="ttname"><a href="class_boleto.html">Boleto</a></div><div class="ttdoc">Classe contendo informações básicas de um boleto.</div><div class="ttdef"><b>Definition:</b> boleto.hpp:22</div></div>
+<div class="ttc" id="aclass_kapemgga_html_a5d93d5ed76e42ef36555b3125dae8074"><div class="ttname"><a href="class_kapemgga.html#a5d93d5ed76e42ef36555b3125dae8074">Kapemgga::resumoDeCaixa</a></div><div class="ttdeci">void resumoDeCaixa()</div><div class="ttdoc">Função que imprime um resumo do caixa.</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

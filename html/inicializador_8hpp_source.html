@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>KAPEMGGA(TP Final): Código-Fonte de inicializador.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">KAPEMGGA(TP Final)
+   &#160;<span id="projectnumber">1.2</span>
+   </div>
+   <div id="projectbrief">O &quot;Kapemgga&quot; é um sistema de gerenciamento de finanças pessoais com uma proposta simples: ajudar o usuário a administrar seu dinheiro em meio aos percalços do dia-a-dia, seja separando cada tipo de gasto que terá ao longo de seu mês, com um orçamento dedicado unicamente a ele, ou ainda organizando os boletos em uma lista que irá avisar quando um deles irá vencer e, se for o caso, se um boleto já venceu; tudo isso de uma forma intuitiva e eficiente, que facilite a vida do usuário.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">inicializador.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="inicializador_8hpp.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef INICIALIZADOR_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define INICIALIZADOR_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;../include/categoria.hpp&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;../include/dados.hpp&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_inicializador.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_inicializador.html">Inicializador</a> {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">private</span>:    </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="class_dados.html">Dados</a> d;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        std::vector&lt;Categoria&gt; _categorias;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">double</span> _entradas=0;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">double</span> _gastos=0;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    public :</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="class_inicializador.html#a4bb613d819da6153f5f905cbc251fabe">Inicializador</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// ~Inicializador();</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">//Métodos</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span>        <span class="keywordtype">double</span> <a class="code" href="class_inicializador.html#a1aba221dc2a1d09824ff9ce4f83477e7">getEntradas</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_inicializador.html#a126bab1f24d5ee8a5d07e9f7cbc98d1f">getGastos</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        std::vector&lt;Categoria&gt; <a class="code" href="class_inicializador.html#acf68fdd44ca3a5669bfae39e4f463049">getCategorias</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_inicializador.html#a57134de311d42e52d94ece29ab8b4b78">carregaEntradas</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_inicializador.html#a6e09a5d171780c01c6752d9c7b7d76cf">carregaGastos</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_inicializador.html#a36270cb087d3dcff26598d50ae3fb6a7">carregaCategorias</a>();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_inicializador_html"><div class="ttname"><a href="class_inicializador.html">Inicializador</a></div><div class="ttdoc">Classe contendo o inicializador de informações e do código.</div><div class="ttdef"><b>Definition:</b> inicializador.hpp:26</div></div>
+<div class="ttc" id="aclass_dados_html"><div class="ttname"><a href="class_dados.html">Dados</a></div><div class="ttdoc">Armazena e lê os dados do código.</div><div class="ttdef"><b>Definition:</b> dados.hpp:30</div></div>
+<div class="ttc" id="aclass_inicializador_html_acf68fdd44ca3a5669bfae39e4f463049"><div class="ttname"><a href="class_inicializador.html#acf68fdd44ca3a5669bfae39e4f463049">Inicializador::getCategorias</a></div><div class="ttdeci">std::vector&lt; Categoria &gt; getCategorias()</div><div class="ttdoc">Obtém todas as categorias.</div></div>
+<div class="ttc" id="aclass_inicializador_html_a57134de311d42e52d94ece29ab8b4b78"><div class="ttname"><a href="class_inicializador.html#a57134de311d42e52d94ece29ab8b4b78">Inicializador::carregaEntradas</a></div><div class="ttdeci">void carregaEntradas()</div><div class="ttdoc">Carrega as entradas.</div></div>
+<div class="ttc" id="aclass_inicializador_html_a6e09a5d171780c01c6752d9c7b7d76cf"><div class="ttname"><a href="class_inicializador.html#a6e09a5d171780c01c6752d9c7b7d76cf">Inicializador::carregaGastos</a></div><div class="ttdeci">void carregaGastos()</div><div class="ttdoc">Carrega os gastos.</div></div>
+<div class="ttc" id="aclass_inicializador_html_a1aba221dc2a1d09824ff9ce4f83477e7"><div class="ttname"><a href="class_inicializador.html#a1aba221dc2a1d09824ff9ce4f83477e7">Inicializador::getEntradas</a></div><div class="ttdeci">double getEntradas()</div><div class="ttdoc">Obtém as entradas.</div></div>
+<div class="ttc" id="aclass_inicializador_html_a126bab1f24d5ee8a5d07e9f7cbc98d1f"><div class="ttname"><a href="class_inicializador.html#a126bab1f24d5ee8a5d07e9f7cbc98d1f">Inicializador::getGastos</a></div><div class="ttdeci">double getGastos()</div><div class="ttdoc">Obtém os gastos.</div></div>
+<div class="ttc" id="aclass_inicializador_html_a4bb613d819da6153f5f905cbc251fabe"><div class="ttname"><a href="class_inicializador.html#a4bb613d819da6153f5f905cbc251fabe">Inicializador::Inicializador</a></div><div class="ttdeci">Inicializador()</div><div class="ttdoc">Constrói a classe Inicializador.</div></div>
+<div class="ttc" id="aclass_inicializador_html_a36270cb087d3dcff26598d50ae3fb6a7"><div class="ttname"><a href="class_inicializador.html#a36270cb087d3dcff26598d50ae3fb6a7">Inicializador::carregaCategorias</a></div><div class="ttdeci">void carregaCategorias()</div><div class="ttdoc">Carrega as categorias.</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>
