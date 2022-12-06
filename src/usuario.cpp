@@ -38,6 +38,7 @@ void Usuario::criarUsuario(std::string nome, std::string senha){
         arquser.close();
         std::string comando = "mkdir arquivos/" + nome ;
         system(comando.c_str());
+        std::cout<<"Usuário criado com sucesso."<<std::endl;
     } 
     
 };
@@ -78,29 +79,35 @@ void Usuario::entrarUsuario(std::string innome, std::string insenha){
     std::string senha;
     int codigo,linha = 1;
     codigo = Usuario::procuraUsuario(innome);
-    while(arquser>>nome>>senha){
-        nome=replace(nome,'_',' ');
-        senha=replace(senha,'_',' ');
-        if(linha==codigo){
-            if(senha==insenha){
-                std::ofstream arq;
-                try{
-                    arq.open("arquivos/usuarioatual.txt", std::ios::out);
+    if(codigo>0){
+        while(arquser>>nome>>senha){
+            nome=replace(nome,'_',' ');
+            senha=replace(senha,'_',' ');
+            if(linha==codigo){
+                if(senha==insenha){
+                    std::ofstream arq;
+                    try{
+                        arq.open("arquivos/usuarioatual.txt", std::ios::out);
+                    }
+                    catch(std::exception& e){
+                        e.what();
+                        exit(1);
+                    }
+                    this->_logado=true;
+                    this->_usuario=nome;
+                    this->_id=linha;
+                    nome=replace(nome,' ','_');
+                    std::string comando= "arquivos/" + nome;
+                    arq<<comando<<std::endl;
+                    std::cout<<"Você entrou no seu usuário."<<std::endl;
+                    break;
                 }
-                catch(std::exception& e){
-                    e.what();
-                    exit(1);
-                }
-                this->_logado=true;
-                this->_usuario=nome;
-                this->_id=linha;
-                nome=replace(nome,' ','_');
-                std::string comando= "arquivos/" + nome;
-                arq<<comando<<std::endl;
-                break;
             }
+            linha++;
         }
-        linha++;
+        std::cout<<"Sua senha está incorreta."<<std::endl;
+    }else{
+        std::cout<<"Usuário não encontrado."<<std::endl;
     }
     arquser.close();
 
@@ -140,6 +147,7 @@ void Usuario::editarSenha(std::string insenha){
         }
     }
     arqw.close();
+    std::cout<<"Senha alterada com sucesso"<<std::endl;
 };
 void Usuario::deletarUsuario(std::string innome){
     std::ofstream arqw;
