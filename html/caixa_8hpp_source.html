@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>KAPEMGGA(TP Final): Código-Fonte de caixa.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">KAPEMGGA(TP Final)
+   &#160;<span id="projectnumber">1.2</span>
+   </div>
+   <div id="projectbrief">O &quot;Kapemgga&quot; é um sistema de gerenciamento de finanças pessoais com uma proposta simples: ajudar o usuário a administrar seu dinheiro em meio aos percalços do dia-a-dia, seja separando cada tipo de gasto que terá ao longo de seu mês, com um orçamento dedicado unicamente a ele, ou ainda organizando os boletos em uma lista que irá avisar quando um deles irá vencer e, se for o caso, se um boleto já venceu; tudo isso de uma forma intuitiva e eficiente, que facilite a vida do usuário.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">caixa.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="caixa_8hpp.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CAIXA_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define CAIXA_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_caixa.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_caixa.html">Caixa</a>{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">double</span> _receitas;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">double</span> _gastos;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">double</span> _saldo;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="class_caixa.html#a462a0fcfd43926f7cd070a4dc3d05bfc">Caixa</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_caixa.html#aa84569048c1f1f2407fca9afc8949090">getSaldo</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_caixa.html#a7b2f594dcb309d0185999c821150bd59">getReceitas</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_caixa.html#a3b087dd7d1e4feb1a1b95260ed5fa1ae">getGastos</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_caixa.html#a96fdd2db2b500933a79af0dbbb5282f0">atualizaSaldo</a>(); </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_caixa.html#ade4f6ac067d5f00c572d9300dda1bb55">setReceitas</a>(<span class="keywordtype">double</span> valor);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_caixa.html#a055062066fee082247503244fb275732">setGastos</a>(<span class="keywordtype">double</span> valor);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_caixa.html#adc084e7b56efda463419e3e38541a5ce">adicionaGasto</a>(<span class="keywordtype">double</span> valor);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_caixa.html#aecc2e9d4e25b612aa2802a3d4c023ce3">adicionaReceita</a>(<span class="keywordtype">double</span> valor);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_caixa.html#ab5bf3ee2ddef1cf4663504560a6ca1ff">resumoDeCaixa</a>();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="class_excecao___caixa.html">  101</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_excecao___caixa.html">Excecao_Caixa</a> : <span class="keyword">public</span> std::exception {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        public : </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_excecao___caixa.html#a5ebcf6ff04a96cd7054e3b030479e873">what</a>() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="class_excecao___caracteres___caixa.html">  110</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_excecao___caracteres___caixa.html">Excecao_Caracteres_Caixa</a> : <span class="keyword">public</span> <a class="code" href="class_excecao___caixa.html">Excecao_Caixa</a> {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        public : </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="class_excecao___caracteres___caixa.html#a955e7983e7837e48f2099077b71a529d">  112</a></span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_excecao___caracteres___caixa.html#a955e7983e7837e48f2099077b71a529d">what</a>() const noexcept{</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">return</span> <span class="stringliteral">&quot;O número de caracteres inserido é inválido. Por favor, digite novamente: &quot;</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;};</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_caixa_html"><div class="ttname"><a href="class_caixa.html">Caixa</a></div><div class="ttdoc">Armazena dados de caixa.</div><div class="ttdef"><b>Definition:</b> caixa.hpp:26</div></div>
+<div class="ttc" id="aclass_caixa_html_adc084e7b56efda463419e3e38541a5ce"><div class="ttname"><a href="class_caixa.html#adc084e7b56efda463419e3e38541a5ce">Caixa::adicionaGasto</a></div><div class="ttdeci">void adicionaGasto(double valor)</div><div class="ttdoc">Adiciona um gasto.</div></div>
+<div class="ttc" id="aclass_caixa_html_a3b087dd7d1e4feb1a1b95260ed5fa1ae"><div class="ttname"><a href="class_caixa.html#a3b087dd7d1e4feb1a1b95260ed5fa1ae">Caixa::getGastos</a></div><div class="ttdeci">double getGastos()</div><div class="ttdoc">Obtém os gastos.</div></div>
+<div class="ttc" id="aclass_caixa_html_ab5bf3ee2ddef1cf4663504560a6ca1ff"><div class="ttname"><a href="class_caixa.html#ab5bf3ee2ddef1cf4663504560a6ca1ff">Caixa::resumoDeCaixa</a></div><div class="ttdeci">void resumoDeCaixa()</div><div class="ttdoc">Apresenta um resumo do caixa.</div></div>
+<div class="ttc" id="aclass_caixa_html_a055062066fee082247503244fb275732"><div class="ttname"><a href="class_caixa.html#a055062066fee082247503244fb275732">Caixa::setGastos</a></div><div class="ttdeci">void setGastos(double valor)</div><div class="ttdoc">Define um valor para os gastos.</div></div>
+<div class="ttc" id="aclass_excecao___caixa_html"><div class="ttname"><a href="class_excecao___caixa.html">Excecao_Caixa</a></div><div class="ttdoc">Caso de exceção do caixa.</div><div class="ttdef"><b>Definition:</b> caixa.hpp:101</div></div>
+<div class="ttc" id="aclass_caixa_html_aecc2e9d4e25b612aa2802a3d4c023ce3"><div class="ttname"><a href="class_caixa.html#aecc2e9d4e25b612aa2802a3d4c023ce3">Caixa::adicionaReceita</a></div><div class="ttdeci">void adicionaReceita(double valor)</div><div class="ttdoc">Adiciona receita.</div></div>
+<div class="ttc" id="aclass_caixa_html_aa84569048c1f1f2407fca9afc8949090"><div class="ttname"><a href="class_caixa.html#aa84569048c1f1f2407fca9afc8949090">Caixa::getSaldo</a></div><div class="ttdeci">double getSaldo()</div><div class="ttdoc">Obtém o saldo.</div></div>
+<div class="ttc" id="aclass_excecao___caracteres___caixa_html_a955e7983e7837e48f2099077b71a529d"><div class="ttname"><a href="class_excecao___caracteres___caixa.html#a955e7983e7837e48f2099077b71a529d">Excecao_Caracteres_Caixa::what</a></div><div class="ttdeci">const char * what() const noexcept</div><div class="ttdef"><b>Definition:</b> caixa.hpp:112</div></div>
+<div class="ttc" id="aclass_caixa_html_a7b2f594dcb309d0185999c821150bd59"><div class="ttname"><a href="class_caixa.html#a7b2f594dcb309d0185999c821150bd59">Caixa::getReceitas</a></div><div class="ttdeci">double getReceitas()</div><div class="ttdoc">Obtém as receitas.</div></div>
+<div class="ttc" id="aclass_excecao___caixa_html_a5ebcf6ff04a96cd7054e3b030479e873"><div class="ttname"><a href="class_excecao___caixa.html#a5ebcf6ff04a96cd7054e3b030479e873">Excecao_Caixa::what</a></div><div class="ttdeci">const char * what() const noexcept</div></div>
+<div class="ttc" id="aclass_caixa_html_a462a0fcfd43926f7cd070a4dc3d05bfc"><div class="ttname"><a href="class_caixa.html#a462a0fcfd43926f7cd070a4dc3d05bfc">Caixa::Caixa</a></div><div class="ttdeci">Caixa()</div><div class="ttdoc">Constrói o objeto caixa.</div></div>
+<div class="ttc" id="aclass_excecao___caracteres___caixa_html"><div class="ttname"><a href="class_excecao___caracteres___caixa.html">Excecao_Caracteres_Caixa</a></div><div class="ttdoc">Caso de exceção do caixa.</div><div class="ttdef"><b>Definition:</b> caixa.hpp:110</div></div>
+<div class="ttc" id="aclass_caixa_html_ade4f6ac067d5f00c572d9300dda1bb55"><div class="ttname"><a href="class_caixa.html#ade4f6ac067d5f00c572d9300dda1bb55">Caixa::setReceitas</a></div><div class="ttdeci">void setReceitas(double valor)</div><div class="ttdoc">Define um valor para as receitas.</div></div>
+<div class="ttc" id="aclass_caixa_html_a96fdd2db2b500933a79af0dbbb5282f0"><div class="ttname"><a href="class_caixa.html#a96fdd2db2b500933a79af0dbbb5282f0">Caixa::atualizaSaldo</a></div><div class="ttdeci">void atualizaSaldo()</div><div class="ttdoc">Atualiza os valores de saldo em caixa.</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>
