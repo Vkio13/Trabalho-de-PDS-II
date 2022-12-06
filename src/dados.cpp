@@ -14,11 +14,13 @@ std::string replace(std::string n, char c, char s){
 };
 Dados::Dados(){
     Dados::getTime();
+    Dados::atualizaDiretorio();
 }
 void Dados::adicionaGasto(double valor, std::string categoria, std::string descricao){
     if(valor<0){
         throw Excecao_ValorInvalido_Dados();
     }
+    atualizaDiretorio();
     std::ofstream arq;
     try{
     arq.open(datgastos, std::ios::app);
@@ -33,6 +35,7 @@ void Dados::adicionaGasto(double valor, std::string categoria, std::string descr
     arq<<tempo->tm_mon<<' '<<tempo->tm_mday<<' '<<std::to_string(valor)<<' '<<categoria<<' '<<descricao<<std::endl;
 };
 void Dados::adicionaReceita(double valor, std::string descricao){ 
+    atualizaDiretorio();
     std::ofstream arq;
     try{
     arq.open(datreceita, std::ios::out | std::ios::app);
@@ -49,6 +52,7 @@ void Dados::adicionaCategoria(std::string categoria, double orcamento){
     if(orcamento<0){
         throw Excecao_ValorInvalido_Dados();
     }    
+    atualizaDiretorio();
     std::ofstream arq;
     try{
     arq.open(datcat, std::ios::app);
@@ -68,6 +72,7 @@ void Dados::adicionaCategoria(std::string categoria, double orcamento){
 };
 void Dados::imprimeGastosTodos(){
     std::ifstream arq;
+    atualizaDiretorio();
     try{
     arq.open(datgastos, std::ios::in);
     }
@@ -90,6 +95,7 @@ void Dados::imprimeGastosTodos(){
 };
 void Dados::imprimeGastosCategoriaTotal(std::string cat){
     std::ifstream arq;
+    atualizaDiretorio();
     try{
     arq.open(datgastos, std::ios::in);
     }
@@ -116,6 +122,7 @@ void Dados::imprimeGastosMensal(int inmes=0){
     if(inmes<0||inmes>12){
         throw Excecao_ValorInvalido_Dados();
     }
+    atualizaDiretorio();
     std::ifstream arq;
     try{
     arq.open(datgastos, std::ios::in);
@@ -149,6 +156,7 @@ void Dados::imprimeGastosCategoriaMensal(std::string cat, int inmes=0){
     if(inmes<0||inmes>12){
         throw Excecao_ValorInvalido_Dados();
     }
+    atualizaDiretorio();
     std::ifstream arq;
     try{
     arq.open(datgastos, std::ios::in);
@@ -183,6 +191,7 @@ double Dados::somaGastosMes(int inmes=0){
     if(inmes<0||inmes>12){
         throw Excecao_ValorInvalido_Dados();
     }
+    atualizaDiretorio();
     std::ifstream arq;
     try{
     arq.open(datgastos, std::ios::in);
@@ -210,6 +219,7 @@ double Dados::somaGastosMes(int inmes=0){
     return soma;
 };
 double Dados::somaGastosTotal(){
+    atualizaDiretorio();
     std::ifstream arq;
     try{
     arq.open(datgastos, std::ios::in);
@@ -229,6 +239,7 @@ double Dados::somaGastosTotal(){
     return soma;
 };
 double Dados::somaGastosCategoria(std::string incategoria){
+    atualizaDiretorio();
     std::ifstream arq;
     try{
     arq.open(datgastos, std::ios::in);
@@ -254,6 +265,7 @@ double Dados::somaGastosCategoriaMensal(std::string incategoria, int inmes=0){
     if(inmes<0||inmes>12){
         throw Excecao_ValorInvalido_Dados();
     }
+    atualizaDiretorio();
     std::ifstream arq;
     try{
     arq.open(datgastos, std::ios::in);
@@ -282,6 +294,7 @@ double Dados::somaGastosCategoriaMensal(std::string incategoria, int inmes=0){
     return soma;
 };
 double Dados::somaEntradas(){
+    atualizaDiretorio();
     std::ifstream arq;
     try{
     arq.open(datreceita, std::ios::in);
@@ -303,7 +316,8 @@ double Dados::somaEntradas(){
 double Dados::somaEntradasMes(int inmes= 0){
     if(inmes<0||inmes>12){
         throw Excecao_ValorInvalido_Dados();
-    }    
+    }  
+    atualizaDiretorio();  
     std::ifstream arq;
     try{
     arq.open(datreceita, std::ios::in);
@@ -331,6 +345,7 @@ double Dados::somaEntradasMes(int inmes= 0){
     return soma;
 };
 void Dados::imprimeEntradaTotal(){
+    atualizaDiretorio();
     std::ifstream arq;
     try{
     arq.open(datreceita, std::ios::in);
@@ -354,6 +369,7 @@ void Dados::imprimeEntradaMensal(int inmes=0){
     if(inmes<0||inmes>12){
         throw Excecao_ValorInvalido_Dados();
     }
+    atualizaDiretorio();
     std::ifstream arq;
     try{
     arq.open(datreceita, std::ios::in);
@@ -385,6 +401,7 @@ void Dados::deleteGasto(int codigo){
     if(codigo<1){
         throw Excecao_ValorInvalido_Dados();
     }
+    atualizaDiretorio();
     std::ofstream arqw;
     std::ifstream arqr;
     try{
@@ -419,6 +436,7 @@ void Dados::deleteGasto(int codigo){
     
 };
 int Dados::verificaCategoria(std::string nome){
+    atualizaDiretorio();
     std::ifstream arq;
     try{
     arq.open(datcat, std::ios::in | std::ios::out);
@@ -443,6 +461,7 @@ void Dados::deleteCategoria(int codigo){
     if(codigo<1){
         throw Excecao_ValorInvalido_Dados();
     }
+    atualizaDiretorio();
     std::ofstream arqw;
     std::ifstream arqr;
     try{
@@ -479,6 +498,7 @@ void Dados::deleteReceita(int codigo){
     if(codigo<1){
         throw Excecao_ValorInvalido_Dados();
     }
+    atualizaDiretorio();
     std::ofstream arqw;
     std::ifstream arqr;
     try{
@@ -529,6 +549,7 @@ void Dados::imprimeCategorias(){
     }
 }
 void Dados::vectorCategoria(std::vector<Categoria>& v){
+    atualizaDiretorio();
     std::ifstream arq;
     try{
     arq.open(this->datcat, std::ios::in);
@@ -549,6 +570,7 @@ void Dados::editaGasto(int inlinha, int inmes, int india, double invalor, std::s
     if(inlinha<1||inmes<0||inmes>12||india<0||india>31||invalor<0){
         throw Excecao_ValorInvalido_Dados();
     }
+    atualizaDiretorio();
     std::ofstream arqw;
     std::ifstream arqr;
     try{
@@ -592,6 +614,21 @@ void Dados::editaGasto(int inlinha, int inmes, int india, double invalor, std::s
         }
     }
     arqw.close();
+};
+void Dados::atualizaDiretorio(){
+    std::ifstream arq;
+    try{
+        arq.open("arquivos/usuarioatual.txt", std::ios::in);
+    }
+    catch(std::exception& e){
+        e.what();
+        exit(1);
+    }
+    std::string diretorio;
+    getline(arq, diretorio);
+    this->datgastos = diretorio + "/gastos.txt";
+    this->datreceita = diretorio + "/receita.txt";
+    this->datcat = diretorio + "/categoria.txt";
 };
 const char* Excecao_ValorInvalido_Dados::what() const noexcept{
       return "O valor digitado é inválido, tente outro dentro do esperado.(Não podem ser menor que 0, ou mês maior que 12)";

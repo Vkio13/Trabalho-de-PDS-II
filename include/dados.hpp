@@ -177,6 +177,10 @@
          * @param indescricao Descrição a ser editada.
          **/ 
       void editaGasto(int inlinha, int inmes, int india, double invalor, std::string incategoria, std::string indescricao);
+     /**
+         * @brief Atualiza o diretório do usuário atual.
+      **/ 
+      void atualizaDiretorio();
   };
      /**
          * @brief Exceção de categoria.

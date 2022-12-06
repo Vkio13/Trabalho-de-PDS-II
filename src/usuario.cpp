@@ -83,12 +83,20 @@ void Usuario::entrarUsuario(std::string innome, std::string insenha){
         senha=replace(senha,'_',' ');
         if(linha==codigo){
             if(senha==insenha){
+                std::ofstream arq;
+                try{
+                    arq.open("arquivos/usuarioatual.txt", std::ios::out);
+                }
+                catch(std::exception& e){
+                    e.what();
+                    exit(1);
+                }
                 this->_logado=true;
                 this->_usuario=nome;
                 this->_id=linha;
                 nome=replace(nome,' ','_');
-                std::string comando= "mv arquivos/" + nome + " arquivos/atual";
-                system(comando.c_str());
+                std::string comando= "arquivos/" + nome;
+                arq<<comando<<std::endl;
                 break;
             }
         }
@@ -186,11 +194,12 @@ void Usuario::deletarUsuario(std::string innome){
 };
 void Usuario::sair(){
     if(_logado){
-        std::string comando= "mv arquivos/atual arquivos/"+ replace(this->_usuario,' ','_');
-        system(comando.c_str());
+        // std::string comando= "mv arquivos/atual arquivos/"+ replace(this->_usuario,' ','_');
+        // system(comando.c_str());
         _logado= false;
         _usuario="";
         _id=0;
+        remove("arquivos/usuarioatual.txt");
         std::cout<<"Você saiu do seu usuário."<<std::endl;
     }else{
         std::cout<<"Você não está logado."<<std::endl;
@@ -210,5 +219,5 @@ bool Usuario::getLogado(){
     }
 }*/
 const char* Excecao_Usuario::what() const noexcept{
-    return "";
+    return "Usuário não encontrado.";
 };
