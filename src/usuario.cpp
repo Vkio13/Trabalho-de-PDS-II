@@ -101,11 +101,12 @@ void Usuario::entrarUsuario(std::string innome, std::string insenha){
                     arq<<comando<<std::endl;
                     std::cout<<"Você entrou no seu usuário."<<std::endl;
                     break;
+                }else{
+                    std::cout<<"Sua senha está incorreta."<<std::endl;
                 }
             }
             linha++;
         }
-        std::cout<<"Sua senha está incorreta."<<std::endl;
     }else{
         std::cout<<"Usuário não encontrado."<<std::endl;
     }
